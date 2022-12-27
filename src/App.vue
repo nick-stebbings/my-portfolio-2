@@ -1,0 +1,87 @@
+<script setup lang="ts">
+import Animation1 from "./components/Animation1.vue";
+import AnimationLoop from "./components/AnimationIntroLoop.vue";
+import Animation2 from "./components/Animation2.vue";
+import AnimationMainLoop from "./components/AnimationMainLoop.vue";
+import AnimationNav from "./components/AnimationNav.vue";
+
+import { ref, onMounted } from "vue";
+const intro1Visible = ref(true);
+const introLoopVisible = ref(false);
+const intro2Visible = ref(false);
+const mainLoopVisible = ref(false);
+const navVisible = ref(false);
+
+function launchScene(animationId: number) {
+  intro1Visible.value = false;
+  introLoopVisible.value = false;
+  intro2Visible.value = false;
+  mainLoopVisible.value = false;
+  navVisible.value = false;
+
+  switch (animationId) {
+    case 0:
+      intro1Visible.value = true;
+      break;
+    case 1:
+      introLoopVisible.value = true;
+      break;
+    case 2:
+      intro2Visible.value = true;
+      break;
+    case 3:
+      mainLoopVisible.value = true;
+      break;
+    case 4:
+      navVisible.value = true;
+      break;
+
+    default:
+      intro1Visible.value = true;
+      break;
+  }
+}
+
+function launch2() {
+  launchScene(2);
+  const element = document.getElementById("eZPnhYlMg3T1");
+  element.svgatorPlayer.ready(function () {
+    // Restart the animation too
+    this.play();
+  });
+  setTimeout(function () {
+    launchmainloop();
+  }, 8000);
+}
+function launchmainloop() {
+  launchScene(3);
+}
+function launchnav() {
+  launchScene(4);
+  const element = document.getElementById("eNG1nXo8q721");
+  element.svgatorPlayer.ready(function () {
+    // Restart the animation too
+    this.play();
+  });
+}
+
+onMounted(() => {
+  setTimeout(function () {
+    launchScene(1);
+  }, 1000);
+});
+</script>
+<template>
+  <Animation1 v-show="intro1Visible" />
+  <AnimationLoop v-show="introLoopVisible" :launch2="launch2" />
+  <Animation2 v-show="intro2Visible" :launchmainloop="launchmainloop" />
+  <AnimationMainLoop v-show="mainLoopVisible" :launchnav="launchnav" />
+  <AnimationNav v-show="navVisible" />
+</template>
+
+<style scoped>
+#app {
+  padding: 0;
+  margin: 0;
+}
+</style>
