@@ -44,14 +44,14 @@ function launchScene(animationId: number) {
 
 function launch2() {
   launchScene(2);
-  const element = document.getElementById("eH1dZ5MiYOz1");
+  const element = document.getElementById("e1lhA6bS2su1");
   element.svgatorPlayer.ready(function () {
     // Restart the animation too
     this.play();
   });
   setTimeout(function () {
     launchmainloop();
-  }, 7900);
+  }, 5000);
 }
 function launchmainloop() {
   launchScene(3);
