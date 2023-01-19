@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Animation1 from "./components/Animation1.vue";
-import AnimationLoop from "./components/AnimationIntroLoop.vue";
+import AnimationIntroLoop from "./components/AnimationIntroLoop.vue";
 import Animation2 from "./components/Animation2.vue";
 import AnimationMainLoop from "./components/AnimationMainLoop.vue";
 import AnimationNav from "./components/AnimationNav.vue";
@@ -44,14 +44,14 @@ function launchScene(animationId: number) {
 
 function launch2() {
   launchScene(2);
-  const element = document.getElementById("eZPnhYlMg3T1");
+  const element = document.getElementById("eH1dZ5MiYOz1");
   element.svgatorPlayer.ready(function () {
     // Restart the animation too
     this.play();
   });
   setTimeout(function () {
     launchmainloop();
-  }, 8000);
+  }, 7900);
 }
 function launchmainloop() {
   launchScene(3);
@@ -66,14 +66,15 @@ function launchnav() {
 }
 
 onMounted(() => {
+  // Time the arrival of the second scene (index 1)
   setTimeout(function () {
     launchScene(1);
-  }, 1000);
+  }, 8000);
 });
 </script>
 <template>
   <Animation1 v-show="intro1Visible" />
-  <AnimationLoop v-show="introLoopVisible" :launch2="launch2" />
+  <AnimationIntroLoop v-show="introLoopVisible" :launch2="launch2" />
   <Animation2 v-show="intro2Visible" :launchmainloop="launchmainloop" />
   <AnimationMainLoop v-show="mainLoopVisible" :launchnav="launchnav" />
   <AnimationNav v-show="navVisible" />
