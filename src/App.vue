@@ -44,7 +44,7 @@ function launchScene(animationId: number) {
 
 function launch2() {
   launchScene(2);
-  const element = document.getElementById("e1lhA6bS2su1");
+  const element = document.getElementById("ekFf3Z5Im6j1");
   element.svgatorPlayer.ready(function () {
     // Restart the animation too
     this.play();
@@ -58,7 +58,7 @@ function launchmainloop() {
 }
 function launchnav() {
   launchScene(4);
-  const element = document.getElementById("eNG1nXo8q721");
+  const element = document.getElementById("e8VQ6wvtuBg1");
   element.svgatorPlayer.ready(function () {
     // Restart the animation too
     this.play();
