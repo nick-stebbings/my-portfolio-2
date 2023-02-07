@@ -66,24 +66,75 @@ function launchnav() {
   });
 }
 
+// Slide functionality adapted from https://medium.com/@mignunez/how-to-create-a-slide-transition-between-separate-pages-with-html-css-and-javascript-bb7a14393d1
+let translate = 0;
+function slide(direction:string, articleName:string) {
+  const pages = document.querySelectorAll(".page");
+  let translateAmount = 100; 
+
+  switch (articleName) {
+    case "first":
+      translateAmount = 100
+      break;
+    case "second":
+      translateAmount = 200 
+      break;
+    case "third":
+      translateAmount = 300 
+      break;
+    }
+
+  direction === "next" ? translate -= translateAmount : translate += translateAmount;
+  pages.forEach(
+    page => {
+      page.style.transform = `translateY(${translate}%)`;
+    }
+  );
+}
+
 onMounted(() => {
   // Time the arrival of the second scene (index 1)
   setTimeout(function () {
     launchScene(1);
   }, 8000);
 });
+
 </script>
 <template>
-  <main id="wrapper">
-    <Animation1 v-show="intro1Visible" />
-    <AnimationIntroLoop v-show="introLoopVisible" :launch2="launch2" />
-    <Animation2 v-show="intro2Visible" :launchmainloop="launchmainloop" />
-    <AnimationMainLoop v-show="mainLoopVisible" :launchnav="launchnav" />
-    <AnimationNav v-show="navVisible" />
-    <Header></Header>
+  <main class="pages">
+    <div id="wrapper" class="page one"> 
+        <Animation1 v-show="intro1Visible" />
+        <AnimationIntroLoop v-show="introLoopVisible" :launch2="launch2" />
+        <Animation2 v-show="intro2Visible" :launchmainloop="launchmainloop" />
+        <AnimationMainLoop v-show="mainLoopVisible" :launchnav="launchnav" />
+        <AnimationNav v-show="navVisible" />
+        <Header></Header>
+      <div>
+        <button @click="slide('next', 'first')">1</button>
+        <button @click="slide('next', 'second')">2</button>
+        <button @click="slide('next', 'third')">3</button>
+      </div>
+    </div>
+    <div class="page two">
+      <h1>PAGE 2</h1>
+      <div>
+        <button @click="slide('top', 'first')">Top</button>
+      </div>
+    </div>
+    <div class="page three">
+      <h1>PAGE 3</h1>
+      <div>
+        <button @click="slide('top', 'second')">Top</button>
+      </div>
+    </div>
+    <div class="page four">
+      <h1>PAGE 4</h1>
+      <div>
+        <button @click="slide('top', 'third')">Top</button>
+      </div>
+    </div>
   </main>
 </template>
-
 <style scoped>
 #app {
   padding: 0;
@@ -94,5 +145,29 @@ onMounted(() => {
   max-width: 1680px;
   margin: 0 auto;
   position: relative;
+}
+
+#app {
+width: 100%;
+height: 100vh;
+overflow: hidden;
+}.pages {
+box-sizing: border-box;
+}.page {
+width: 100%;
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+gap: 10px;
+transition: all 0.7s;
+color: white;
+}.two{
+background-color: dodgerblue;
+}.three{
+background-color: indigo;
+}.four{
+background-color: limegreen;
 }
 </style>

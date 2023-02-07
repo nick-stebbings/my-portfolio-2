@@ -818,10 +818,10 @@ export default {
     const corkscrewLayerHoverId = "#" + "e8VQ6wvtuBg18";
     
     const headerId = "#wrapper header";
-    const headerSel = selectAll(headerId).transition();
+    const headerSel = selectAll(headerId);
     const knifeSelection = selectAll(knifeLayerHoverId);
     const sawSelection = selectAll(sawLayerHoverId);
-    const corkScrewSelection = corkScrewSelection;
+    const corkScrewSelection = selectAll(corkscrewLayerHoverId);;
 
     const makeLayer1Active = () => {
       knifeSelection.attr("opacity", 1);
