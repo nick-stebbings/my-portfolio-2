@@ -1,10 +1,10 @@
 <template>
-<header>
-    <h1>e-commerce</h1>
-    <h2>e-commerce is so cool isn't it.</h2>
-    <h3>Consider the learning from working on the headless APIs for a big retailer of motorcycle goods.</h3>
-    <h3>See the results of a bespoke Shopify application on a small spinning wheel distributor</h3>
-</header>
+    <header>
+        <h1>e-commerce</h1>
+        <h2>e-commerce is so cool isn't it.</h2>
+        <h3>Consider the learning from working on the headless APIs for a big retailer of motorcycle goods.</h3>
+        <h3>See the results of a bespoke Shopify application on a small spinning wheel distributor</h3>
+    </header>
 </template>
 <style>
 

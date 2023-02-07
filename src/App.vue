@@ -5,6 +5,7 @@ import AnimationIntroLoop from "./components/AnimationIntroLoop.vue";
 import Animation2 from "./components/Animation2.vue";
 import AnimationMainLoop from "./components/AnimationMainLoop.vue";
 import AnimationNav from "./components/AnimationNav.vue";
+import ContactForm from "./components/ContactForm.vue";
 
 import { ref, onMounted } from "vue";
   const intro1Visible = ref(true);
@@ -78,6 +79,12 @@ import { ref, onMounted } from "vue";
     let translateAmount = 100; 
 
     switch (articleName) {
+      case "home":
+        translateAmount = 100
+        break;
+      case "bookme":
+        translateAmount = 100
+        break;
       case "first":
         translateAmount = 100
         break;
@@ -98,6 +105,9 @@ import { ref, onMounted } from "vue";
   }
 
   onMounted(() => {
+    const bookMeLinkTarget = document.getElementById("book-me-label");
+    bookMeLinkTarget?.addEventListener('click', () => slide('top', 'bookme'))
+
     // Time the arrival of the second scene (index 1)
     setTimeout(function () {
       launchScene(1);
@@ -113,13 +123,20 @@ import { ref, onMounted } from "vue";
         <AnimationMainLoop v-show="mainLoopVisible" :launchnav="launchnav" />
         <AnimationNav v-show="navVisible" />
         <Header></Header>
-      <div class="page-nav-container">
+      <nav class="page-nav-container">
         <button id="page-nav-1-1" class="page-nav-btn" @click="slide('next', 'first')"></button>
         <button id="page-nav-1-2" class="page-nav-btn" @click="slide('next', 'second')"></button>
         <button id="page-nav-1-3" class="page-nav-btn" @click="slide('next', 'third')"></button>
-      </div>
+      </nav>
     </div>
-    <div class="page two">
+    <section id="contact" class="page one">
+      <div id="contact-wrapper">
+        <h1>contact me</h1>
+        <button id="return-home" @click="slide('next', 'home')"></button>
+        <ContactForm></ContactForm>
+      </div>
+    </section>
+    <section class="page two">
       <svg
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -151,22 +168,22 @@ import { ref, onMounted } from "vue";
           </g>
 
         </svg>
-      <div>
+      <article>
         <button @click="slide('top', 'first')">Top</button>
-      </div>
-    </div>
-    <div class="page three">
+      </article>
+    </section>
+    <section class="page three">
       <h1>PAGE 3</h1>
-      <div>
+      <article>
         <button @click="slide('top', 'second')">Top</button>
-      </div>
-    </div>
-    <div class="page four">
-      <h1>PAGE 4</h1>
+      </article>
+    </section>
+    <section class="page four">
+      <h1>contact me</h1>
       <div>
         <button @click="slide('top', 'third')">Top</button>
       </div>
-    </div>
+    </section>
   </main>
 </template>
 <style scoped>
@@ -205,6 +222,58 @@ import { ref, onMounted } from "vue";
   background-position: right bottom;
   
 }
+
+section#contact {
+  position: absolute;
+  top: -100vh;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+#contact-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-items: center;
+  margin: 10vh 0;
+  margin-left: 32%;
+  box-sizing: border-box;
+}
+
+#contact-wrapper h1 {
+    font-family: "Londrina Solid", "Roboto", "Arial", "sans-serif";
+    font-size: 5.0625em;
+    
+
+    /* type scale: perfect fifth */
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+#contact-wrapper h1, h2 {
+    max-width: 75%;
+    text-align: right;
+    line-height: 3.375rem;
+    margin: 0;
+    margin-bottom: 2.25rem;
+    padding: 0;
+    color: #3C3C3C;
+    filter: sepia(1)
+}
+
+button#return-home {
+  position: absolute;
+  left: 10vh;
+  top: 10vh;
+  border: 0;
+  height: 4rem;
+  width: 4rem;
+  cursor: pointer;
+  background-image: url("assets/down-icon.png");
+}
+
 @media (min-width: 1680px) {
   #wrapper > svg  {
     overflow: initial;

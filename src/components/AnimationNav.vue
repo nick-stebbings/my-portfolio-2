@@ -265,6 +265,7 @@
         filter="url(#e8VQ6wvtuBg16-filter)"
       >
         <path
+          id="e8VQ6wvtuBg01"
         d="M459.921,64.2034v2.9417l-2.941.0578c-138.337,2.7152-278.887456-5.567872-324.623456-8.517872l-17.898558-.571875-13.346407-.058665c-22.6996-1.4643-39.604065-1.3996-60.880966-2.348958-11.025873-.491965-15.679524-.136512-21.917724-2.169312-3.1028-1.0111-5.498943-.360701-7.349473-1.261201-.90976-.4427-1.77536-.9306-2.45825-1.4714-.34131-.2702-.73678-.6311-1.0682-1.0935-.32569-.4544-.72855-1.2042-.72855-2.1827c0-1.3544,1.17242-3.3856,1.17242-3.3856s1.43991-1.8134,2.38675-2.6926c1.89997-1.7642,5.599125-5.077521,8.892325-7.109521c6.6093-4.078,53.77088-37.373177,65.16478-41.727177c22.7878-8.708,68.640332-26.949667,101.621332-26.949667l162.071692,7.477675L456.921,3.52186h3v3v57.68154Z"
         transform="matrix(.369662-.23369-.159647-.252536 229.992454 723.423423)"
           fill="#fdff0a"
@@ -541,6 +542,7 @@
           </tspan>
         </text>
         <text
+          id="book-me-label"
           dx="-11"
           dy="-3"
           font-family='Rubik'
@@ -828,17 +830,23 @@
       const sawLayerHoverId = "#" + "e8VQ6wvtuBg19";
       const corkscrewLayerId = "#" + "e8VQ6wvtuBg40";
       const corkscrewLayerHoverId = "#" + "e8VQ6wvtuBg18";
+      const bookMeId = "#book-me-label";
+      const bookMeHoverId = "#" + "e8VQ6wvtuBg01";
       
       const headerId = "#wrapper header";
       const headerSel = selectAll(headerId);
       const knifeSelection = selectAll(knifeLayerHoverId);
       const sawSelection = selectAll(sawLayerHoverId);
       const corkScrewSelection = selectAll(corkscrewLayerHoverId);;
+      const bookMeHoverSelection = selectAll(bookMeHoverId);;
+      const notLoadedYet = () => (document.querySelector(".page-nav-container").style.opacity != 1)
 
       const makeLayer1Active = () => {
+        if(notLoadedYet()) return;
         knifeSelection.attr("opacity", 1);
         sawSelection.attr("opacity", 0);
         corkScrewSelection.attr("opacity", 0);
+        bookMeHoverSelection.attr("opacity", 0);
         selectAll(layer2Id).lower();
         selectAll(layer3Id).lower();
         
@@ -847,9 +855,11 @@
         // headerSel.style('color', '#3C3C3C');
       }
       const makeLayer2Active = () => {
+        if(notLoadedYet()) return;
         sawSelection.attr("opacity", 1);
         knifeSelection.attr("opacity", 0);
         corkScrewSelection.attr("opacity", 0);
+        bookMeHoverSelection.attr("opacity", 0);
         
         selectAll(layer1Id).lower();
         selectAll(layer1Id).lower();
@@ -860,9 +870,11 @@
         // headerSel.style('color', '#3C3C3C');
       }
       const makeLayer3Active = () => {
+        if(notLoadedYet()) return;
         corkScrewSelection.attr("opacity", 1);
         knifeSelection.attr("opacity", 0);
         sawSelection.attr("opacity", 0);
+        bookMeHoverSelection.attr("opacity", 0);
 
         selectAll(layer1Id).lower();
         selectAll(layer2Id).lower();
@@ -880,9 +892,18 @@
       selectAll("#e-learning-label").on("mouseover", makeLayer2Active);
 
       // saw mouseover
-      selectAll(corkscrewLayerId).on("mouseover", makeLayer3Active);
       selectAll(layer3Id).on("mouseover", makeLayer3Active);
       selectAll("#web3-label").on("mouseover", makeLayer3Active);
+      selectAll(corkscrewLayerId).on("mouseover", makeLayer3Active);
+      
+      // book me mouseover
+      selectAll(bookMeId).on("mouseover", () => { 
+        if(notLoadedYet()) return;
+        knifeSelection.attr("opacity", 0);
+        sawSelection.attr("opacity", 0);
+        corkScrewSelection.attr("opacity", 0);
+        bookMeHoverSelection.attr("opacity", 1);
+      });
     },
   };
   </script>
@@ -894,6 +915,7 @@
   #e8VQ6wvtuBg36, /* knife */
   #e8VQ6wvtuBg26, /* saw */
   #e8VQ6wvtuBg40, /* cork */
+  #e8VQ6wvtuBg01,  /* book me hover*/
   #e8VQ6wvtuBg18,  /* cork hover*/
   #e8VQ6wvtuBg17,  /* knife hover*/
   #e8VQ6wvtuBg19  /* saw hover*/ {
