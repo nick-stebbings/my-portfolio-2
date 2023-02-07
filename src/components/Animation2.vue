@@ -53,7 +53,7 @@
         <feColorMatrix
           id="ekFf3Z5Im6j43-filter-hue-rotate-0"
           type="hueRotate"
-          values="40"
+          values="20"
           result="result"
         />
       </filter>
@@ -80,7 +80,7 @@
         <feColorMatrix
           id="ekFf3Z5Im6j44-filter-hue-rotate-0"
           type="hueRotate"
-          values="40"
+          values="20"
           result="result"
         />
       </filter>
@@ -107,7 +107,7 @@
         <feColorMatrix
           id="ekFf3Z5Im6j45-filter-hue-rotate-0"
           type="hueRotate"
-          values="40"
+          values="20"
           result="result"
         />
       </filter>

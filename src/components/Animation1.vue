@@ -18,7 +18,7 @@
         <feColorMatrix
           id="eXJRUNPtokm28-filter-hue-rotate-0"
           type="hueRotate"
-          values="40"
+          values="20"
           result="result"
         />
       </filter>

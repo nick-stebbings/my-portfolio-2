@@ -14,9 +14,8 @@ header {
     opacity: 0;
     visibility:hidden;
     max-width: 60vw;
-    top: 2.5rem;
+    top: 2rem;
     right: 4rem;
-    color: black;
 }
 
 h1 {
@@ -30,7 +29,7 @@ h1 {
 }
 
 h1, h2 {
-    text-align: center;
+    text-align: left;
     line-height: 3.375rem;
     margin: 0;
     margin-bottom: 2.25rem;
@@ -45,7 +44,6 @@ h2 {
     font-size: 2.25em; /* 36px */
     /* font-size: 3.375em; 54px */
     font-weight: 500;
-    color: black;
 }
 
 h3 {
