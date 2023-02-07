@@ -124,24 +124,24 @@ import { ref, onMounted } from "vue";
           style="overflow:initial"
         >
 
-          <g id="e8VQ6wvtuBg23" transform="matrix(-1 0 0-.300403 1530 -10)">
+          <g id="e8VQ6wvtuBg23" transform="matrix(-1 0 0-.300403 1530 -300)">
             <rect
               width="14"
-              height="805"
+              height="1800"
               rx="0"
               ry="0"
               transform="matrix(-1 0 0-1.476148 344 715.22737)"
-              fill="#745951"
-              fill-opacity="0.3"
+              fill="#EEEDE7"
+          fill-opacity="1"
             />
             <rect
               width="7"
-              height="805"
+              height="1800"
               rx="0"
               ry="0"
               transform="matrix(1.000001 0 0-1.476148 350.999997 715.22737)"
-              fill="#745951"
-              fill-opacity="0.3"
+              fill="#EEEDE7"
+          fill-opacity="1"
             />
           </g>
 

@@ -160,8 +160,8 @@
           rx="0"
           ry="0"
           transform="matrix(-1.000001 0 0 8.272719 12.000014-1908.361291)"
-          fill="#745951"
-          fill-opacity="0.3"
+          fill="#EEEDE7"
+          fill-opacity="1"
         />
         <rect
           width="7"
@@ -169,8 +169,8 @@
           rx="0"
           ry="0"
           transform="matrix(-.999999 0 0 8.272719 26.000004-1908.361291)"
-          fill="#745951"
-          fill-opacity="0.3"
+          fill="#EEEDE7"
+          fill-opacity="1"
         />
       </g>
     </g>
@@ -181,8 +181,8 @@
         rx="0"
         ry="0"
         transform="matrix(-1 0 0-1.476148 344 715.22737)"
-        fill="#745951"
-        fill-opacity="0.3"
+        fill="#EEEDE7"
+          fill-opacity="1"
       />
       <rect
         width="7"
@@ -190,8 +190,8 @@
         rx="0"
         ry="0"
         transform="matrix(1.000001 0 0-1.476148 350.999997 715.22737)"
-        fill="#745951"
-        fill-opacity="0.3"
+        fill="#EEEDE7"
+          fill-opacity="1"
       />
     </g>
     <g transform="translate(0-14)">
@@ -906,7 +906,7 @@ export default {
                         v: {
                           x: 116,
                           y: -66.885203,
-                          type: "cusp",
+                          type: "corner",
                           start: { x: 116, y: 206.947292 },
                           end: { x: 116, y: -113.075041 },
                         },

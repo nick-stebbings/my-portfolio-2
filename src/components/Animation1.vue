@@ -66,8 +66,8 @@
           rx="0"
           ry="0"
           transform="matrix(-1.000001 0 0 0.999999 12.000014-71.99949)"
-          fill="#745951"
-          fill-opacity="0.3"
+          fill="#EEEDE7"
+          fill-opacity="1"
         />
         <rect
           id="eXJRUNPtokm5"
@@ -76,8 +76,8 @@
           rx="0"
           ry="0"
           transform="matrix(-.999999 0 0 0.999999 26.000004-71.99949)"
-          fill="#745951"
-          fill-opacity="0.3"
+          fill="#EEEDE7"
+          fill-opacity="1"
         />
       </g>
     </g>
@@ -118,8 +118,8 @@
         rx="0"
         ry="0"
         transform="matrix(-1 0 0-1 344 595)"
-        fill="#745951"
-        fill-opacity="0.3"
+        fill="#EEEDE7"
+          fill-opacity="1"
       />
       <rect
         id="eXJRUNPtokm15"
@@ -128,8 +128,8 @@
         rx="0"
         ry="0"
         transform="matrix(1.000001 0 0-1 350.999997 595)"
-        fill="#745951"
-        fill-opacity="0.3"
+        fill="#EEEDE7"
+          fill-opacity="1"
       />
     </g>
     <image

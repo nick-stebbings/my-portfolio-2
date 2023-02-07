@@ -46,7 +46,7 @@
         <feColorMatrix
           id="e8VQ6wvtuBg7-filter-hue-rotate-0"
           type="hueRotate"
-          values="-180"
+          values="-0"
           result="result"
         />
       </filter>
@@ -73,7 +73,7 @@
         <feColorMatrix
           id="e8VQ6wvtuBg9-filter-hue-rotate-0"
           type="hueRotate"
-          values="-180"
+          values="0"
           result="result"
         />
       </filter>
@@ -179,8 +179,8 @@
         rx="0"
         ry="0"
         transform="matrix(-1 0 0-1.476148 344 715.22737)"
-        fill="#745951"
-        fill-opacity="0.3"
+        fill="#EEEDE7"
+          fill-opacity="1"
       />
       <rect
         width="7"
@@ -188,8 +188,8 @@
         rx="0"
         ry="0"
         transform="matrix(1.000001 0 0-1.476148 350.999997 715.22737)"
-        fill="#745951"
-        fill-opacity="0.3"
+        fill="#EEEDE7"
+          fill-opacity="1"
       />
     </g>
     <g filter="url(#e8VQ6wvtuBg5-filter)">
@@ -245,8 +245,8 @@
           rx="0"
           ry="0"
           transform="matrix(-1.000001 0 0 8.272719 12.000014-1908.361291)"
-          fill="#745951"
-          fill-opacity="0.3"
+          fill="#EEEDE7"
+          fill-opacity="1"
         />
         <rect
           width="7"
@@ -254,8 +254,8 @@
           rx="0"
           ry="0"
           transform="matrix(-.999999 0 0 8.272719 26.000004-1908.361291)"
-          fill="#745951"
-          fill-opacity="0.3"
+          fill="#EEEDE7"
+          fill-opacity="1"
         />
       </g>
     </g>
@@ -498,8 +498,8 @@
       <text
         dx="0"
         dy="0"
-        font-family='"e8VQ6wvtuBg1:::Montserrat"'
-        font-size="22"
+        font-family='Rubik'
+        font-size="20"
         font-weight="400"
         transform="translate(162.257921 360.791072)"
         fill="#474342"
@@ -513,8 +513,8 @@
       <text
         dx="0"
         dy="0"
-        font-family='"e8VQ6wvtuBg1:::Montserrat"'
-        font-size="22"
+        font-family='Rubik'
+        font-size="20"
         font-weight="600"
         transform="matrix(.799132 0.601155-.601155 0.799132 185.647731 470.791242)"
         fill="#474342"
@@ -528,7 +528,7 @@
       <text
         dx="0"
         dy="0"
-        font-family='"e8VQ6wvtuBg1:::Montserrat"'
+        font-family='Rubik'
         font-size="20"
         font-weight="600"
         transform="translate(201.257921 577.791072)"
@@ -543,8 +543,8 @@
       <text
         dx="-11"
         dy="-3"
-        font-family='"e8VQ6wvtuBg1:::Montserrat"'
-        font-size="20"
+        font-family='Rubik'
+        font-size="18"
         font-weight="600"
         transform="matrix(.819152-.573576 0.573576 0.819152 279.841768 655.52125)"
         fill="#474342"
