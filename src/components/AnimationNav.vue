@@ -844,7 +844,7 @@
         
         headerSel.style('visibility', 'visible');
         headerSel.style('opacity', '1');
-        headerSel.style('color', '#3C3C3C');
+        // headerSel.style('color', '#3C3C3C');
       }
       const makeLayer2Active = () => {
         sawSelection.attr("opacity", 1);
@@ -857,7 +857,7 @@
         
         headerSel.style('visibility', 'visible');
         headerSel.style('opacity', '1');
-        headerSel.style('color', '#3C3C3C');
+        // headerSel.style('color', '#3C3C3C');
       }
       const makeLayer3Active = () => {
         corkScrewSelection.attr("opacity", 1);
@@ -869,7 +869,7 @@
 
         headerSel.style('visibility', 'visible');
         headerSel.style('opacity', '1');
-        headerSel.style('color', '#fff');
+        // headerSel.style('color', '#3C3C3C');
       }
       //knife mouseover
       selectAll(knifeLayerId).on("mouseover", makeLayer1Active);

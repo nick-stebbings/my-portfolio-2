@@ -34,6 +34,7 @@ h1, h2 {
     margin: 0;
     margin-bottom: 2.25rem;
     padding: 0 4rem;
+    color: #3C3C3C;
 }
 
 h2,h3 {
@@ -47,6 +48,8 @@ h2 {
 }
 
 h3 {
+    color: #3C3C3C;
+    filter: brightness;
     font-size: 1.5em; /* 24px */
     font-weight: 400 !important;
     line-height: 1.5em; 

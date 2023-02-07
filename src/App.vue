@@ -64,6 +64,11 @@ import { ref, onMounted } from "vue";
       // Restart the animation too
       this.play();
     });
+    setTimeout(function () {
+      const element = document.querySelector(".page-nav-container");
+      element.style.opacity = 1;
+      element.style.visibility = 'visible';
+    }, 4500);
   }
 
   // Slide functionality adapted from https://medium.com/@mignunez/how-to-create-a-slide-transition-between-separate-pages-with-html-css-and-javascript-bb7a14393d1
@@ -188,6 +193,9 @@ import { ref, onMounted } from "vue";
 .page-nav-container {
   display: flex;
   position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-in 0s, right 0.5s ease-out 0s;
   bottom: 1rem; 
   right: 8.5vw; 
   gap: 2rem;
