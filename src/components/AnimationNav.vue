@@ -504,6 +504,7 @@
         transform="translate(162.257921 360.791072)"
         fill="#474342"
         stroke-width="0"
+        id="e-commerce-label"
       >
         <tspan y="0" font-weight="400" stroke-width="0">
           <![CDATA[ e-commerce ]]>
@@ -518,6 +519,7 @@
         transform="matrix(.799132 0.601155-.601155 0.799132 185.647731 470.791242)"
         fill="#474342"
         stroke-width="0"
+        id="e-learning-label"
       >
         <tspan y="0" font-weight="400" stroke-width="0">
           <![CDATA[ e-learning ]]>
@@ -816,52 +818,52 @@ export default {
     const corkscrewLayerHoverId = "#" + "e8VQ6wvtuBg18";
     
     const headerId = "#wrapper header";
+    const headerSel = selectAll(headerId).transition();
+    const knifeSelection = selectAll(knifeLayerHoverId);
+    const sawSelection = selectAll(sawLayerHoverId);
+    const corkScrewSelection = corkScrewSelection;
 
     const makeLayer1Active = () => {
-      selectAll(knifeLayerHoverId).attr("opacity", 1);
-      selectAll(sawLayerHoverId).attr("opacity", 0);
-      selectAll(corkscrewLayerHoverId).attr("opacity", 0);
+      knifeSelection.attr("opacity", 1);
+      sawSelection.attr("opacity", 0);
+      corkScrewSelection.attr("opacity", 0);
 
       selectAll(layer2Id).lower();
       selectAll(layer3Id).lower();
       
-      selectAll(headerId).style('visibility', 'visible');
-      selectAll(headerId).style('opacity', '0.5');
+      headerSel.style('visibility', 'visible');
+      headerSel.style('opacity', '0.5');
     }
     const makeLayer2Active = () => {
-      selectAll(sawLayerHoverId).attr("opacity", 1);
-      selectAll(knifeLayerHoverId).attr("opacity", 0);
-      selectAll(corkscrewLayerHoverId).attr("opacity", 0);
+      sawSelection.attr("opacity", 1);
+      knifeSelection.attr("opacity", 0);
+      corkScrewSelection.attr("opacity", 0);
       
       selectAll(layer1Id).lower();
       selectAll(layer1Id).lower();
       selectAll(layer3Id).lower();
       
-      selectAll(headerId).style('visibility', 'visible');
-      selectAll(headerId).style('opacity', '1');
+      headerSel.style('visibility', 'visible');
+      headerSel.style('opacity', '1');
     }
     const makeLayer3Active = () => {
-      selectAll(corkscrewLayerHoverId).attr("opacity", 1);
-      selectAll(knifeLayerHoverId).attr("opacity", 0);
-      selectAll(sawLayerHoverId).attr("opacity", 0);
+      corkScrewSelection.attr("opacity", 1);
+      knifeSelection.attr("opacity", 0);
+      sawSelection.attr("opacity", 0);
 
       selectAll(layer1Id).lower();
       selectAll(layer2Id).lower();
 
-      selectAll(headerId).style('visibility', 'hidden');
-      selectAll(headerId).style('opacity', '0');
+      headerSel.style('visibility', 'hidden');
+      headerSel.style('opacity', '0');
     }
     //knife mouseover
     selectAll(knifeLayerId).on("mouseover", makeLayer1Active);
-    selectAll(knifeLayerId).on("mouseout", () => {
-      // selectAll(knifeLayerHoverId).attr("opacity", 0);
-    })
+    selectAll("#e-commerce-label").on("mouseover", makeLayer1Active);
 
     // saw mouseover
     selectAll(sawLayerId).on("mouseover", makeLayer2Active);
-    selectAll(sawLayerId).on("mouseout", () => {
-      // selectAll(sawLayerHoverId).attr("opacity", 1);
-    });
+    selectAll("#e-learning-label").on("mouseover", makeLayer2Active);
 
     // saw mouseover
     selectAll(corkscrewLayerId).on("mouseover", makeLayer3Active);
