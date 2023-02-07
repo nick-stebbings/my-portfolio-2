@@ -506,7 +506,7 @@
         stroke-width="0"
         id="e-commerce-label"
       >
-        <tspan y="0" font-weight="400" stroke-width="0">
+        <tspan y="0" font-weight="600" stroke-width="0">
           <![CDATA[ e-commerce ]]>
         </tspan>
       </text>
@@ -515,13 +515,13 @@
         dy="0"
         font-family='"e8VQ6wvtuBg1:::Montserrat"'
         font-size="22"
-        font-weight="400"
+        font-weight="600"
         transform="matrix(.799132 0.601155-.601155 0.799132 185.647731 470.791242)"
         fill="#474342"
         stroke-width="0"
         id="e-learning-label"
       >
-        <tspan y="0" font-weight="400" stroke-width="0">
+        <tspan y="0" font-weight="600" stroke-width="0">
           <![CDATA[ e-learning ]]>
         </tspan>
       </text>
@@ -530,28 +530,28 @@
         dy="0"
         font-family='"e8VQ6wvtuBg1:::Montserrat"'
         font-size="20"
-        font-weight="400"
+        font-weight="600"
         transform="translate(201.257921 577.791072)"
         fill="#474342"
         stroke-width="0"
         id="web3-label"
       >
-        <tspan y="0" font-weight="400" stroke-width="0">
+        <tspan y="0" font-weight="600" stroke-width="0">
           <![CDATA[ web 3 ]]>
         </tspan>
       </text>
       <text
-        dx="0"
-        dy="0"
+        dx="-11"
+        dy="-3"
         font-family='"e8VQ6wvtuBg1:::Montserrat"'
         font-size="20"
-        font-weight="400"
+        font-weight="600"
         transform="matrix(.819152-.573576 0.573576 0.819152 279.841768 655.52125)"
         fill="#474342"
         stroke-width="0"
       >
-        <tspan y="0" font-weight="400" stroke-width="0">
-          <![CDATA[ about ]]>
+        <tspan y="0" font-weight="600" stroke-width="0">
+          <![CDATA[ book me ]]>
         </tspan>
       </text>
     </g>
@@ -559,6 +559,7 @@
 </template>
 <script>
 import { selectAll } from "https://cdn.jsdelivr.net/npm/d3-selection@3/+esm";
+import { transition } from "https://cdn.jsdelivr.net/npm/d3-transition@3/+esm";
 
 export default {
   name: "Nav",
@@ -827,7 +828,6 @@ export default {
       knifeSelection.attr("opacity", 1);
       sawSelection.attr("opacity", 0);
       corkScrewSelection.attr("opacity", 0);
-
       selectAll(layer2Id).lower();
       selectAll(layer3Id).lower();
       
@@ -883,5 +883,8 @@ export default {
 #e8VQ6wvtuBg17,  /* knife hover*/
 #e8VQ6wvtuBg19  /* saw hover*/ {
   cursor: pointer;
+}
+header {
+  transition: 0.7s opacity ease 0s;
 }
 </style>
