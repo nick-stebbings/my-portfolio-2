@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Header from "./components/Header.vue";
 import Animation1 from "./components/Animation1.vue";
 import AnimationIntroLoop from "./components/AnimationIntroLoop.vue";
 import Animation2 from "./components/Animation2.vue";
@@ -73,16 +74,25 @@ onMounted(() => {
 });
 </script>
 <template>
-  <Animation1 v-show="intro1Visible" />
-  <AnimationIntroLoop v-show="introLoopVisible" :launch2="launch2" />
-  <Animation2 v-show="intro2Visible" :launchmainloop="launchmainloop" />
-  <AnimationMainLoop v-show="mainLoopVisible" :launchnav="launchnav" />
-  <AnimationNav v-show="navVisible" />
+  <main id="wrapper">
+    <Animation1 v-show="intro1Visible" />
+    <AnimationIntroLoop v-show="introLoopVisible" :launch2="launch2" />
+    <Animation2 v-show="intro2Visible" :launchmainloop="launchmainloop" />
+    <AnimationMainLoop v-show="mainLoopVisible" :launchnav="launchnav" />
+    <AnimationNav v-show="navVisible" />
+    <Header></Header>
+  </main>
 </template>
 
 <style scoped>
 #app {
   padding: 0;
   margin: 0;
+}
+
+#wrapper {
+  max-width: 1680px;
+  margin: 0 auto;
+  position: relative;
 }
 </style>
