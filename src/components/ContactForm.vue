@@ -1,7 +1,6 @@
 <template>
     <form name="contact" method="POST" data-netlify="true" 
-        data-netlify-honeypot="bot-field" action="/success/"
-        onSubmit="submit">
+        data-netlify-honeypot="bot-field" action="/success/">
             <input class="d-none" name="bot-field" />
             <div class="form-row col-md-6">
                 <div class="form-group col-md-6 mt-3">

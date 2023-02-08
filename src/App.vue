@@ -47,9 +47,9 @@ import { ref, onMounted } from "vue";
   function launch2() {
     launchScene(2);
     const element = document.getElementById("ekFf3Z5Im6j1");
-    element.svgatorPlayer.ready(function () {
+    (element as any).svgatorPlayer.ready(function (el:any) {
       // Restart the animation too
-      this.play();
+      el.play();
     });
     setTimeout(function () {
       launchmainloop();
@@ -61,14 +61,14 @@ import { ref, onMounted } from "vue";
   function launchnav() {
     launchScene(4);
     const element = document.getElementById("e8VQ6wvtuBg1");
-    element.svgatorPlayer.ready(function () {
+    (element as any).svgatorPlayer.ready(function (el:any) {
       // Restart the animation too
-      this.play();
+      el.play();
     });
     setTimeout(function () {
       const element = document.querySelector(".page-nav-container");
-      element.style.opacity = 1;
-      element.style.visibility = 'visible';
+      (element as HTMLBodyElement).style.opacity = '1';
+      (element as HTMLBodyElement).style.visibility = 'visible';
     }, 4500);
   }
 
@@ -99,7 +99,7 @@ import { ref, onMounted } from "vue";
     direction === "next" ? translate -= translateAmount : translate += translateAmount;
     pages.forEach(
       page => {
-        page.style.transform = `translateY(${translate}%)`;
+        (page as HTMLBodyElement).style.transform = `translateY(${translate}%)`;
       }
     );
   }
@@ -324,11 +324,5 @@ flex-direction: column;
 gap: 10px;
 transition: all 0.7s;
 color: white;
-}.two{
-/* background-color: dodgerblue; */
-}.three{
-background-color: indigo;
-}.four{
-background-color: limegreen;
 }
 </style>

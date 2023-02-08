@@ -82,7 +82,7 @@ h3 {
 
     h3 {
         font-size: 2.25em; /* 36px */
-        padding: 0 12rem;
+        /* padding: 0 12rem; */
     }
 
     header {
