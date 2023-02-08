@@ -6,24 +6,24 @@
     }
 </script>
 <template>
-    <form name="contact-form" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" @submit="handleSubmit">
-            <input type="hidden" name="form-name" value="contact-form" />
+    <form name="contact-form" method="POST" action="https://api.web3forms.com/submit" @submit="handleSubmit">
+            <input type="hidden" name="access_key" value="3b1f2606-e4c4-4a19-87ae-4e19878c66f8">
             <div class="form-row col-md-6">
                 <div class="form-group col-md-6 mt-3">
                     <label for="name">Your Name</label>
-                    <input type="text" class="form-control" id="name" name="name">
+                    <input required type="text" class="form-control" id="name" name="name">
                 </div>
             </div>
             <div class="form-row col-md-6">
                 <div class="form-group col-md-6 mt-3">
                     <label for="inputEmail">Email</label>
-                    <input type="email" class="form-control" id="inputEmail" name="email">
+                    <input required type="email" class="form-control" id="inputEmail" name="email">
                 </div>
             </div>
             <div class="form-row col-md-6 mt-3">
                 <div class="form-group col-md-12">
                     <label for="inputMessage">Message</label>
-                    <input type="textarea" class="form-control" id="inputMessage" name="message" />
+                    <input required type="textarea" class="form-control" id="inputMessage" name="message" />
                 </div>
             </div>
             <button type="submit" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#contactConfirmation">Send</button>
