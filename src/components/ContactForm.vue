@@ -1,5 +1,12 @@
+<script setup lang="ts">
+    function handleSubmit(e: any) {
+        e.preventDefault();
+        e.currentTarget.reset();
+        document.getElementById('return-home')?.click();
+    }
+</script>
 <template>
-    <form name="contact-form" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+    <form name="contact-form" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" @submit="handleSubmit">
             <input type="hidden" name="form-name" value="contact-form" />
             <div class="form-row col-md-6">
                 <div class="form-group col-md-6 mt-3">
@@ -21,10 +28,6 @@
             </div>
             <button type="submit" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#contactConfirmation">Send</button>
     </form>
-<!-- 
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contactConfirmation">
-    Launch demo modal
-    </button> -->
 </template>
 <style>
 form {
