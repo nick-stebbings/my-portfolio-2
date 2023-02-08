@@ -1,7 +1,6 @@
 <template>
-    <form name="contact" method="POST" data-netlify="true" 
-        data-netlify-honeypot="bot-field" action="assets/success">
-            <input class="d-none" name="bot-field" />
+    <form name="contact" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="cpntact-form" />
             <div class="form-row col-md-6">
                 <div class="form-group col-md-6 mt-3">
                     <label for="name">Your Name</label>
