@@ -1,6 +1,6 @@
 <template>
     <form name="contact" method="POST" data-netlify="true" 
-        data-netlify-honeypot="bot-field" action="/success/">
+        data-netlify-honeypot="bot-field" action="assets/success">
             <input class="d-none" name="bot-field" />
             <div class="form-row col-md-6">
                 <div class="form-group col-md-6 mt-3">
@@ -17,7 +17,7 @@
             <div class="form-row col-md-6 mt-3">
                 <div class="form-group col-md-12">
                     <label for="inputMessage">Message</label>
-                    <textarea class="form-control" id="inputMessage" name="message"></textarea>
+                    <input type="textarea" class="form-control" id="inputMessage" name="message" />
                 </div>
             </div>
             <button type="submit" class="btn btn-primary mt-3">Send</button>
@@ -39,7 +39,7 @@ form label {
 form input {
     font-size: 1.5rem;
 }
-form textarea {
+form input[type=textarea] {
     height: 12rem;
     font-size: 1.5rem;
 }
