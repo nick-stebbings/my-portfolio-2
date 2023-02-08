@@ -5,6 +5,9 @@ import AnimationIntroLoop from "./components/AnimationIntroLoop.vue";
 import Animation2 from "./components/Animation2.vue";
 import AnimationMainLoop from "./components/AnimationMainLoop.vue";
 import AnimationNav from "./components/AnimationNav.vue";
+import ArticleSection from "./components/ArticleSection.vue";
+import ArticleTitle from "./components/ArticleTitle.vue";
+import ArticleTools from "./components/ArticleTools.vue";
 import ContactForm from "./components/ContactForm.vue";
 
 import { ref, onMounted } from "vue";
@@ -137,7 +140,7 @@ import { ref, onMounted } from "vue";
       </div>
     </section>
     <section class="page two">
-      <svg
+      <!-- <svg
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           viewBox="0 0 1280 720"
@@ -167,22 +170,32 @@ import { ref, onMounted } from "vue";
             />
           </g>
 
-        </svg>
+        </svg> -->
       <article>
-        <button @click="slide('top', 'first')">Top</button>
+        <ArticleTitle />
+        <ArticleSection />
+        <ArticleTools />
+        <ArticleSection />
+        <button class="top-button" @click="slide('top', 'first')"></button>
       </article>
     </section>
     <section class="page three">
-      <h1>PAGE 3</h1>
       <article>
-        <button @click="slide('top', 'second')">Top</button>
+        <ArticleTitle />
+        <ArticleSection />
+        <ArticleTools />
+        <ArticleSection />
+        <button class="top-button" @click="slide('top', 'second')"></button>
       </article>
     </section>
     <section class="page four">
-      <h1>contact me</h1>
-      <div>
-        <button @click="slide('top', 'third')">Top</button>
-      </div>
+      <article>
+        <ArticleTitle />
+        <ArticleSection />
+        <ArticleTools />
+        <ArticleSection />
+        <button class="top-button" @click="slide('top', 'third')"></button>
+      </article>
     </section>
 
     <!-- Modal -->
@@ -217,13 +230,34 @@ import { ref, onMounted } from "vue";
   max-width: 1680px;
   margin: 0 auto;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 #wrapper > svg {
   width: 100%;
   max-width: 1680px;
-  /* height: calc(100% - 1rem); */
 }
+
+.page.two > svg {
+  position: absolute;
+}
+.page > article {
+  width: 100%;
+  height: 100%;
+  padding: 5rem 6vw;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 8rem 2fr 1fr 2fr;
+  grid-template-areas: "title button" "article1 article1" "tools tools" "article2 article2" ;
+}
+
+.page article .top-button { grid-area: button;}
+.page article .article-section:first-of-type { grid-area: article1;}
+.page article .article-section:last-of-type { grid-area: article2;}
+.page article .article-title { grid-area: title;}
+.page article .tools { grid-area: tools;}
 
 .modal-dialog {
   top: 30vh;
@@ -268,7 +302,6 @@ section#contact {
     font-family: "Londrina Solid", "Roboto", "Arial", "sans-serif";
     font-size: 5.0625em;
     
-
     /* type scale: perfect fifth */
     font-weight: 400;
     text-transform: capitalize;
@@ -303,7 +336,11 @@ button#return-home {
   .page-nav-container {
     right: calc(50% - 12rem) !important;
   }
+  .page > article {
+    padding: 5rem 5vw;
+  }
 }
+
 .page-nav-btn {
   border: 0;
   width: 10vh;
@@ -331,10 +368,10 @@ button#return-home {
   background-repeat: no-repeat;
 }
 
-
 .pages {
 box-sizing: border-box;
-}.page {
+}
+.page {
 width: 100%;
 margin: 0 auto;
 max-width: 1680px;
@@ -346,5 +383,8 @@ flex-direction: column;
 gap: 10px;
 transition: all 0.7s;
 color: white;
+}
+.page.one {
+  height: auto;
 }
 </style>
