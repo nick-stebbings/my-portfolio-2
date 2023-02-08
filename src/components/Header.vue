@@ -24,8 +24,8 @@ h1, h2 {
     padding: 0 4rem;
     color: #3C3C3C;
 }
-h2,h3 {
-    font-family: "Rubik", "Roboto", "Arial", "sans-serif";
+h2,h3, form label {
+    font-family: "Manrope", "Roboto", "Arial", "sans-serif";
 }
 
 h1 {
@@ -69,7 +69,7 @@ h3:nth-of-type(2) {
         top: 4rem;
     }  
 }
-@media (min-width: 1300px) {
+@media (min-width: 1440px) {
     #wrapper > header {
         right: 6rem;
         top: 5rem;

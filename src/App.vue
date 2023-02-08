@@ -72,6 +72,13 @@ import { ref, onMounted } from "vue";
       const element = document.querySelector(".page-nav-container");
       (element as HTMLBodyElement).style.opacity = '1';
       (element as HTMLBodyElement).style.visibility = 'visible';
+      
+      const header = document.querySelector("#wrapper header");
+      (header as HTMLBodyElement).style.opacity = '1';
+      (header as HTMLBodyElement).style.visibility = 'visible';
+      console.log(header)
+      const articleContent = document.querySelector(".page.two");
+      (articleContent as HTMLBodyElement)!.style['margin-top'] = 0;
     }, 4500);
   }
 
@@ -110,7 +117,7 @@ import { ref, onMounted } from "vue";
   onMounted(() => {
     const bookMeLinkTarget = document.getElementById("book-me-label");
     bookMeLinkTarget?.addEventListener('click', () => slide('top', 'bookme'))
-
+    
     // Time the arrival of the second scene (index 1)
     setTimeout(function () {
       launchScene(1);
@@ -132,7 +139,7 @@ import { ref, onMounted } from "vue";
         <button id="page-nav-1-3" class="page-nav-btn" @click="slide('next', 'third')"></button>
       </nav>
     </div>
-    <section id="contact" class="page one">
+    <section id="contact" class="page zero">
       <div id="contact-wrapper">
         <h1>contact me</h1>
         <button id="return-home" @click="slide('next', 'home')"></button>
@@ -172,29 +179,37 @@ import { ref, onMounted } from "vue";
 
         </svg> -->
       <article>
-        <ArticleTitle />
-        <ArticleSection />
-        <ArticleTools />
-        <ArticleSection />
-        <button class="top-button" @click="slide('top', 'first')"></button>
+        <div class="article-wrapper">
+          <ArticleTitle />
+          <ArticleSection />
+          <ArticleTools />
+          <ArticleSection />
+          <div class="top-button">
+            <button class="return-home-up" @click="slide('top', 'first')"></button>
+          </div>
+        </div>
       </article>
     </section>
     <section class="page three">
       <article>
-        <ArticleTitle />
-        <ArticleSection />
-        <ArticleTools />
-        <ArticleSection />
+        <div class="article-wrapper">
+          <ArticleTitle />
+          <ArticleSection />
+          <ArticleTools />
+          <ArticleSection />
         <button class="top-button" @click="slide('top', 'second')"></button>
+      </div>  
       </article>
     </section>
     <section class="page four">
       <article>
-        <ArticleTitle />
-        <ArticleSection />
-        <ArticleTools />
-        <ArticleSection />
-        <button class="top-button" @click="slide('top', 'third')"></button>
+        <div class="article-wrapper">
+          <ArticleTitle />
+          <ArticleSection />
+          <ArticleTools />
+          <ArticleSection />
+          <button class="top-button" @click="slide('top', 'third')"></button>
+        </div>
       </article>
     </section>
 
@@ -246,14 +261,29 @@ import { ref, onMounted } from "vue";
   width: 100%;
   height: 100%;
   padding: 5rem 6vw;
-
+  position: relative;
+  min-height: 100vh;
+}
+.page .article-wrapper {
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 8rem 2fr 1fr 2fr;
   grid-template-areas: "title button" "article1 article1" "tools tools" "article2 article2" ;
 }
+.page > article > .article-wrapper, .top-button {
+  background-image: url("assets/page-nav-bg-right.png");
+  background-repeat: repeat-y;
+  background-position: right;
+}
+/* .page > article > .article-wrapper {
+  background-image: url("assets/page-nav-bg-left.png");
+  background-repeat: repeat-y;
+  background-position: left;
+} */
 
-.page article .top-button { grid-area: button;}
+.page article .top-button { grid-area: button; border: none; background-color: #fff}
 .page article .article-section:first-of-type { grid-area: article1;}
 .page article .article-section:last-of-type { grid-area: article2;}
 .page article .article-title { grid-area: title;}
@@ -291,11 +321,14 @@ section#contact {
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-content: center;
-  justify-items: center;
+  align-items: end;
+  justify-content: start;
   margin: 10vh 0;
-  margin-left: 32%;
+  position: relative;
   box-sizing: border-box;
+  margin: 7rem 5vw;
+  max-width: 1680px;
+  padding-right: 6rem;
 }
 
 #contact-wrapper h1 {
@@ -307,9 +340,9 @@ section#contact {
     text-transform: capitalize;
 }
 
-#contact-wrapper h1, h2 {
-    max-width: 75%;
-    text-align: right;
+#contact-wrapper h1 {
+    width: 50%;
+    text-align: center;
     line-height: 3.375rem;
     margin: 0;
     margin-bottom: 2.25rem;
@@ -318,15 +351,42 @@ section#contact {
     filter: sepia(1)
 }
 
-button#return-home {
+button#return-home, button.return-home-up {
   position: absolute;
-  left: 10vh;
-  top: 10vh;
   border: 0;
   height: 4rem;
   width: 4rem;
   cursor: pointer;
+  background-color: transparent;
   background-image: url("assets/down-icon.png");
+  background-repeat: no-repeat;
+  transition: all .3s;
+}
+button#return-home {
+  left: 7rem;
+  top: 0;
+}
+button.return-home-up {
+  padding: 0 !important;
+  background-image: url("assets/up-icon.png");
+  right: 5.75rem;
+  top: 8rem;
+}
+button#return-home:hover, button.return-home-up:hover {
+  border: 4px dashed #846B63;
+  padding: 1rem;
+  height: 6rem;
+  width: 6rem;
+  background-position: center;
+  border-radius: 1rem;
+}
+button#return-home:hover {
+  left: 6rem;
+  top: -1rem;
+}
+button.return-home-up:hover {
+  right: 4.75rem;
+  top: 7rem;
 }
 
 @media (min-width: 1680px) {
@@ -337,7 +397,7 @@ button#return-home {
     right: calc(50% - 12rem) !important;
   }
   .page > article {
-    padding: 5rem 5vw;
+    padding: 5rem 4vw;
   }
 }
 
@@ -369,22 +429,26 @@ button#return-home {
 }
 
 .pages {
-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .page {
-width: 100%;
-margin: 0 auto;
-max-width: 1680px;
-height: 100vh;
-display: flex;
-align-items: center;
-justify-content: start;
-flex-direction: column;
-gap: 10px;
-transition: all 0.7s;
-color: white;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1680px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.7s;
+  color: white;
 }
 .page.one {
   height: auto;
+}
+.page.two {
+  height: auto;
+  margin-top: 36rem;
 }
 </style>

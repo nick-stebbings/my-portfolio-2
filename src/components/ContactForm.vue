@@ -70,12 +70,12 @@
                     <input required type="textarea" class="form-control" id="inputMessage" name="message" />
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#contactConfirmation">Send</button>
+            <button type="submit" class="btn btn-dark btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#contactConfirmation">Send</button>
     </form>
 </template>
 <style>
 form {
-    max-width: 75%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
