@@ -1,5 +1,5 @@
 <template>
-    <form name="contact-form" method="POST" data-netlify="true">
+    <form name="contact-form" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="contact-form" />
             <div class="form-row col-md-6">
                 <div class="form-group col-md-6 mt-3">
@@ -19,8 +19,12 @@
                     <input type="textarea" class="form-control" id="inputMessage" name="message" />
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary mt-3">Send</button>
-        </form>
+            <button type="submit" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#contactConfirmation">Send</button>
+    </form>
+<!-- 
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contactConfirmation">
+    Launch demo modal
+    </button> -->
 </template>
 <style>
 form {

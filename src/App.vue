@@ -184,6 +184,24 @@ import { ref, onMounted } from "vue";
         <button @click="slide('top', 'third')">Top</button>
       </div>
     </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="contactConfirmation" tabindex="-1" aria-labelledby="contactConfirmationLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="contactConfirmationLabel">Contact has been made</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Thanks for getting in touch! I will get back to you soon.
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+              </div>
+        </div>
+    </div>
   </main>
 </template>
 <style scoped>
@@ -205,6 +223,10 @@ import { ref, onMounted } from "vue";
   width: 100%;
   max-width: 1680px;
   /* height: calc(100% - 1rem); */
+}
+
+.modal-dialog {
+  top: 30vh;
 }
 
 .page-nav-container {
