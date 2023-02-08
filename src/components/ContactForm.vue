@@ -1,5 +1,5 @@
 <template>
-    <form name="contact" method="POST" data-netlify="true">
+    <form name="contact-form" method="POST" data-netlify="true">
             <input type="hidden" name="form-name" value="cpntact-form" />
             <div class="form-row col-md-6">
                 <div class="form-group col-md-6 mt-3">
