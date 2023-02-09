@@ -16,37 +16,39 @@ import { ref, onMounted } from "vue";
   const intro2Visible = ref(false);
   const mainLoopVisible = ref(false);
   const navVisible = ref(false);
-
+  let playMainLoop : any;
+  let skipToMainLoop : any;
+  
   function launchScene(animationId: number) {
     intro1Visible.value = false;
     introLoopVisible.value = false;
     intro2Visible.value = false;
     mainLoopVisible.value = false;
     navVisible.value = false;
-
+    
     switch (animationId) {
       case 0:
         intro1Visible.value = true;
         break;
-      case 1:
-        introLoopVisible.value = true;
-        break;
-      case 2:
-        intro2Visible.value = true;
-        break;
-      case 3:
-        mainLoopVisible.value = true;
-        break;
-      case 4:
-        navVisible.value = true;
-        break;
-
-      default:
-        intro1Visible.value = true;
-        break;
-    }
-  }
-
+        case 1:
+          introLoopVisible.value = true;
+          break;
+          case 2:
+            intro2Visible.value = true;
+            break;
+            case 3:
+              mainLoopVisible.value = true;
+              break;
+              case 4:
+                navVisible.value = true;
+                break;
+                
+                default:
+                  navVisible.value = true;
+                  break;
+                }
+              }
+              
   function launch2() {
     launchScene(2);
     const element = document.getElementById("ekFf3Z5Im6j1");
@@ -61,13 +63,25 @@ import { ref, onMounted } from "vue";
   function launchmainloop() {
     launchScene(3);
   }
+  function skiptonav() {
+    clearTimeout(playMainLoop);
+    clearTimeout(skipToMainLoop);
+    launchnav()
+  }
+  
   function launchnav() {
+    clearTimeout(skipToMainLoop);
+    const skipBtn: HTMLBodyElement | null = document.querySelector("#skip-intro");
     launchScene(4);
+    
     const element = document.getElementById("e8VQ6wvtuBg1");
     (element as any).svgatorPlayer.ready(function (el:any) {
       // Restart the animation too
       el.play();
     });
+    skipBtn!.style.opacity = '0';
+    skipBtn!.style.visibility = 'invisible';
+    
     setTimeout(function () {
       const element = document.querySelector(".page-nav-container");
       (element as HTMLBodyElement).style.opacity = '1';
@@ -76,7 +90,8 @@ import { ref, onMounted } from "vue";
       const header = document.querySelector("#wrapper header");
       (header as HTMLBodyElement).style.opacity = '1';
       (header as HTMLBodyElement).style.visibility = 'visible';
-      console.log(header)
+
+
       const articleContent = document.querySelector(".page.two");
       (articleContent as HTMLBodyElement)!.style['margin-top'] = 0;
     }, 4500);
@@ -119,13 +134,19 @@ import { ref, onMounted } from "vue";
     bookMeLinkTarget?.addEventListener('click', () => slide('top', 'bookme'))
     
     // Time the arrival of the second scene (index 1)
-    setTimeout(function () {
+    playMainLoop = setTimeout(function () {
       launchScene(1);
     }, 8000);
+
+    // Assume the user will not click after this amount of time
+    skipToMainLoop = setTimeout(function () {
+      skiptonav();
+    }, 20000);
   });
 </script>
 <template>
   <main class="pages">
+    <button id="skip-intro" @click="skiptonav()"></button>
     <div id="wrapper" class="page one"> 
         <Animation1 v-show="intro1Visible" />
         <AnimationIntroLoop v-show="introLoopVisible" :launch2="launch2" />
@@ -351,7 +372,7 @@ section#contact {
     filter: sepia(1)
 }
 
-button#return-home, button.return-home-up {
+button#return-home, button.return-home-up, button#skip-intro {
   position: absolute;
   border: 0;
   height: 4rem;
@@ -362,6 +383,13 @@ button#return-home, button.return-home-up {
   background-repeat: no-repeat;
   transition: all .3s;
 }
+button#skip-intro {
+  left: 11vw;
+  top: 2rem;
+  z-index: 100;
+  background-image: url("assets/skip-icon.png");
+}
+
 button#return-home {
   left: 7rem;
   top: 0;
@@ -372,7 +400,7 @@ button.return-home-up {
   right: 5.75rem;
   top: 8rem;
 }
-button#return-home:hover, button.return-home-up:hover {
+button#return-home:hover, button.return-home-up:hover, button#skip-intro:hover {
   border: 4px dashed #846B63;
   padding: 1rem;
   height: 6rem;
@@ -380,9 +408,13 @@ button#return-home:hover, button.return-home-up:hover {
   background-position: center;
   border-radius: 1rem;
 }
-button#return-home:hover {
-  left: 6rem;
-  top: -1rem;
+button#skip-intro:hover {
+  left: calc(11vw - 1rem);
+  top: 1rem;
+}
+button.return-home-up:hover {
+  right: 4.75rem;
+  top: 7rem;
 }
 button.return-home-up:hover {
   right: 4.75rem;
@@ -394,38 +426,51 @@ button.return-home-up:hover {
     overflow: initial;
   }
   .page-nav-container {
-    right: calc(50% - 12rem) !important;
+    width: 20vw;
+    right: 6vw !important;
   }
   .page > article {
     padding: 5rem 4vw;
   }
+
+  button#skip-intro {
+    left: 3rem;
+  }
+  button#skip-intro:hover {
+    left: 2rem;
+  }
+
 }
 
 .page-nav-btn {
   border: 0;
-  width: 10vh;
+  width: 33%;
   height: 10vh;
   background-position: center !important;
   opacity: 0.5;
   cursor: pointer;
+  margin: 1rem;
 }
 .page-nav-btn:hover {
   opacity: 1;
+  transform: scale(1.25);
 }
 .page-nav-btn:first-of-type {
-  background: url("assets/tree.svg");
+  background: url("assets/atom.png");
+  background-size: contain;
   background-repeat: no-repeat;
 }
 
 .page-nav-btn:nth-of-type(2) {
-  background: url("assets/radial.svg");
+  background: url("assets/tree.svg");
   background-repeat: no-repeat;
-  transform: rotate(90deg);
+  background-size: contain;
 }
 
 .page-nav-btn:nth-of-type(3) {
   background: url("assets/pyramid.png");
   background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .pages {
