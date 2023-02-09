@@ -103,40 +103,40 @@ import { ref, onMounted } from "vue";
     const pages = document.querySelectorAll(".page");
     const frontPage = document.querySelector(".page.one");
     const frontPageHeight = (frontPage as any).offsetHeight;
-    let translateFrontPage = ["home", "first"].includes(articleName) ;
+    let translatingFromFrontPage = ["home", "first"].includes(articleName) ;
 
     let translateAmount = 100; 
 
-    console.log('translateAmount PRE:>> ', translateAmount);
     switch (articleName) {
       case "home":
         if(direction == "down") {
           translateAmount = frontPageHeight;
-          translateFrontPage = false;
+          // contact form to front page is 100vh translation
+          translatingFromFrontPage = false;
         }
         translateAmount = 100;
         break;
       case "bookme":
-        translateAmount = 100
+        translateAmount = 100;
         break;
       case "first":
         translateAmount = frontPageHeight;
         break;
-      case "second":
-        translateAmount = 200 
+      case "second": // second and third get frontPageHeight added later 
+        translateAmount = 100;
         break;
-      case "third":
-        translateAmount = 300 
+      case "third": // second and third get frontPageHeight added later
+        translateAmount = 200;
         break;
       }
 
     direction === "next" ? translate -= translateAmount : translate += translateAmount;
     pages.forEach(
       page => {
-        (page as HTMLBodyElement).style.transform = `translateY(${translate}${ translateFrontPage ? 'px' : 'vh'})`;
+        // Who needs a switch statement when you can have a torturously nested ternary expression?
+        (page as HTMLBodyElement).style.transform = (translatingFromFrontPage ? `translateY(${translate}px)` : `translateY(${translate}vh) translateY(${articleName == "bookme" ? "0" : (direction === "next" ? ("-" + frontPageHeight) : "0")}px)`);
       }
     );
-    console.log('translateAmount POST:>> ', translateAmount);
   }
 
   onMounted(() => {
@@ -431,10 +431,11 @@ button.return-home-up:hover {
   top: 7rem;
 }
 
+#wrapper > svg  {
+  overflow: initial;
+}
+
 @media (min-width: 1680px) {
-  #wrapper > svg  {
-    overflow: initial;
-  }
   .page-nav-container {
     width: 20vw;
     right: 6vw !important;
