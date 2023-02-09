@@ -101,17 +101,26 @@ import { ref, onMounted } from "vue";
   let translate = 0;
   function slide(direction:string, articleName:string) {
     const pages = document.querySelectorAll(".page");
+    const frontPage = document.querySelector(".page.one");
+    const frontPageHeight = (frontPage as any).offsetHeight;
+    let translateFrontPage = ["home", "first"].includes(articleName) ;
+
     let translateAmount = 100; 
 
+    console.log('translateAmount PRE:>> ', translateAmount);
     switch (articleName) {
       case "home":
-        translateAmount = 100
+        if(direction == "down") {
+          translateAmount = frontPageHeight;
+          translateFrontPage = false;
+        }
+        translateAmount = 100;
         break;
       case "bookme":
         translateAmount = 100
         break;
       case "first":
-        translateAmount = 100
+        translateAmount = frontPageHeight;
         break;
       case "second":
         translateAmount = 200 
@@ -124,9 +133,10 @@ import { ref, onMounted } from "vue";
     direction === "next" ? translate -= translateAmount : translate += translateAmount;
     pages.forEach(
       page => {
-        (page as HTMLBodyElement).style.transform = `translateY(${translate}%)`;
+        (page as HTMLBodyElement).style.transform = `translateY(${translate}${ translateFrontPage ? 'px' : 'vh'})`;
       }
     );
+    console.log('translateAmount POST:>> ', translateAmount);
   }
 
   onMounted(() => {
