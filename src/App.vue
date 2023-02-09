@@ -99,6 +99,7 @@ import { ref, onMounted } from "vue";
 
   // Slide functionality adapted from https://medium.com/@mignunez/how-to-create-a-slide-transition-between-separate-pages-with-html-css-and-javascript-bb7a14393d1
   let translate = 0;
+  let translateAmount;
   function slide(direction:string, articleName:string) {
     document.documentElement.scroll(0,0);
 
@@ -107,7 +108,7 @@ import { ref, onMounted } from "vue";
     const frontPageHeight = (frontPage as any).offsetHeight;
     let translatingFromFrontPage = ["home", "first"].includes(articleName) ;
 
-    let translateAmount = 100; 
+    translateAmount = 100; 
 
     switch (articleName) {
       case "home":
@@ -133,6 +134,15 @@ import { ref, onMounted } from "vue";
       }
 
     direction === "next" ? translate -= translateAmount : translate += translateAmount;
+
+    if(direction == "top") {
+      document.querySelectorAll(".return-home-up").forEach(
+        button => {
+          (button as any)!.style.opacity = "0";
+          (button as any)!.style.visibility = "hidden";
+        }
+      );
+    }
     pages.forEach(
       page => {
         // Who needs a switch statement when you can have a torturously nested ternary expression?
@@ -141,7 +151,65 @@ import { ref, onMounted } from "vue";
     );
   }
 
+  // Lazy loading of images/buttons further down the page
+  let options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.9
+  }
+
+  const callback = (entries:any) => {
+    entries.forEach((entry:any) => {
+      if(entry.isIntersecting) {
+        let upBtn;
+        const upBtns = document.querySelectorAll('.return-home-up');
+        switch (true) {
+          case entry.target.classList.contains('two'):
+            upBtn = upBtns[0];
+            (upBtn as any).style.opacity = "1";
+            (upBtn as any).style.visibility = "visible";
+            translateAmount = 100;
+            break;
+            
+          case entry.target.classList.contains('three'):
+            upBtn = upBtns[1];
+            (upBtn as any).style.opacity = "1";
+            (upBtn as any).style.visibility = "visible";
+            translateAmount = 200;
+            break;
+            
+          case entry.target.classList.contains('four'):
+            upBtn = upBtns[2];
+            (upBtn as any).style.opacity = "1";
+            (upBtn as any).style.visibility = "visible";
+            translateAmount = 300;
+            break;
+        }
+      };
+    
+  });
+  }
+  let observer = new IntersectionObserver(callback, options);
+  
   onMounted(() => {
+    let target2 : Element | null = document.querySelector('.page.two');
+    let target3 : Element | null = document.querySelector('.page.three');
+    let target4 : Element | null = document.querySelector('.page.four');
+    observer!.observe(target2 as Element);
+    observer!.observe(target3 as Element);
+    observer!.observe(target4 as Element);
+    
+    const navBtns = document.querySelectorAll(".page-nav-btn");
+    const headerLinks = document.querySelectorAll("span.header-link");
+    navBtns.forEach((btn: any, i: number) => {
+      btn.addEventListener('mouseover', () => {
+        (headerLinks[i] as any).style['font-size'] = '1.1em';
+      });
+      btn.addEventListener('mouseout', () => {
+        (headerLinks[i] as any).style['font-size'] = '0.909090909em';
+      });
+    })
+
     const bookMeLinkTarget = document.getElementById("book-me-label");
     bookMeLinkTarget?.addEventListener('click', () => slide('top', 'bookme'))
     
@@ -230,7 +298,9 @@ import { ref, onMounted } from "vue";
           <ArticleSection />
           <ArticleTools />
           <ArticleSection />
-        <button class="top-button" @click="slide('top', 'second')"></button>
+          <div class="top-button">
+            <button class="return-home-up" @click="slide('top', 'second')"></button>
+          </div>
       </div>  
       </article>
     </section>
@@ -241,7 +311,9 @@ import { ref, onMounted } from "vue";
           <ArticleSection />
           <ArticleTools />
           <ArticleSection />
-          <button class="top-button" @click="slide('top', 'third')"></button>
+          <div class="top-button">
+            <button class="return-home-up" @click="slide('top', 'third')"></button>
+          </div>
         </div>
       </article>
     </section>
@@ -411,6 +483,8 @@ button.return-home-up {
   background-image: url("assets/up-icon.png");
   right: 5.75rem;
   top: 8rem;
+  opacity: 0;
+  visibility: hidden;
 }
 button#return-home:hover, button.return-home-up:hover, button#skip-intro:hover {
   border: 4px dashed #846B63;

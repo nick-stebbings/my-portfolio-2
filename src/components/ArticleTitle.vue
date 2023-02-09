@@ -17,7 +17,7 @@
         flex-direction: column;
     }
     header.article-title h1, header.article-title h2  {
-        font-family: "Georgia, serif";
+        font-family: "Montserrat, Georgia, serif";
         margin: 0;
         padding: 0;
         padding-left: 3rem;
