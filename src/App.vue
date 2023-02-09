@@ -100,6 +100,8 @@ import { ref, onMounted } from "vue";
   // Slide functionality adapted from https://medium.com/@mignunez/how-to-create-a-slide-transition-between-separate-pages-with-html-css-and-javascript-bb7a14393d1
   let translate = 0;
   function slide(direction:string, articleName:string) {
+    document.documentElement.scroll(0,0);
+
     const pages = document.querySelectorAll(".page");
     const frontPage = document.querySelector(".page.one");
     const frontPageHeight = (frontPage as any).offsetHeight;
@@ -486,8 +488,10 @@ button.return-home-up:hover {
 
 .pages {
   box-sizing: border-box;
+  scroll-snap-type: y mandatory;
 }
 .page {
+  color: white;
   width: 100%;
   margin: 0 auto;
   max-width: 1680px;
@@ -498,7 +502,6 @@ button.return-home-up:hover {
   flex-direction: column;
   gap: 10px;
   transition: all 0.7s;
-  color: white;
 }
 .page.one {
   height: auto;
