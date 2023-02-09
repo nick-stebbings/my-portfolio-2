@@ -365,7 +365,7 @@ import { ref, onMounted } from "vue";
 .page > article {
   width: 100%;
   height: 100%;
-  padding: 5rem 6vw;
+  padding: 1rem 6vw;
   position: relative;
   min-height: 100vh;
 }
@@ -512,12 +512,18 @@ button.return-home-up:hover {
 }
 
 @media (min-width: 1680px) {
+  .page > article {
+    padding: 5rem 4vw;
+  }
+}
+
+@media (min-width: 1680px) {
   .page-nav-container {
     width: 20vw;
     right: 6vw !important;
   }
   .page > article {
-    padding: 5rem 4vw;
+    padding: 5rem 5vw;
   }
 
   button#skip-intro {

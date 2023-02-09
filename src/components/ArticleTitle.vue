@@ -25,8 +25,8 @@
     }
 
     header.article-title h1 {
-        font-size: 3.375em; 
-        line-height: 2.25rem;
+        font-size: 1.5em; 
+        line-height: 1rem;
         margin-bottom: .75rem;
     }
 
@@ -42,10 +42,34 @@
 
     header.article-title h2 {
         position: relative;
-        line-height: 2.5rem;
+        line-height: 1.5rem;
         background-image: url("../assets/page-nav-bg-left.png");
         background-repeat: repeat-y;
         background-position: left;
-        font-size: 2.25em; /* 36px */
+        font-size: 1em;
+    }
+
+    @media (min-width: 1280px) {
+        header.article-title h1 {
+            font-size: 2.25em; /* 36px */
+            line-height: 2rem;
+            margin-bottom: .75rem;
+        }
+        header.article-title h2 {
+            font-size: 1.5em; 
+            line-height: 2rem;
+        }
+    }
+
+    @media (min-width: 1680px) {
+        header.article-title h1 {
+            font-size: 3.375em; 
+            line-height: 2.25rem;
+            margin-bottom: .75rem;
+        }
+        header.article-title h2 {
+            font-size: 2.25em; /* 36px */
+            line-height: 2.5rem;
+        }
     }
 </style>
