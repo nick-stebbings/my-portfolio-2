@@ -511,9 +511,9 @@ button.return-home-up:hover {
   overflow: initial;
 }
 
-@media (min-width: 1680px) {
+@media (min-width: 1440px) {
   .page > article {
-    padding: 5rem 4vw;
+    padding: 5rem 5vw;
   }
 }
 
@@ -523,7 +523,7 @@ button.return-home-up:hover {
     right: 6vw !important;
   }
   .page > article {
-    padding: 5rem 5vw;
+    padding: 5rem 2vw 5rem 4.85vw;
   }
 
   button#skip-intro {
