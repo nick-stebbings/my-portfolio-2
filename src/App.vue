@@ -93,7 +93,7 @@ import { ref, onMounted } from "vue";
 
 
       const articleContent = document.querySelector(".page.two");
-      (articleContent as HTMLBodyElement)!.style['margin-top'] = 0;
+      (articleContent as any)!.style['margin-top'] = 0;
     }, 4500);
   }
 
