@@ -281,7 +281,13 @@ import { ref, onMounted } from "vue";
         </svg> -->
       <article>
         <div class="article-wrapper">
-          <ArticleTitle />
+          <ArticleTitle childclass="left" h1text="HabitFract" h2text="Hello" />
+
+          <section class="case-study">
+            <ArticleTitle childclass="right" h1text="HabitFract" h2text="Hello" />
+            <ArticleSection />
+          </section>
+
           <ArticleSection />
           <ArticleTools />
           <ArticleSection />
@@ -294,7 +300,7 @@ import { ref, onMounted } from "vue";
     <section class="page three">
       <article>
         <div class="article-wrapper">
-          <ArticleTitle />
+          <ArticleTitle h1text="HabitFract" h2text="" />
           <ArticleSection />
           <ArticleTools />
           <ArticleSection />
@@ -307,7 +313,7 @@ import { ref, onMounted } from "vue";
     <section class="page four">
       <article>
         <div class="article-wrapper">
-          <ArticleTitle />
+          <ArticleTitle h1text="HabitFract" h2text="" />
           <ArticleSection />
           <ArticleTools />
           <ArticleSection />
@@ -375,10 +381,10 @@ import { ref, onMounted } from "vue";
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 8rem 2fr 1fr 2fr;
-  grid-template-areas: "title button" "article1 article1" "tools tools" "article2 article2" ;
+  grid-template-areas: "title button" "row1 row1" "row2 row2" "row3 row3" "row4 row4";
 }
 .page > article > .article-wrapper, .top-button {
-  background-image: url("assets/page-nav-bg-right.png");
+  background-image: url("assets/page-nav-bg-white.png");
   background-repeat: repeat-y;
   background-position: right;
 }
@@ -389,12 +395,13 @@ import { ref, onMounted } from "vue";
 } */
 
 .page article .top-button { grid-area: button; border: none; background-color: #fff}
-.page article .article-section:first-of-type { grid-area: article1;}
-.page article .article-section:last-of-type { grid-area: article2;}
 .page article .article-title { grid-area: title;}
-.page article .tools { grid-area: tools;}
+.page article .article-section:first-of-type { grid-area: row1;}
+.page article .tools { grid-area: row2;}
+.page article .article-section:last-of-type { grid-area: row3;}
+.page .article-wrapper > section.case-study { grid-area: row4;}
 
-.modal-dialog {
+modal-dialog {
   top: 30vh;
 }
 
@@ -523,7 +530,7 @@ button.return-home-up:hover {
     right: 6vw !important;
   }
   .page > article {
-    padding: 5rem 2vw 5rem 4.85vw;
+    padding: 5rem 6.5rem 5rem 4.85vw;
   }
 
   button#skip-intro {

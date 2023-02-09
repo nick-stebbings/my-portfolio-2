@@ -1,10 +1,12 @@
 <template>
-    <header class="article-title">
+    <header
+        :class="[childclass, 'article-title']"
+    >
         <h1>
-            HabitFract
+            {{ h1text }}
         </h1>
         <h2>
-            a social, fractal, atomic habit tracker
+            {{ h2text }}
         </h2>
     </header>
 </template>
@@ -12,17 +14,27 @@
     header.article-title {
         width: 100%;
         display: flex;
-        align-items: flex-start;
         justify-content: center;
         flex-direction: column;
     }
+
     header.article-title h1, header.article-title h2  {
         font-family: "Montserrat, Georgia, serif";
         margin: 0;
         padding: 0;
-        padding-left: 3rem;
         font-weight: 500;
+        width: 100%;
     }
+
+    header.article-title.left h1, header.article-title.left h2  {
+        text-align: left;
+        padding-left: 3rem;
+    }
+    header.article-title.right h1, header.article-title.right h2  {
+        text-align: right;
+        padding-right: 3rem;
+    }
+    
 
     header.article-title h1 {
         font-size: 1.5em; 
@@ -33,20 +45,42 @@
     header.article-title h2::before {
         position: absolute;
         content: '';
-        left: 0rem;
         top: -0.05rem;
         width: 100%;
         height: 2px;
-        background-image: url("../assets/divider-1.png");
+        background-repeat: no-repeat;
+        max-width: 100%;
+    }
+    
+    header.article-title.left h2::before {
+        background-image: url("../assets/divider-left.png");
+        background-position: left;
+        left: 0;
+        align-items: flex-start;
+    }
+    header.article-title.right h2::before {
+        background-image: url("../assets/divider-right.png");
+        background-position: right;
+        right: 0;
+        align-items: flex-end;
     }
 
     header.article-title h2 {
         position: relative;
         line-height: 1.5rem;
-        background-image: url("../assets/page-nav-bg-left.png");
         background-repeat: repeat-y;
-        background-position: left;
         font-size: 1em;
+        height: 2rem;
+    }
+    
+    header.article-title.right h2 {
+        background-image: url("../assets/page-nav-bg-right.png");
+        background-position: right;
+    }
+    
+    header.article-title.left h2 {
+        background-image: url("../assets/page-nav-bg-left.png");
+        background-position: left;
     }
 
     @media (min-width: 1280px) {
@@ -73,3 +107,12 @@
         }
     }
 </style>
+<script>
+export default {
+  props: {
+    h1text: String,
+    h2text: String,
+    childclass: String
+  },
+}
+</script>
