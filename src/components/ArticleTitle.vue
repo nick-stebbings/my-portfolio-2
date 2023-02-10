@@ -16,6 +16,44 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
+        position: relative;
+    }
+    header.article-title.left {
+        align-items: flex-start;
+    }
+    header.article-title.right {
+        align-items: flex-end;
+    }
+    .case-study header.article-title::before {
+        position: absolute;
+        content: '';
+        left: 0rem;
+        top: -2rem;
+        height: 4rem;
+        width: 4rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 1rem;
+        background-image: url("../assets/expand-icon.png");
+    }
+    .case-study header.active.article-title::before {
+        background-image: url("../assets/contract-icon.png");
+    }
+    .case-study header.article-title:hover {
+        cursor: pointer;
+    }
+    .case-study header.article-title:hover::before {
+        border: 4px dashed #846B63;
+        padding: 1rem;
+        height: 6rem;
+        width: 6rem;
+        background-position: center;
+        border-radius: 1rem;
+        transition: .3s all;
+    }   
+    .case-study header.article-title:hover::before {
+        left: -1rem;
+        top: -3rem;
     }
 
     header.article-title h1, header.article-title h2  {
@@ -57,6 +95,7 @@
         background-position: left;
         left: 0;
         align-items: flex-start;
+        max-width: 100%;
     }
     header.article-title.right h2::before {
         background-image: url("../assets/divider-right.png");
@@ -64,13 +103,14 @@
         right: 0;
         align-items: flex-end;
     }
-
+    
     header.article-title h2 {
         position: relative;
         line-height: 1.5rem;
         background-repeat: repeat-y;
         font-size: 1em;
         height: 2rem;
+        max-width: 100%;
     }
     
     header.article-title.right h2 {

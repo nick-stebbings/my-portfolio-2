@@ -11,6 +11,7 @@ import ArticleTools from "./components/ArticleTools.vue";
 import ContactForm from "./components/ContactForm.vue";
 
 import { ref, onMounted } from "vue";
+import Carousel from "./components/Carousel.vue";
   const intro1Visible = ref(true);
   const introLoopVisible = ref(false);
   const intro2Visible = ref(false);
@@ -212,6 +213,15 @@ import { ref, onMounted } from "vue";
 
     const bookMeLinkTarget = document.getElementById("book-me-label");
     bookMeLinkTarget?.addEventListener('click', () => slide('top', 'bookme'))
+
+    const expandCaseStudyBtns = document.querySelectorAll(".case-study header");
+    const carouselCaseStudies = document.querySelectorAll(".carousel.slide");
+    expandCaseStudyBtns.forEach((btn: any, i: number) => {
+      btn.addEventListener('click', () => {
+        (carouselCaseStudies[i] as any)!.style.height = btn.classList.contains('active') ? '0' : 'auto'; 
+        btn.classList.toggle('active');
+      });
+    });
     
     // Time the arrival of the second scene (index 1)
     playMainLoop = setTimeout(function () {
@@ -221,7 +231,7 @@ import { ref, onMounted } from "vue";
     // Assume the user will not click after this amount of time
     skipToMainLoop = setTimeout(function () {
       skiptonav();
-    }, 20000);
+    }, 30000);
   });
 </script>
 <template>
@@ -284,10 +294,10 @@ import { ref, onMounted } from "vue";
           <ArticleTitle childclass="left" h1text="HabitFract" h2text="Hello" />
 
           <section class="case-study">
-            <ArticleTitle childclass="right" h1text="HabitFract" h2text="Hello" />
+            <ArticleTitle childclass="right" h1text="Case Study" h2text=" " />
+            <Carousel></Carousel>
             <ArticleSection />
           </section>
-
           <ArticleSection />
           <ArticleTools />
           <ArticleSection />
@@ -300,7 +310,7 @@ import { ref, onMounted } from "vue";
     <section class="page three">
       <article>
         <div class="article-wrapper">
-          <ArticleTitle h1text="HabitFract" h2text="" />
+          <ArticleTitle childclass="left" h1text="HabitFract" h2text="Hello" />
           <ArticleSection />
           <ArticleTools />
           <ArticleSection />
@@ -313,7 +323,7 @@ import { ref, onMounted } from "vue";
     <section class="page four">
       <article>
         <div class="article-wrapper">
-          <ArticleTitle h1text="HabitFract" h2text="" />
+          <ArticleTitle childclass="left" h1text="HabitFract" h2text="Hello" />
           <ArticleSection />
           <ArticleTools />
           <ArticleSection />
@@ -380,8 +390,8 @@ import { ref, onMounted } from "vue";
   height: 100%;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 8rem 2fr 1fr 2fr;
-  grid-template-areas: "title button" "row1 row1" "row2 row2" "row3 row3" "row4 row4";
+  grid-template-rows: 8rem 2fr 2fr 1fr 2fr;
+  grid-template-areas: "title button" "row1 row1" "row2 row2" "row3 row3" "row3 row3" "row4 row4";
 }
 .page > article > .article-wrapper, .top-button {
   background-image: url("assets/page-nav-bg-white.png");

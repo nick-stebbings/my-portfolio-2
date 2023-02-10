@@ -165,7 +165,7 @@ h3:nth-of-type(2) {
         padding-left: 12rem;
     }
 
-    header {
+    #wrapper > header {
         right: -6px;
         top: 105px;
         width: calc( 69% - 7rem);
