@@ -92,7 +92,7 @@
 
 .carousel {
     position: relative;
-    padding: 0 4rem;
+    padding: 0 4rem 0 0;
     background-image: url("../assets/images/bg/page-nav-bg-right.png");
     background-position: right;
     background-repeat: repeat-y;

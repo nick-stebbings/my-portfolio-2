@@ -27,13 +27,16 @@
     .case-study header.article-title::before {
         position: absolute;
         content: '';
-        left: 0rem;
+        left: -1rem;
         top: -1rem;
         height: 4rem;
         width: 4rem;
         background-repeat: no-repeat;
         padding: 1rem;
         background-image: url("../assets/images/icons/expand-icon.png");
+    }
+    .case-study header.article-title h1 {
+        font-family: 'Ropa Sans', 'Roboto', 'Arial', sans-serif;
     }
     .case-study header.active.article-title::before {
         background-image: url("../assets/images/icons/contract-icon.png");
@@ -55,7 +58,7 @@
         transition: .3s all;
     }   
     .case-study header.article-title:hover::before {
-        left: -.5rem;
+        left: -1.5rem;
         top: -1.5rem;
     }
 
@@ -84,7 +87,7 @@
     }
     .case-study .article-title h1 {
         font-size: 2.25em; 
-        font-weight: 600;
+        font-weight: 500;
     }
     
     header.article-title h2::before {

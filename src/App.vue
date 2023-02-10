@@ -219,7 +219,7 @@ import Carousel from "./components/Carousel.vue";
     expandCaseStudyBtns.forEach((btn: any, i: number) => {
       btn.addEventListener('click', () => {
         (carouselCaseStudies[i] as any)!.style.height = btn.classList.contains('active') ? '0' : 'auto'; 
-        btn.style.width = !btn.classList.contains('active') ? 'calc(100% - 4vw)' : '35%';
+        btn.style.width = !btn.classList.contains('active') ? 'calc(100%)' : '35%';
         btn.classList.toggle('active');
       });
     });
@@ -404,7 +404,7 @@ import Carousel from "./components/Carousel.vue";
 .page article .top-button { grid-area: button; border: none; background-color: #fff}
 .page article .article-title { grid-area: title;}
 .page article .article-section:first-of-type { grid-area: row1;}
-.page article .tools { grid-area: row2;}
+.page article .article-tools { grid-area: row2;}
 .page .article-wrapper > section.case-study { grid-area: row3;}
 .page article .article-section:last-of-type { grid-area: row4;}
 .case-study { display: flex; align-items: flex-end; flex-direction: column;}

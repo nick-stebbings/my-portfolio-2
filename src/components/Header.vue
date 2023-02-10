@@ -27,7 +27,7 @@ h1, h2 {
     text-align: center;
 }
 h2,h3, form label {
-    font-family: "Manrope", "Roboto", "Arial", "sans-serif";
+    font-family: "Ropa Sans", "Roboto", "Arial", "sans-serif";
 }
 
 h1 {
