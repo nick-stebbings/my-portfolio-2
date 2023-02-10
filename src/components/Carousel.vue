@@ -1,7 +1,7 @@
 <script setup>
 </script>
 <template>
-    <div id="case-study-carousel" class="carousel slide" data-interval="false" data-bs-ride="carousel">
+    <div id="case-study-carousel" class="carousel slide" data-bs-interval="false" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#case-study-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#case-study-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -63,15 +63,19 @@
 <style>
 .case-study .carousel-control-prev, .case-study .carousel-control-next {
     position: absolute;
-    top: 0;
+    top: -5.5rem;
     bottom: initial;
 }
 
 .case-study .carousel-control-prev, .case-study .carousel-control-next {
-    height: 4rem;
-    width: 4rem;
+    height: 3rem;
+    width: 3rem;    
+    padding: .5rem;
+    background-color: #846B63;
+    border-radius: .5rem;
     background-position: center;
     background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .case-study .carousel-control-prev {
@@ -86,7 +90,7 @@
     background-image: url("../assets/images/icons/right-icon.png");
 }
 
-#case-study-carousel {
+.carousel {
     position: relative;
     padding: 0 4rem;
     background-image: url("../assets/images/bg/page-nav-bg-right.png");
@@ -94,7 +98,13 @@
     background-repeat: repeat-y;
     height: 0;
     overflow: hidden;
-    transition: 1s all ease-in;
+    transition: .3s all ease-out;
+    padding-bottom: 2rem;
+    margin-left: 65%;
+}
+.case-study > header.active + .carousel {
+    overflow: initial;
+    margin-left: 0;
 }
 
 .carousel-indicators button {
@@ -105,12 +115,14 @@
 .carousel-indicators {
     width: 100%;
     z-index: 1;
-    height: 4rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
     bottom: 0;
     left: 0;
     margin: 0;
     padding: 0;
-    background-color: #3c3c3c;
+    background-color: #846B63;
     opacity: 0.5;
 }
 </style>

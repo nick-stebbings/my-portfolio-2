@@ -28,7 +28,7 @@
         position: absolute;
         content: '';
         left: 0rem;
-        top: 0rem;
+        top: -1rem;
         height: 4rem;
         width: 4rem;
         background-repeat: no-repeat;
@@ -46,17 +46,17 @@
     }
     .case-study header.article-title:hover::before {
         background-position: center;
-        border: 4px dashed #846B63;
+        border: 2px dashed #846B63;
         padding: 1rem;
-        height: 6rem;
-        width: 6rem;
+        height: 5rem;
+        width: 5rem;
         background-position: center;
         border-radius: 1rem;
         transition: .3s all;
     }   
     .case-study header.article-title:hover::before {
-        left: -1rem;
-        top: -1rem;
+        left: -.5rem;
+        top: -1.5rem;
     }
 
     header.article-title h1, header.article-title h2  {
