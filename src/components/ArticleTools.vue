@@ -16,7 +16,7 @@
 </template>
 <style>
     section.article-tools {
-        width: 100%;
+        width: 65%;
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -24,8 +24,12 @@
     }
     
     section.article-tools .tools-titles {
-        display: flex;
+        display: grid;
         width: 100%;
+        grid-auto-rows: auto;
+        grid-template-columns: 4fr 2fr 1fr 1fr;
+        gap: 1rem;
+        padding-left: 3rem;
     }
 
     section.article-tools h1, section.article-tools h2  {
@@ -34,7 +38,8 @@
         padding: 0;
         font-weight: 500;
         width: 100%;
-        font-size: 1.5em; 
+        font-size: 1.5em;
+        text-align: left;
     } 
 
     /* section.article-tools h1 {
@@ -55,7 +60,7 @@
         background-repeat: no-repeat;
         max-width: 100%;
         background-image: url("../assets/images/bg/divider-left.png");
-        background-position: left;
+        background-position: right;
         left: 0;
         align-items: flex-start;
         max-width: 100%;
