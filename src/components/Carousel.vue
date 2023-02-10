@@ -77,19 +77,19 @@
 .case-study .carousel-control-prev {
     left: initial;
     right: 55%;
-    background-image: url("../assets/left-icon.png");
+    background-image: url("../assets/images/icons/left-icon.png");
 }
 
 .case-study .carousel-control-next {
     right: initial;
     left: 55%;
-    background-image: url("../assets/right-icon.png");
+    background-image: url("../assets/images/icons/right-icon.png");
 }
 
 #case-study-carousel {
     position: relative;
     padding: 0 4rem;
-    background-image: url("../assets/page-nav-bg-right.png");
+    background-image: url("../assets/images/bg/page-nav-bg-right.png");
     background-position: right;
     background-repeat: repeat-y;
     height: 0;

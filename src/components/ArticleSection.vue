@@ -10,7 +10,7 @@ section.article-section {
     display: flex;
     justify-content: space-between;
     
-    background-image: url("../assets/page-nav-bg-left.png");
+    background-image: url("../assets/images/bg/page-nav-bg-left.png");
     background-repeat: repeat-y;
     background-position: left;
     

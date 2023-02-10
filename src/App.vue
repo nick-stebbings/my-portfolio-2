@@ -396,7 +396,7 @@ import Carousel from "./components/Carousel.vue";
   gap: 1rem;
 }
 .page > article > .article-wrapper, .top-button {
-  background-image: url("assets/page-nav-bg-white.png");
+  background-image: url("assets/images/bg/page-nav-bg-white.png");
   background-repeat: repeat-y;
   background-position: right;
 }
@@ -423,7 +423,7 @@ modal-dialog {
   right: 8.5vw; 
   gap: 2rem;
   width: 24rem;
-  background-image: url("assets/page-nav-bg-bottom.png");
+  background-image: url("assets/images/bg/page-nav-bg-bottom.png");
   background-repeat:repeat-x;
   background-position: right bottom;
   
@@ -478,7 +478,7 @@ button#return-home, button.return-home-up, button#skip-intro {
   width: 4rem;
   cursor: pointer;
   background-color: transparent;
-  background-image: url("assets/down-icon.png");
+  background-image: url("assets/images/icons/down-icon.png");
   background-repeat: no-repeat;
   transition: all .3s;
 }
@@ -486,7 +486,7 @@ button#skip-intro {
   left: 11vw;
   top: 2rem;
   z-index: 100;
-  background-image: url("assets/skip-icon.png");
+  background-image: url("assets/images/icons/skip-icon.png");
 }
 
 button#return-home {
@@ -495,7 +495,7 @@ button#return-home {
 }
 button.return-home-up {
   padding: 0 !important;
-  background-image: url("assets/up-icon.png");
+  background-image: url("assets/images/icons/up-icon.png");
   right: 5.75rem;
   top: 8rem;
   opacity: 0;
@@ -577,13 +577,13 @@ button.return-home-up:hover {
 }
 
 .page-nav-btn:nth-of-type(2) {
-  background: url("assets/tree.svg");
+  background: url("assets/images/icons/tree.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .page-nav-btn:nth-of-type(3) {
-  background: url("assets/pyramid.png");
+  background: url("assets/images/icons/pyramid.png");
   background-repeat: no-repeat;
   background-size: contain;
 }

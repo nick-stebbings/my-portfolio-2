@@ -33,10 +33,10 @@
         width: 4rem;
         background-repeat: no-repeat;
         padding: 1rem;
-        background-image: url("../assets/expand-icon.png");
+        background-image: url("../assets/images/icons/expand-icon.png");
     }
     .case-study header.active.article-title::before {
-        background-image: url("../assets/contract-icon.png");
+        background-image: url("../assets/images/icons/contract-icon.png");
     }
     .case-study header.active.article-title h2::before {
         background-position: right;
@@ -98,14 +98,14 @@
     }
     
     header.article-title.left h2::before {
-        background-image: url("../assets/divider-left.png");
+        background-image: url("../assets/images/bg/divider-left.png");
         background-position: left;
         left: 0;
         align-items: flex-start;
         max-width: 100%;
     }
     header.article-title.right h2::before {
-        background-image: url("../assets/divider-right.png");
+        background-image: url("../assets/images/bg/divider-right.png");
         right: 0;
         align-items: flex-end;
     }
@@ -123,12 +123,12 @@
     }
     
     header.article-title.right h2 {
-        background-image: url("../assets/page-nav-bg-right.png");
+        background-image: url("../assets/images/bg/page-nav-bg-right.png");
         background-position: right;
     }
     
     header.article-title.left h2 {
-        background-image: url("../assets/page-nav-bg-left.png");
+        background-image: url("../assets/images/bg/page-nav-bg-left.png");
         background-position: left;
     }
 
