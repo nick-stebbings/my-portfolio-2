@@ -1,7 +1,7 @@
 <template>
     <section class="article-section">
-        <div class="image"></div>
-        <div class="copy"></div>
+        <div class="image">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacus diam, congue in vulputate quis, convallis sit amet risus. Etiam finibus mollis mollis. Etiam egestas mi sit amet sapien malesuada dapibus in a libero. Pellentesque non pharetra nisi. Aenean accumsan volutpat libero, quis mollis quam sodales eu. Mauris condimentum imperdiet risus, sed placerat dui vulputate a. Nunc nec elit ligula. Integer vestibulum, nibh vel scelerisque lobortis, leo sapien fermentum mauris, nec ultrices diam elit sit amet lacus. Fusce interdum est dolor, vel consequat lorem convallis a. Duis suscipit tincidunt massa, eget rhoncus metus tincidunt quis. Morbi suscipit, enim nec tempor blandit, ligula erat interdum augue, nec pellentesque elit velit non arcu. Donec a tincidunt massa. Maecenas viverra ante vitae mauris suscipit rutrum eu id libero. Nam ultricies velit diam, non hendrerit eros interdum a.</div>
+        <div class="copy"><img src="../assets/atom.png" alt="" srcset=""></div>
     </section>
 </template>
 <style>

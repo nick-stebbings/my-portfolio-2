@@ -219,6 +219,7 @@ import Carousel from "./components/Carousel.vue";
     expandCaseStudyBtns.forEach((btn: any, i: number) => {
       btn.addEventListener('click', () => {
         (carouselCaseStudies[i] as any)!.style.height = btn.classList.contains('active') ? '0' : 'auto'; 
+        btn.style.width = !btn.classList.contains('active') ? 'calc(100% - 4vw)' : '35%';
         btn.classList.toggle('active');
       });
     });
@@ -300,7 +301,7 @@ import Carousel from "./components/Carousel.vue";
           </section>
           <ArticleSection />
           <ArticleTools />
-          <ArticleSection />
+          <!-- <ArticleSection /> -->
           <div class="top-button">
             <button class="return-home-up" @click="slide('top', 'first')"></button>
           </div>
@@ -390,26 +391,23 @@ import Carousel from "./components/Carousel.vue";
   height: 100%;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 8rem 2fr 2fr 1fr 2fr;
+  grid-template-rows: 8rem minmax(8rem, auto) 8rem minmax(8rem, auto) minmax(8rem, auto);
   grid-template-areas: "title button" "row1 row1" "row2 row2" "row3 row3" "row3 row3" "row4 row4";
+  gap: 1rem;
 }
 .page > article > .article-wrapper, .top-button {
   background-image: url("assets/page-nav-bg-white.png");
   background-repeat: repeat-y;
   background-position: right;
 }
-/* .page > article > .article-wrapper {
-  background-image: url("assets/page-nav-bg-left.png");
-  background-repeat: repeat-y;
-  background-position: left;
-} */
 
 .page article .top-button { grid-area: button; border: none; background-color: #fff}
 .page article .article-title { grid-area: title;}
 .page article .article-section:first-of-type { grid-area: row1;}
 .page article .tools { grid-area: row2;}
-.page article .article-section:last-of-type { grid-area: row3;}
-.page .article-wrapper > section.case-study { grid-area: row4;}
+.page .article-wrapper > section.case-study { grid-area: row3;}
+.page article .article-section:last-of-type { grid-area: row4;}
+.case-study { display: flex; align-items: flex-end; flex-direction: column;}
 
 modal-dialog {
   top: 30vh;
@@ -599,7 +597,7 @@ button.return-home-up:hover {
   width: 100%;
   margin: 0 auto;
   max-width: 1680px;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   align-items: center;
   justify-content: start;

@@ -12,7 +12,7 @@
 </template>
 <style>
     header.article-title {
-        width: 100%;
+        width: 35%;
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -28,7 +28,7 @@
         position: absolute;
         content: '';
         left: 0rem;
-        top: -2rem;
+        top: 0rem;
         height: 4rem;
         width: 4rem;
         background-repeat: no-repeat;
@@ -37,6 +37,9 @@
     }
     .case-study header.active.article-title::before {
         background-image: url("../assets/contract-icon.png");
+    }
+    .case-study header.active.article-title h2::before {
+        background-position: right;
     }
     .case-study header.article-title:hover {
         cursor: pointer;
@@ -53,7 +56,7 @@
     }   
     .case-study header.article-title:hover::before {
         left: -1rem;
-        top: -3rem;
+        top: -1rem;
     }
 
     header.article-title h1, header.article-title h2  {
@@ -79,7 +82,11 @@
         line-height: 1rem;
         margin-bottom: .75rem;
     }
-
+    .case-study .article-title h1 {
+        font-size: 2.25em; 
+        font-weight: 600;
+    }
+    
     header.article-title h2::before {
         position: absolute;
         content: '';
@@ -99,11 +106,13 @@
     }
     header.article-title.right h2::before {
         background-image: url("../assets/divider-right.png");
-        background-position: right;
         right: 0;
         align-items: flex-end;
     }
-    
+    .case-study .article-title.right h2::before {
+        background-position: left;
+    }
+
     header.article-title h2 {
         position: relative;
         line-height: 1.5rem;
