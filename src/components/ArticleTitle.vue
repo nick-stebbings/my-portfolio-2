@@ -32,7 +32,6 @@
         height: 4rem;
         width: 4rem;
         background-repeat: no-repeat;
-        background-position: center;
         padding: 1rem;
         background-image: url("../assets/expand-icon.png");
     }
@@ -43,6 +42,7 @@
         cursor: pointer;
     }
     .case-study header.article-title:hover::before {
+        background-position: center;
         border: 4px dashed #846B63;
         padding: 1rem;
         height: 6rem;
@@ -57,7 +57,7 @@
     }
 
     header.article-title h1, header.article-title h2  {
-        font-family: "Montserrat, Georgia, serif";
+        font-family: 'Montserrat', 'Roboto', serif;
         margin: 0;
         padding: 0;
         font-weight: 500;

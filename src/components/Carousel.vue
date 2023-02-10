@@ -76,7 +76,6 @@
     height: 4rem;
     bottom: 0;
     left: 0;
-    top: initial;
     margin: 0;
     padding: 0;
     background-color: #3c3c3c;

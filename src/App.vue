@@ -515,6 +515,10 @@ button#skip-intro:hover {
   left: calc(11vw - 1rem);
   top: 1rem;
 }
+button#return-home:hover {
+  left: 6rem;
+  top: -1rem;
+}
 button.return-home-up:hover {
   right: 4.75rem;
   top: 7rem;
@@ -561,8 +565,11 @@ button.return-home-up:hover {
   cursor: pointer;
   margin: 1rem;
 }
+.page-nav-btn:not(.page-nav-btn:first-of-type) {
+  opacity: 0.4;
+}
 .page-nav-btn:hover {
-  opacity: 1;
+  opacity: 0.8;
   transform: scale(1.25);
 }
 .page-nav-btn:first-of-type {
