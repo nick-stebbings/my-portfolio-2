@@ -499,7 +499,7 @@
         <text
           dx="0"
           dy="0"
-          font-family='Rubik'
+          font-family='Manrope'
           font-size="20"
           font-weight="400"
           transform="translate(162.257921 360.791072)"
@@ -514,7 +514,7 @@
         <text
           dx="0"
           dy="0"
-          font-family='Rubik'
+          font-family='Manrope'
           font-size="20"
           font-weight="600"
           transform="matrix(.799132 0.601155-.601155 0.799132 185.647731 470.791242)"
@@ -529,7 +529,7 @@
         <text
           dx="0"
           dy="0"
-          font-family='Rubik'
+          font-family='Manrope'
           font-size="20"
           font-weight="600"
           transform="translate(201.257921 577.791072)"
@@ -545,7 +545,7 @@
           id="book-me-label"
           dx="-11"
           dy="-3"
-          font-family='Rubik'
+          font-family='Manrope'
           font-size="18"
           font-weight="600"
           transform="matrix(.819152-.573576 0.573576 0.819152 279.841768 655.52125)"

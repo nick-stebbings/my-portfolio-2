@@ -60,7 +60,7 @@
     }
 
     header.article-title h1, header.article-title h2  {
-        font-family: 'Montserrat', 'Roboto', serif;
+        font-family: 'Merriweather', 'Georgia', serif;
         margin: 0;
         padding: 0;
         font-weight: 500;
