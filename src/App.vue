@@ -17,6 +17,10 @@ import Carousel from "./components/Carousel.vue";
   const intro2Visible = ref(false);
   const mainLoopVisible = ref(false);
   const navVisible = ref(false);
+
+  const langs = ref(['Holochain', 'TypeScript', 'Rust', 'GraphQL']);
+  const libs = ref(['React', 'Redis', 'Redux', 'Apollo', 'd3.js']);
+
   let playMainLoop : any;
   let skipToMainLoop : any;
   
@@ -300,7 +304,7 @@ import Carousel from "./components/Carousel.vue";
           </section>
           <ArticleSection paragraphs="Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress."
             imgPath="atom.png" sectionType="summary" />
-          <ArticleTools />
+          <ArticleTools :libs="libs" :langs="langs" />
           <!-- <ArticleSection paragraphs="Lorem upsom" imgPath="atom.png" sectionType="summary" /> -->
           <div class="top-button">
             <button class="return-home-up" @click="slide('top', 'first')"></button>
@@ -313,7 +317,7 @@ import Carousel from "./components/Carousel.vue";
         <div class="article-wrapper">
           <ArticleTitle childclass="left" h1text="HabitFract" h2text="Hello" />
           <ArticleSection paragraphs="Lorem upsom" imgPath="atom.png" sectionType="summary" />
-          <ArticleTools />
+          <ArticleTools :libs="libs" :langs="langs" />
           <ArticleSection paragraphs="Lorem upsom" imgPath="atom.png" sectionType="summary" />
           <div class="top-button">
             <button class="return-home-up" @click="slide('top', 'second')"></button>
@@ -326,7 +330,8 @@ import Carousel from "./components/Carousel.vue";
         <div class="article-wrapper">
           <ArticleTitle childclass="left" h1text="HabitFract" h2text="Hello" />
           <ArticleSection paragraphs="Lorem upsom" imgPath="atom.png" sectionType="summary" />
-          <ArticleTools />
+          <ArticleTools :libs="libs" :langs="langs">
+          </ArticleTools>         
           <ArticleSection paragraphs="Lorem upsom" imgPath="atom.png" sectionType="summary" />
           <div class="top-button">
             <button class="return-home-up" @click="slide('top', 'third')"></button>
