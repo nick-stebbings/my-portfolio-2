@@ -297,11 +297,11 @@ import Carousel from "./components/Carousel.vue";
           <section class="case-study">
             <ArticleTitle childclass="right" h1text="Case Study" h2text=" " />
             <Carousel></Carousel>
-            <ArticleSection />
           </section>
-          <ArticleSection />
+          <ArticleSection paragraphs="Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress."
+            imgPath="atom.png" sectionType="summary" />
           <ArticleTools />
-          <!-- <ArticleSection /> -->
+          <!-- <ArticleSection paragraphs="Lorem upsom" imgPath="atom.png" sectionType="summary" /> -->
           <div class="top-button">
             <button class="return-home-up" @click="slide('top', 'first')"></button>
           </div>
@@ -312,9 +312,9 @@ import Carousel from "./components/Carousel.vue";
       <article>
         <div class="article-wrapper">
           <ArticleTitle childclass="left" h1text="HabitFract" h2text="Hello" />
-          <ArticleSection />
+          <ArticleSection paragraphs="Lorem upsom" imgPath="atom.png" sectionType="summary" />
           <ArticleTools />
-          <ArticleSection />
+          <ArticleSection paragraphs="Lorem upsom" imgPath="atom.png" sectionType="summary" />
           <div class="top-button">
             <button class="return-home-up" @click="slide('top', 'second')"></button>
           </div>
@@ -325,9 +325,9 @@ import Carousel from "./components/Carousel.vue";
       <article>
         <div class="article-wrapper">
           <ArticleTitle childclass="left" h1text="HabitFract" h2text="Hello" />
-          <ArticleSection />
+          <ArticleSection paragraphs="Lorem upsom" imgPath="atom.png" sectionType="summary" />
           <ArticleTools />
-          <ArticleSection />
+          <ArticleSection paragraphs="Lorem upsom" imgPath="atom.png" sectionType="summary" />
           <div class="top-button">
             <button class="return-home-up" @click="slide('top', 'third')"></button>
           </div>
@@ -390,10 +390,10 @@ import Carousel from "./components/Carousel.vue";
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: 8rem minmax(8rem, auto) 8rem minmax(8rem, auto) minmax(8rem, auto);
-  grid-template-areas: "title button" "row1 row1" "row2 row2" "row3 row3" "row3 row3" "row4 row4";
-  gap: 1rem;
+  grid-template-columns: 35% 30% 35%;
+  grid-template-rows: 6rem minmax(8rem, 18rem) minmax(8rem, auto) 8rem minmax(8rem, auto);
+  grid-template-areas: "title title button" "row1 row1 row1" "row2 row2 row2" "row3 row3 row3" "row4 row4 row4";
+  row-gap: 2rem;
 }
 .page > article > .article-wrapper, .top-button {
   background-image: url("assets/images/bg/page-nav-bg-white.png");
@@ -403,10 +403,8 @@ import Carousel from "./components/Carousel.vue";
 
 .page article .top-button { grid-area: button; border: none; background-color: #fff}
 .page article .article-title { grid-area: title;}
-.page article .article-section:first-of-type { grid-area: row1;}
-.page article .article-tools { grid-area: row2;}
-.page .article-wrapper > section.case-study { grid-area: row3;}
-.page article .article-section:last-of-type { grid-area: row4;}
+.page article .article-tools { grid-area: row3;}
+.page .article-wrapper > section.case-study { grid-area: row2;}
 .case-study { display: flex; align-items: flex-end; flex-direction: column;}
 
 modal-dialog {
@@ -571,7 +569,7 @@ button.return-home-up:hover {
   transform: scale(1.25);
 }
 .page-nav-btn:first-of-type {
-  background: url("assets/atom.png");
+  background: url("assets/images/atom.png");
   background-size: contain;
   background-repeat: no-repeat;
 }

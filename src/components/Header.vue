@@ -7,9 +7,8 @@
         <h3>See the results of a bespoke Shopify on a small <span class="header-link">spinning wheel distributor</span></h3>
     </header>
 </template>
-<style>
-
-#wrapper > header {
+<style scoped>
+header {
     position: absolute;
     font-size: 16px;
     opacity: 0;
@@ -73,7 +72,7 @@ h3:nth-of-type(2) {
 }
 
 @media (min-width: 1024px) {
-    #wrapper > header {
+    header {
         top: 4rem;
     }  
     h1 {
@@ -87,7 +86,7 @@ h3:nth-of-type(2) {
 }
 
 @media (min-width: 1280px) {
-    #wrapper > header {
+    header {
         right: 6rem;
         top: 6rem;
     }  
@@ -110,7 +109,7 @@ h3:nth-of-type(2) {
     }
 }
 @media (min-width: 1440px) {
-    #wrapper > header {
+    header {
         right: 6rem;
         top: 5rem;
     }    
@@ -165,8 +164,8 @@ h3:nth-of-type(2) {
         padding-left: 12rem;
     }
 
-    #wrapper > header {
-        right: -6px;
+    header {
+        right: 6rem;
         top: 105px;
         width: calc( 69% - 7rem);
     }

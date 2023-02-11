@@ -107,6 +107,10 @@
     margin-left: 0;
 }
 
+.case-study > .article-title.active + .carousel .carousel-indicators {
+    left: 0;
+}
+
 .carousel-indicators button {
     display: flex;
     align-items: center;
@@ -119,7 +123,7 @@
     display: flex;
     align-items: center;
     bottom: 0;
-    left: 0;
+    left: -2.5rem;
     margin: 0;
     padding: 0;
     background-color: #846B63;

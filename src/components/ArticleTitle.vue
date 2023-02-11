@@ -47,6 +47,9 @@
     .case-study header.article-title:hover {
         cursor: pointer;
     }
+    .case-study header.article-title h2:hover {
+        cursor: initial;
+    }
     .case-study header.article-title:hover::before {
         background-position: center;
         border: 2px dashed #846B63;
@@ -81,6 +84,7 @@
     
 
     header.article-title h1 {
+        color: #3C3C3C;
         font-size: 1.5em; 
         line-height: 1rem;
         margin-bottom: .75rem;
@@ -117,6 +121,7 @@
     }
 
     header.article-title h2 {
+        color: #3C3C3C;
         position: relative;
         line-height: 1.5rem;
         background-repeat: repeat-y;

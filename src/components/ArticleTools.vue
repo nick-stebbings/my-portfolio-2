@@ -33,6 +33,7 @@
     }
 
     section.article-tools h1, section.article-tools h2  {
+        color: #3C3C3C;
         font-family: 'Ropa Sans', 'Roboto', 'Arial', sans-serif;
         margin: 0;
         padding: 0;
@@ -79,11 +80,12 @@
     
 </style>
 <script>
-// export default {
-//   props: {
-//     h1text: String,
-//     h2text: String,
-//     childclass: String
-//   },
-// }
+export default {
+  props: {
+    demoUrl: String,
+    designsUrl: String,
+    langs: Array,
+    libs: Array,
+  },
+}
 </script>
