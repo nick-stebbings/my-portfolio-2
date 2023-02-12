@@ -20,16 +20,18 @@
                 </div>
                 <div class="langs-libs-lists">
                     <div class="langs">
-                        <div class="langs-list"></div>
-                        <ul v-for="lang in langs">
-                            <li>{{ lang }}</li>
-                        </ul>
+                        <div class="langs-list">
+                            <ul v-for="lang in langs">
+                                <li>{{ lang }}</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="libs">
-                        <div class="libs-list"></div>
-                        <ul v-for="lib in libs">
-                            <li>{{ lib }}</li>
-                        </ul>
+                        <div class="libs-list">    
+                            <ul v-for="lib in libs">
+                                <li>{{ lib }}</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -38,7 +40,7 @@
                     <img src="../assets/images/icons/viewports-icon.png" alt="viewports-icon" />
                 </div>
                 <div class="content-link">
-                    <a href="#" target="_blank">
+                    <a :href="demoUrl" target="_blank">
                         <img src="../assets/images/icons/link-icon.png" alt="demo hyperlink" />
                     </a>
                 </div>
@@ -48,7 +50,7 @@
                     <img src="../assets/images/icons/gitcat-icon.png" alt="code-icon" />
                 </div>
                 <div class="content-link">
-                    <a href="#" target="_blank">
+                    <a :href="codebaseUrl" target="_blank">
                         <img src="../assets/images/icons/link-icon.png" alt="codebase hyperlink" />
                     </a>
                 </div>
@@ -58,7 +60,7 @@
                     <img src="../assets/images/icons/figma-icon.png" alt="code-icon" />
                 </div>
                 <div class="content-link">
-                    <a href="#" target="_blank">
+                    <a :href="designsUrl" target="_blank">
                         <img src="../assets/images/icons/link-icon.png" alt="designs hyperlink" />
                     </a>
                 </div>
@@ -68,7 +70,7 @@
 </template>
 <style>
     section.article-tools {
-        width: 75%;
+        width: 65%;
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -162,8 +164,12 @@
         display: flex;
         justify-content: space-between;
     }
+    section.article-tools .langs-list {
+        padding-left: .5rem;
+    }
     section.article-tools .langs-libs {
         flex-direction: column;
+        padding-right: 3rem;
     }
 
     section.article-tools .tools-content ul {
@@ -185,6 +191,7 @@
 export default {
   props: {
     demoUrl: String,
+    codebaseUrl: String,
     designsUrl: String,
     langs: Array,
     libs: Array,

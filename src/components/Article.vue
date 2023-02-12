@@ -1,25 +1,74 @@
-<script setup lang="ts">
-import { ref, toRefs } from 'vue'
+<template>
+  <article>
+    <div class="article-wrapper">
+      <ArticleTitle childClass="left" :h1text="details.title" :h2text="details.subtitle" />
+      <section class="case-study">
+        <ArticleTitle childClass="right" h1text="Case Study" h2text=" " />
+        <Carousel></Carousel>
+      </section>
+      <ArticleSection 
+        :paragraphs="details.summary.paragraphs"
+        :imgPath="details.summary.imgPath"
+        sectionType="summary" />
+      <ArticleTools
+        :libs="details.libs"
+        :langs="details.langs"
+        :demoUrl="details.demoUrl"
+        :codebaseUrl="details.codebaseUrl"
+        :designsUrl="details.designsUrl"
+      />
+
+      <div class="top-button">
+          <button class="return-home-up" @click="slide('top', 'first')"></button>
+      </div>
+    </div>
+  </article>
+</template>
+<script>
 import ArticleSection from "./ArticleSection.vue";
 import ArticleTitle from "./ArticleTitle.vue";
 import ArticleTools from "./ArticleTools.vue";
-
-const props = defineProps({
-  slide: Function,
-})
-const { slide } = toRefs(props)
-
+import Carousel from "./Carousel.vue";
+export default {
+  props: {
+    details: Object,
+    slide: Function,
+  },
+  components: {
+    ArticleSection,
+    ArticleTitle,
+    ArticleTools,
+    Carousel,
+  }
+}
 </script>
-<template>
-    <article>
-    <div class="article-wrapper">
-        <ArticleTitle />
-        <ArticleSection />
-        <ArticleTools />
-        <ArticleSection />
-        <!-- <button class="top-button" @click="$emit("slide('top', 'first')"    )"></button> -->
-    </div>
-    </article>
-</template>
 <style>
+  .page > article {
+    width: 100%;
+    height: 100%;
+    padding: 1rem 6vw;
+    position: relative;
+    min-height: 100vh;
+  }
+  .page .article-wrapper {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 35% 30% 35%;
+    grid-template-rows: 6rem minmax(8rem, 18rem) minmax(8rem, auto) 14rem minmax(8rem, auto);
+    grid-template-areas: "title title button" "row1 row1 row1" "row2 row2 row2" "row3 row3 row3" "row4 row4 row4";
+    row-gap: 2rem;
+  }
+  .page > article > .article-wrapper, .top-button {
+    background-image: url("../assets/images/bg/page-nav-bg-white.png");
+    background-repeat: repeat-y;
+    background-position: right;
+  }
+
+  .page article .top-button { grid-area: button; border: none; background-color: #fff}
+  .page article .article-title { grid-area: title;}
+  .page article .article-tools { grid-area: row3;}
+  .page .article-wrapper > section.case-study { grid-area: row2;}
+  .case-study { display: flex; align-items: flex-end; flex-direction: column;}
+
 </style>

@@ -1,25 +1,34 @@
 <script setup lang="ts">
-import Header from "./components/Header.vue";
-import Animation1 from "./components/Animation1.vue";
-import AnimationIntroLoop from "./components/AnimationIntroLoop.vue";
-import Animation2 from "./components/Animation2.vue";
-import AnimationMainLoop from "./components/AnimationMainLoop.vue";
-import AnimationNav from "./components/AnimationNav.vue";
-import ArticleSection from "./components/ArticleSection.vue";
-import ArticleTitle from "./components/ArticleTitle.vue";
-import ArticleTools from "./components/ArticleTools.vue";
-import ContactForm from "./components/ContactForm.vue";
+  import Header from "./components/Header.vue";
+  import Animation1 from "./components/Animation1.vue";
+  import AnimationIntroLoop from "./components/AnimationIntroLoop.vue";
+  import Animation2 from "./components/Animation2.vue";
+  import AnimationMainLoop from "./components/AnimationMainLoop.vue";
+  import AnimationNav from "./components/AnimationNav.vue";
+  import Article from "./components/Article.vue";
+  import ContactForm from "./components/ContactForm.vue";
 
-import { ref, onMounted } from "vue";
-import Carousel from "./components/Carousel.vue";
+  import { ref, onMounted } from "vue";
   const intro1Visible = ref(true);
   const introLoopVisible = ref(false);
   const intro2Visible = ref(false);
   const mainLoopVisible = ref(false);
   const navVisible = ref(false);
 
-  const langs = ref(['Holochain', 'TypeScript', 'Rust', 'GraphQL']);
-  const libs = ref(['React', 'Redis', 'Redux', 'Apollo', 'd3.js']);
+  const details = ref({
+    title: 'Blah',
+    subtitle: 'Blah',
+    summary: {
+      paragraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress.",
+      imgPath: "atom.png"
+    },
+    langs: ['React', 'Redis', 'Redux', 'Apollo', 'd3.js'], 
+    libs: ['React', 'Redis', 'Redux', 'Apollo', 'd3.js'],
+    demoUrl: "https://habfract.online",
+    codebaseUrl: "https://github.com",
+    designsUrl: "https://habfract.online",
+    articleParagraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress."
+  });
 
   let playMainLoop : any;
   let skipToMainLoop : any;
@@ -52,7 +61,7 @@ import Carousel from "./components/Carousel.vue";
                   navVisible.value = true;
                   break;
                 }
-              }
+  }
               
   function launch2() {
     launchScene(2);
@@ -73,7 +82,6 @@ import Carousel from "./components/Carousel.vue";
     clearTimeout(skipToMainLoop);
     launchnav()
   }
-  
   function launchnav() {
     clearTimeout(skipToMainLoop);
     const skipBtn: HTMLBodyElement | null = document.querySelector("#skip-intro");
@@ -130,14 +138,14 @@ import Carousel from "./components/Carousel.vue";
       case "first":
         translateAmount = frontPageHeight;
         break;
-      case "second": // second and third get frontPageHeight added later 
+        case "second": // second and third get frontPageHeight added later 
         translateAmount = 100;
         break;
-      case "third": // second and third get frontPageHeight added later
+        case "third": // second and third get frontPageHeight added later
         translateAmount = 200;
         break;
       }
-
+      
     direction === "next" ? translate -= translateAmount : translate += translateAmount;
 
     if(direction == "top") {
@@ -165,10 +173,11 @@ import Carousel from "./components/Carousel.vue";
 
   const callback = (entries:any) => {
     entries.forEach((entry:any) => {
+      console.log('upBtns :>> ', entry);
       if(entry.isIntersecting) {
         let upBtn;
         const upBtns = document.querySelectorAll('.return-home-up');
-        switch (true) {
+        switch (true) { 
           case entry.target.classList.contains('two'):
             upBtn = upBtns[0];
             (upBtn as any).style.opacity = "1";
@@ -263,81 +272,13 @@ import Carousel from "./components/Carousel.vue";
       </div>
     </section>
     <section class="page two">
-      <!-- <svg
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          viewBox="0 0 1280 720"
-          shape-rendering="geometricPrecision"
-          text-rendering="geometricPrecision"
-          style="overflow:initial"
-        >
-
-          <g id="e8VQ6wvtuBg23" transform="matrix(-1 0 0-.300403 1530 -300)">
-            <rect
-              width="14"
-              height="1800"
-              rx="0"
-              ry="0"
-              transform="matrix(-1 0 0-1.476148 344 715.22737)"
-              fill="#EEEDE7"
-          fill-opacity="1"
-            />
-            <rect
-              width="7"
-              height="1800"
-              rx="0"
-              ry="0"
-              transform="matrix(1.000001 0 0-1.476148 350.999997 715.22737)"
-              fill="#EEEDE7"
-          fill-opacity="1"
-            />
-          </g>
-
-        </svg> -->
-      <article>
-        <div class="article-wrapper">
-          <ArticleTitle childclass="left" h1text="HabitFract" h2text="Hello" />
-
-          <section class="case-study">
-            <ArticleTitle childclass="right" h1text="Case Study" h2text=" " />
-            <Carousel></Carousel>
-          </section>
-          <ArticleSection paragraphs="Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress."
-            imgPath="atom.png" sectionType="summary" />
-          <ArticleTools :libs="libs" :langs="langs" />
-          <!-- <ArticleSection paragraphs="Lorem upsom" imgPath="atom.png" sectionType="summary" /> -->
-          <div class="top-button">
-            <button class="return-home-up" @click="slide('top', 'first')"></button>
-          </div>
-        </div>
-      </article>
+      <Article :details="details" :slide="slide" />
     </section>
     <section class="page three">
-      <article>
-        <div class="article-wrapper">
-          <ArticleTitle childclass="left" h1text="HabitFract" h2text="Hello" />
-          <ArticleSection paragraphs="Lorem upsom" imgPath="atom.png" sectionType="summary" />
-          <ArticleTools :libs="libs" :langs="langs" />
-          <ArticleSection paragraphs="Lorem upsom" imgPath="atom.png" sectionType="summary" />
-          <div class="top-button">
-            <button class="return-home-up" @click="slide('top', 'second')"></button>
-          </div>
-      </div>  
-      </article>
+      <Article :details="details" :slide="slide" />
     </section>
     <section class="page four">
-      <article>
-        <div class="article-wrapper">
-          <ArticleTitle childclass="left" h1text="HabitFract" h2text="Hello" />
-          <ArticleSection paragraphs="Lorem upsom" imgPath="atom.png" sectionType="summary" />
-          <ArticleTools :libs="libs" :langs="langs">
-          </ArticleTools>         
-          <ArticleSection paragraphs="Lorem upsom" imgPath="atom.png" sectionType="summary" />
-          <div class="top-button">
-            <button class="return-home-up" @click="slide('top', 'third')"></button>
-          </div>
-        </div>
-      </article>
+      <Article :details="details" :slide="slide" />
     </section>
 
     <!-- Modal -->
@@ -377,61 +318,16 @@ import Carousel from "./components/Carousel.vue";
 }
 
 #wrapper > svg {
+  overflow: initial;
   width: 100%;
   max-width: 1680px;
 }
-
-.page.two > svg {
-  position: absolute;
-}
-.page > article {
-  width: 100%;
-  height: 100%;
-  padding: 1rem 6vw;
-  position: relative;
-  min-height: 100vh;
-}
-.page .article-wrapper {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 35% 30% 35%;
-  grid-template-rows: 6rem minmax(8rem, 18rem) minmax(8rem, auto) 8rem minmax(8rem, auto);
-  grid-template-areas: "title title button" "row1 row1 row1" "row2 row2 row2" "row3 row3 row3" "row4 row4 row4";
-  row-gap: 2rem;
-}
-.page > article > .article-wrapper, .top-button {
-  background-image: url("assets/images/bg/page-nav-bg-white.png");
-  background-repeat: repeat-y;
-  background-position: right;
-}
-
-.page article .top-button { grid-area: button; border: none; background-color: #fff}
-.page article .article-title { grid-area: title;}
-.page article .article-tools { grid-area: row3;}
-.page .article-wrapper > section.case-study { grid-area: row2;}
-.case-study { display: flex; align-items: flex-end; flex-direction: column;}
 
 modal-dialog {
   top: 30vh;
 }
 
-.page-nav-container {
-  display: flex;
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 1s ease-in 0s, right 0.5s ease-out 0s;
-  bottom: 1rem; 
-  right: 8.5vw; 
-  gap: 2rem;
-  width: 24rem;
-  background-image: url("assets/images/bg/page-nav-bg-bottom.png");
-  background-repeat:repeat-x;
-  background-position: right bottom;
-  
-}
-
+/* Contact page form */
 section#contact {
   position: absolute;
   top: -100vh;
@@ -474,89 +370,21 @@ section#contact {
     filter: sepia(1)
 }
 
-button#return-home, button.return-home-up, button#skip-intro {
+/* Navigation Bar */
+.page-nav-container {
+  display: flex;
   position: absolute;
-  border: 0;
-  height: 4rem;
-  width: 4rem;
-  cursor: pointer;
-  background-color: transparent;
-  background-image: url("assets/images/icons/down-icon.png");
-  background-repeat: no-repeat;
-  transition: all .3s;
-}
-button#skip-intro {
-  left: 11vw;
-  top: 2rem;
-  z-index: 100;
-  background-image: url("assets/images/icons/skip-icon.png");
-}
-
-button#return-home {
-  left: 7rem;
-  top: 0;
-}
-button.return-home-up {
-  padding: 0 !important;
-  background-image: url("assets/images/icons/up-icon.png");
-  right: 5.75rem;
-  top: 8rem;
   opacity: 0;
   visibility: hidden;
+  transition: opacity 1s ease-in 0s, right 0.5s ease-out 0s;
+  bottom: 1rem; 
+  right: 8.5vw; 
+  gap: 2rem;
+  width: 24rem;
+  background-image: url("assets/images/bg/page-nav-bg-bottom.png");
+  background-repeat:repeat-x;
+  background-position: right bottom;
 }
-button#return-home:hover, button.return-home-up:hover, button#skip-intro:hover {
-  border: 4px dashed #846B63;
-  padding: 1rem;
-  height: 6rem;
-  width: 6rem;
-  background-position: center;
-  border-radius: 1rem;
-}
-button#skip-intro:hover {
-  left: calc(11vw - 1rem);
-  top: 1rem;
-}
-button#return-home:hover {
-  left: 6rem;
-  top: -1rem;
-}
-button.return-home-up:hover {
-  right: 4.75rem;
-  top: 7rem;
-}
-button.return-home-up:hover {
-  right: 4.75rem;
-  top: 7rem;
-}
-
-#wrapper > svg  {
-  overflow: initial;
-}
-
-@media (min-width: 1440px) {
-  .page > article {
-    padding: 5rem 5vw;
-  }
-}
-
-@media (min-width: 1680px) {
-  .page-nav-container {
-    width: 20vw;
-    right: 6vw !important;
-  }
-  .page > article {
-    padding: 5rem 6.5rem 5rem 4.85vw;
-  }
-
-  button#skip-intro {
-    left: 3rem;
-  }
-  button#skip-intro:hover {
-    left: 2rem;
-  }
-
-}
-
 .page-nav-btn {
   border: 0;
   width: 33%;
@@ -591,6 +419,7 @@ button.return-home-up:hover {
   background-size: contain;
 }
 
+/* Project pages */
 .pages {
   box-sizing: border-box;
   scroll-snap-type: y mandatory;
@@ -614,5 +443,29 @@ button.return-home-up:hover {
 .page.two {
   height: auto;
   margin-top: 36rem;
+}
+
+/* Media Queries */
+@media (min-width: 1440px) {
+  .page > article {
+    padding: 5rem 5vw;
+  }
+}
+
+@media (min-width: 1680px) {
+  .page-nav-container {
+    width: 20vw;
+    right: 6vw !important;
+  }
+  .page > article {
+    padding: 5rem 6.5rem 5rem 4.85vw;
+  }
+
+  button#skip-intro {
+    left: 3rem;
+  }
+  button#skip-intro:hover {
+    left: 2rem;
+  }
 }
 </style>

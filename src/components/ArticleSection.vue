@@ -22,6 +22,9 @@
     .page article .article-section:nth-of-type(2n+1) { grid-column-start: 2; grid-column-end: 4;}
     .page article .article-section.summary:nth-of-type(2n) { grid-column-start: 1; grid-column-end: 4;}
 
+    section.article-section.image {
+        display: grid;
+    }
     section.article-section.summary {
         background-image: url("../assets/images/bg/page-nav-bg-right.png");
         background-position: right;

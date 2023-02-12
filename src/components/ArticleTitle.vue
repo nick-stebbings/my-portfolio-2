@@ -1,6 +1,6 @@
 <template>
     <header
-        :class="[childclass, 'article-title']"
+        :class="[childClass, 'article-title']"
     >
         <h1>
             {{ h1text }}
@@ -12,7 +12,7 @@
 </template>
 <style>
     header.article-title {
-        width: 35%;
+        width: 50%;
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -106,7 +106,7 @@
     
     header.article-title.left h2::before {
         background-image: url("../assets/images/bg/divider-left.png");
-        background-position: left;
+        background-position: right;
         left: 0;
         align-items: flex-start;
         max-width: 100%;
@@ -169,7 +169,7 @@ export default {
   props: {
     h1text: String,
     h2text: String,
-    childclass: String
+    childClass: String
   },
 }
 </script>

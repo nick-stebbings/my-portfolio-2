@@ -3,3 +3,58 @@ body {
   padding: 0;
   margin: 0 !important;
 }
+
+/* Buttons */
+button#return-home, button.return-home-up, button#skip-intro {
+  position: absolute;
+  border: 0;
+  height: 4rem;
+  width: 4rem;
+  cursor: pointer;
+  background-color: transparent;
+  background-image: url("assets/images/icons/down-icon.png");
+  background-repeat: no-repeat;
+  transition: all .3s;
+}
+
+button.return-home-up {
+  padding: 0 !important;
+  background-image: url("assets/images/icons/up-icon.png");
+  right: 5.75rem;
+  top: 8rem;
+  opacity: 0;
+  visibility: hidden;
+}
+button.return-home-up:hover {
+  right: 4.75rem;
+  top: 7rem;
+}
+
+button#skip-intro {
+  left: 11vw;
+  top: 2rem;
+  z-index: 100;
+  background-image: url("assets/images/icons/skip-icon.png");
+}
+
+button#return-home {
+  left: 7rem;
+  top: 0;
+}
+
+button#return-home:hover, button.return-home-up:hover, button#skip-intro:hover {
+  border: 4px dashed #846B63;
+  padding: 1rem;
+  height: 6rem;
+  width: 6rem;
+  background-position: center;
+  border-radius: 1rem;
+}
+button#skip-intro:hover {
+  left: calc(11vw - 1rem);
+  top: 1rem;
+}
+button#return-home:hover {
+  left: 6rem;
+  top: -1rem;
+}
