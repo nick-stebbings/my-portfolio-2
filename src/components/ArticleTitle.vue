@@ -29,7 +29,7 @@
         position: absolute;
         content: '';
         left: -1rem;
-        top: -1rem;
+        top: 0rem;
         height: 4rem;
         width: 4rem;
         background-repeat: no-repeat;
@@ -63,9 +63,9 @@
     }   
     .case-study header.article-title:hover::before {
         left: -1.5rem;
-        top: -1.5rem;
+        top: -.5rem;
     }
-
+    
     header.article-title h1, header.article-title h2  {
         font-family: 'Merriweather', 'Georgia', serif;
         margin: 0;

@@ -4,9 +4,10 @@
     >
         <div class="tools-titles">
             <h2>Tool Summary</h2>
-            <h2>Demo</h2>
+            <h2 v-show="hasDemo">Demo</h2>
             <h2>Codebase</h2>
-            <h2>Designs</h2>  
+            <h2 v-show="hasFigma">Designs</h2>  
+            <h2 v-show="hasBlog">Blog</h2>  
         </div>
         <div class="tools-content">
             <div class="langs-libs">
@@ -35,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div class="demo-content">
+            <div v-show="hasDemo" class="demo-content">
                 <div class="content-icon">
                     <img src="../assets/images/icons/viewports-icon.png" alt="viewports-icon" />
                 </div>
@@ -55,13 +56,23 @@
                     </a>
                 </div>
             </div>
-            <div class="designs-content">
+            <div v-show="hasFigma" class="designs-content">
                 <div class="content-icon">
                     <img src="../assets/images/icons/figma-icon.png" alt="code-icon" />
                 </div>
                 <div class="content-link">
                     <a :href="designsUrl" target="_blank">
                         <img src="../assets/images/icons/link-icon.png" alt="designs hyperlink" />
+                    </a>
+                </div>
+            </div>
+            <div v-show="hasBlog" class="designs-content">
+                <div class="content-icon">
+                    <img src="../assets/images/icons/blog-icon.png" alt="blog-icon" />
+                </div>
+                <div class="content-link">
+                    <a :href="blogUrl" target="_blank">
+                        <img src="../assets/images/icons/link-icon.png" alt="blog hyperlink" />
                     </a>
                 </div>
             </div>
@@ -81,7 +92,7 @@
         display: grid;
         width: 100%;
         grid-auto-rows: auto;
-        grid-template-columns: 2fr 2fr 1fr 1fr;
+        grid-template-columns: 3fr 2fr 1fr 1fr 1fr;
         gap: 1rem;
         padding-left: 3rem;
     }
@@ -199,8 +210,20 @@ export default {
     demoUrl: String,
     codebaseUrl: String,
     designsUrl: String,
+    blogUrl: String,
     langs: Array,
     libs: Array,
   },
+  computed : {
+    hasBlog() {
+        return typeof this?.blogUrl != "undefined"
+    },
+    hasFigma() {
+        return typeof this?.designsUrl != "undefined"
+    },
+    hasDemo() {
+        return typeof this?.demoUrl != "undefined"
+    },
+  }
 }
 </script>

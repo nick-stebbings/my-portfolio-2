@@ -23,7 +23,7 @@ export default {
       title: 'HabitFract v1 Frontend',
       mainText:
         'A development of my first habit tracking app to include hierarchical visualisation of the habits using the d3 library (Data Driven Documents). This was a much more ambitious project than the one from which it stemmed. I moved to a multi-layered architecture: my first single-paged app. I also performed a full manual deployment to a Digital Ocean droplet, Dockerised both layers and used Github actions and DockerHub for CD//I spent some time working on integrating d3-hierarchy visualisations with a lightweight frontend framework called Mithril. Since Mithril is unopiniated about global state management I tried to find my own solutions using functional streams of data. This prepared me well for learning Redux and understanding React state hooks, but was ultimately buggy and hard to maintain. // I plan to reuse the d3 interface in v2 of the project, since much of the logic was componentised and written in JSX// UPDATE: This version is no longer live as a migration to React is now complete. The demo link here demonstrates the new UI which is a clone of the v1 Frontend. Some features are yet to be migrated.',
-      subText: 'A fractal habit tracking single page application',
+    //   subText: 'A fractal habit tracking single page application',
       img2: habitFractV2Img,
       img: habitFractV2ImgFront,
       skills: [
@@ -34,8 +34,8 @@ export default {
         'Build-first methodology',
         'Code Splitting',
       ],
-      langs: 'Ruby, JavaScript, Sass & PostCSS',
-      libs: ['D3js', 'Tailwind CSS', 'Webpack 4', 'Mithril'],
+      langs: ['Ruby', 'JavaScript', 'Sass', 'PostCSS'],
+      libs: ['d3.js', 'Tailwind CSS', 'Webpack 4', 'Mithril'],
       demoLink: 'https://habfract.online',
       gitLink:
         'https://github.com/nick-stebbings/fractal-habits-SPA-tailwind-react-redux',

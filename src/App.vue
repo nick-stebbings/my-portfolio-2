@@ -21,36 +21,36 @@
       title: 'Habit/Fract (for Holochain)',
       subtitle: 'a social, fractal, atomic habit tracker',
       summary: {
-        paragraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress.",
+        paragraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!After trying out many linear habit trackers (including some very visually and narratively interesting apps) I found that there was nothing meeting my personal requirements. \\r\\n\\r\\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). While it is always the day-to-day actions that one must focus on, as a result of this top-down way of thinking it can be difficult to link daily actions to the bigger picture and make consistent progress.\\r\\n\\r\\nConversely, many people are great at breaking down and acting on small-magnitude behaviours (the list-writers!). Habit/Fract came about as a way of uniting the two ways of thinking in a way that provides visual cues and helps to build and break down habitual behaviour over time.",
         imgPath: "atom.png"
       },
-      langs: ['React', 'Redis', 'Redux', 'Apollo', 'd3.js'], 
-      libs: ['React', 'Redis', 'Redux', 'Apollo', 'd3.js'],
-      demoUrl: "https://habfract.online",
-      codebaseUrl: "https://github.com",
-      designsUrl: "https://habfract.online",
+      langs: ['Holochain', 'TypeScript', 'Rust', 'GraphQL'], 
+      libs: ['React', 'Redis', 'Redux', 'Apollo', 'd3.js', 'Storybook'],
+      codebaseUrl: "https://github.com/HabFract",
+      designsUrl: "https://www.figma.com/file/m8CE7oXUuSw2BGkS7fdvBD/Habfract-Holochain-1.1-Design-System?node-id=214%3A2091&t=QOvj4igG3f1neSkk-1",
       articles: [
-        { paragraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress.", imgPath: "atom.png"},
-        { paragraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress.", imgPath: "atom.png"}
+        { paragraphs: 'This working project will in time be the culmination of my fractally-structured personal habit tracking application - a social experience that will allow us to learn from each other through mimicry.\\r\\n\\r\\nThe end goal for the UI is to have a \"never-ending\" fractal structure that can be added to at the top, or at the bottom, perhaps terminating at the bottom in an \"atomic habit\", the smallest unit of habit, which can be stored as a simple To-do list. The structures can be built on the user\'s private account and then, if the agent wishes, tokenised and shared for free or traded (when the visualisation of the behaviours is valuable, e.g. the running of a business). Holochain ensures encryption and full agent-centric sovereignty over data. ', imgPath: "atom.png"},
+        { paragraphs: 'Once I learnt the basics of Rust and was able to understand how to run a Holochain conductor on my local host, I started off with a "Profiles" microservice provided by members of the Holochain open-dev community.', imgPath: "atom.png"},
       ],
       hasCaseStudy: true
     },
     {
       pageClass: "page three",
-      title: 'Habit/Fract (Web2 Proof of Concept)',
-      subtitle: 'a fractal atomic habit tracker',
+      title: 'Habit/Fract (Web 2.0)',
+      subtitle: 'a proof of concept for the ultimate habit tracker',
       summary: {
-        paragraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress.",
-        imgPath: "atom.png"
+        paragraphs: "This project was an improvement of my Habit Triangles app to include hierarchical visualisation of the habits using the d3 JavaScript library (Data Driven Documents).\\r\\n\\r\\nThis was a much more ambitious project than the first. I moved to a multi-layered architecture: my first single-paged app. I also performed a full manual deployment to a Digital Ocean droplet, Dockerised both layers and used Github actions and DockerHub for continual deployment",
+        imgPath: "sphere.png"
       },
-      langs: ['React', 'Redis', 'Redux', 'Apollo', 'd3.js'], 
-      libs: ['React', 'Redis', 'Redux', 'Apollo', 'd3.js'],
+      langs: ['Ruby', 'JavaScript', 'Sass', 'PostCSS'], 
+      libs: ['d3.js', 'Tailwind CSS', 'Webpack 4', 'Mithril.js', 'React', 'Redux'],
       demoUrl: "https://habfract.online",
-      codebaseUrl: "https://github.com",
-      designsUrl: "https://habfract.online",
+      codebaseUrl: "https://github.com/nick-stebbings/fractal-habits-SPA-tailwind-react-redux",
+      designsUrl: "https://www.figma.com/file/bbLgug0bakLBh9xtbKwgon/HabitFract?node-id=0%3A1&t=x34BaWpkp7AtLn7o-1",
+      blogUrl:
+        'https://n-stebbings.medium.com/from-session-cookie-to-do-list-to-fractal-distributed-listmania-2da3e33728a?postPublishedType=repub',
       articles: [
-        { paragraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress.", imgPath: "atom.png"},
-        { paragraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress.", imgPath: "atom.png"}
+        { paragraphs: "I spent some time working on integrating d3-hierarchy visualisations with a lightweight frontend framework called Mithril. Since Mithril is un-opiniated about global state management I tried to find my own solutions using functional streams of data. This prepared me well for learning Redux and understanding React state hooks, but was ultimately buggy and hard to maintain.\\r\\n\\r\\nI later completed a migration to React/Redux which solved most of the bugs. The demo link here is the migrated version, but without the landing page I originally deployed.", imgPath: "atom.png"}
       ],
       hasCaseStudy: false
     },
@@ -59,7 +59,7 @@
       title: 'Habit Triangles',
       subtitle: 'a visual, linear habit tracker',
       summary: {
-        paragraphs: "This small app stemmed from a project in the Launch School back-end syllabus which focused on persistence with local storage and rendering with the ERB template language.\r\n\r\nThis was my first attempt at building a basic interface for the visualisation of personal habits using multi-level structures. I decided to use a hierarchy of triangles, attempting to make 3 levels that could stack on top of the other. I had some success but relied on monkey-patching of the SwiperJS API which quickly became unmanageable.",
+        paragraphs: "This small app stemmed from a project in the Launch School back-end syllabus which focused on persistence with local storage and rendering with the ERB template language.\\r\\n\\r\\nThis was my first attempt at building a basic interface for the visualisation of personal habits using multi-level structures. I decided to use a hierarchy of triangles, attempting to make 3 levels that could stack on top of the other. I had some success but relied on monkey-patching of the SwiperJS API which quickly became unmanageable.",
         imgPath: "pyramid.png"
       },
       libs: ['jQuery Swiper', 'Bootstrap 4', 'FlatUI', 'Sinatra', 'ERB'],
@@ -68,7 +68,7 @@
       codebaseUrl: "https://github.com/nick-stebbings/habit_triangles",
       blogUrl: "https://n-stebbings.medium.com/from-session-cookie-to-do-list-to-fractal-distributed-listmania-part-1-645911140e53",
       articles: [
-        { paragraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress.", imgPath: "atom.png"},
+        { paragraphs: "", imgPath: "atom.png"},
       ],
       hasCaseStudy: false
     },
@@ -433,9 +433,6 @@ section#contact {
   cursor: pointer;
   margin: 1rem;
 }
-.page-nav-btn:not(.page-nav-btn:first-of-type) {
-  opacity: 0.4;
-}
 .page-nav-btn:hover {
   opacity: 0.8;
   transform: scale(1.25);
@@ -447,13 +444,13 @@ section#contact {
 }
 
 .page-nav-btn:nth-of-type(2) {
-  background: url("assets/images/icons/tree.svg");
+  background: url("assets/images/sphere.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .page-nav-btn:nth-of-type(3) {
-  background: url("assets/images/icons/pyramid.png");
+  background: url("assets/images/pyramid.png");
   background-repeat: no-repeat;
   background-size: contain;
 }

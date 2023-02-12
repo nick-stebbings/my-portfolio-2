@@ -22,9 +22,6 @@
     .page article .article-section:nth-child(2n) { grid-column-start: 1; grid-column-end: 3;}
     .page article .article-section.summary:nth-child(2n),.page article .article-section.summary:nth-child(2n+1) { grid-column-start: 1; grid-column-end: 4;}
     
-    section.article-section.image {
-        display: grid;
-    }
     section.article-section.summary {
         background-image: url("../assets/images/bg/page-nav-bg-right.png");
         background-position: right;
@@ -41,8 +38,14 @@
     }
     section.article-section .image {
         display: flex;
+        flex-basis: 100%;
     }
-
+    section.page:nth-of-type(2n+1) article section.summary.article-section {
+        flex-direction: row-reverse;
+    }
+    section.page:nth-of-type(2n+1) article section.summary.article-section .copy {
+        padding-left: 0;
+    }
     p {
         font-size: 12.8px;
         line-height: 1rem;
@@ -52,11 +55,10 @@
     }
 
     @media (min-width: 1280px) {
-        
         p {
             font-size: 1.2rem;
             font-weight: 400;
-            line-height: 1.5em;
+            line-height: 1.75em;
             margin-bottom: 1rem;
         }
     }
