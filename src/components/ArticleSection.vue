@@ -3,6 +3,14 @@
         <div v-if="computedSectionIsSummary()" class="image">
             <img :src="getImageUrl()" alt="" srcset="">
         </div>
+        <div v-else class="figure">
+            <figure>
+                <img :src="getImageUrl()" alt="" srcset="">
+            </figure>
+            <figcaption>
+                Here is a description of the image.
+            </figcaption>
+        </div>
         <div class="copy">
             <p v-for="p in computedParas()">{{ p }}</p>
         </div>
@@ -11,6 +19,7 @@
 <style>
     section.article-section {
         display: flex;
+        position: relative;
         justify-content: space-between;
         background-image: url("../assets/images/bg/page-nav-bg-left.png");
         background-repeat: repeat-y;
@@ -20,6 +29,15 @@
     }
     .page article .article-section:nth-child(2n+1) { grid-column-start: 2; grid-column-end: 4;}
     .page article .article-section:nth-child(2n) { grid-column-start: 1; grid-column-end: 3;}
+    .page article .article-section:nth-child(2n+1) .figure {
+        right: initial;
+        left: -49%;
+        /* FIX THIS */
+        padding-right: initial;
+        padding-left: 3rem;
+        background-image: url("../assets/images/bg/page-nav-bg-left.png");
+        background-position: left;
+    }
     .page article .article-section.summary:nth-child(2n),.page article .article-section.summary:nth-child(2n+1) { grid-column-start: 1; grid-column-end: 4;}
     
     section.article-section.summary {
@@ -30,6 +48,11 @@
         background-position: right;
         background-image: url("../assets/images/bg/page-nav-bg-right.png");
     }
+
+    section.article-section.para {
+        margin-bottom: 6rem;
+    }
+    
     section.article-section.para:nth-of-type(2n + 1) {
         padding: 0 0 0 3rem;
     }
@@ -46,6 +69,30 @@
     section.page:nth-of-type(2n+1) article section.summary.article-section .copy {
         padding-left: 0;
     }
+
+    .article-section .figure {
+        position: absolute;
+        right: -52%;
+        top: 8rem;
+        padding-right: 3rem;
+        box-sizing: border-box;
+        background-repeat: repeat-y;
+        background-position: right;
+        background-image: url("../assets/images/bg/page-nav-bg-right.png");
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        color: #3c3c3c;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        font-family: 'Ropa Sans', 'Roboto', 'Arial', sans-serif;
+    }
+    .article-section .figure img {
+        object-fit: contain;
+        max-width: 15vw;
+    }
+
     p {
         font-size: 12.8px;
         line-height: 1rem;
