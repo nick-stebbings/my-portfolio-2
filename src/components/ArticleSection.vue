@@ -47,8 +47,8 @@
     @media (min-width: 1280px) {
         
         p {
-            font-size: 1rem;
-            line-height: 1.5rem;
+            font-size: 1.5rem;
+            line-height: 1.5em;
             margin-bottom: 1rem;
         }
     }

@@ -2,7 +2,7 @@
   <article>
     <div class="article-wrapper">
       <ArticleTitle childClass="left" :h1text="details.title" :h2text="details.subtitle" />
-      <section class="case-study">
+      <section  v-if="details?.hasCaseStudy" class="case-study">
         <ArticleTitle childClass="right" h1text="Case Study" h2text=" " />
         <Carousel></Carousel>
       </section>

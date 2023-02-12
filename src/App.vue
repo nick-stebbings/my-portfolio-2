@@ -27,7 +27,8 @@
     demoUrl: "https://habfract.online",
     codebaseUrl: "https://github.com",
     designsUrl: "https://habfract.online",
-    articleParagraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress."
+    articleParagraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress.",
+    hasCaseStudy: true
   });
 
   let playMainLoop : any;
