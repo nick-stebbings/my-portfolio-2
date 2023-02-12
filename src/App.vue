@@ -15,21 +15,64 @@
   const mainLoopVisible = ref(false);
   const navVisible = ref(false);
 
-  const details = ref({
-    title: 'Blah',
-    subtitle: 'Blah',
-    summary: {
-      paragraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress.",
-      imgPath: "atom.png"
+  const projects = ref([
+    {
+      pageClass: "page two",
+      title: 'Habit/Fract (for Holochain)',
+      subtitle: 'a social, fractal, atomic habit tracker',
+      summary: {
+        paragraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress.",
+        imgPath: "atom.png"
+      },
+      langs: ['React', 'Redis', 'Redux', 'Apollo', 'd3.js'], 
+      libs: ['React', 'Redis', 'Redux', 'Apollo', 'd3.js'],
+      demoUrl: "https://habfract.online",
+      codebaseUrl: "https://github.com",
+      designsUrl: "https://habfract.online",
+      articles: [
+        { paragraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress.", imgPath: "atom.png"},
+        { paragraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress.", imgPath: "atom.png"}
+      ],
+      hasCaseStudy: true
     },
-    langs: ['React', 'Redis', 'Redux', 'Apollo', 'd3.js'], 
-    libs: ['React', 'Redis', 'Redux', 'Apollo', 'd3.js'],
-    demoUrl: "https://habfract.online",
-    codebaseUrl: "https://github.com",
-    designsUrl: "https://habfract.online",
-    articleParagraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress.",
-    hasCaseStudy: true
-  });
+    {
+      pageClass: "page three",
+      title: 'Habit/Fract (Web2 Proof of Concept)',
+      subtitle: 'a fractal atomic habit tracker',
+      summary: {
+        paragraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress.",
+        imgPath: "atom.png"
+      },
+      langs: ['React', 'Redis', 'Redux', 'Apollo', 'd3.js'], 
+      libs: ['React', 'Redis', 'Redux', 'Apollo', 'd3.js'],
+      demoUrl: "https://habfract.online",
+      codebaseUrl: "https://github.com",
+      designsUrl: "https://habfract.online",
+      articles: [
+        { paragraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress.", imgPath: "atom.png"},
+        { paragraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress.", imgPath: "atom.png"}
+      ],
+      hasCaseStudy: false
+    },
+    {
+      pageClass: "page four",
+      title: 'Habit Triangles',
+      subtitle: 'a visual, linear habit tracker',
+      summary: {
+        paragraphs: "This small app stemmed from a project in the Launch School back-end syllabus which focused on persistence with local storage and rendering with the ERB template language.\r\n\r\nThis was my first attempt at building a basic interface for the visualisation of personal habits using multi-level structures. I decided to use a hierarchy of triangles, attempting to make 3 levels that could stack on top of the other. I had some success but relied on monkey-patching of the SwiperJS API which quickly became unmanageable.",
+        imgPath: "pyramid.png"
+      },
+      libs: ['jQuery Swiper', 'Bootstrap 4', 'FlatUI', 'Sinatra', 'ERB'],
+      langs: ['HTML', 'CSS', 'JavaScript', 'Ruby'],
+      demoUrl: "https://habit-triangles.herokuapp.com/",
+      codebaseUrl: "https://github.com/nick-stebbings/habit_triangles",
+      blogUrl: "https://n-stebbings.medium.com/from-session-cookie-to-do-list-to-fractal-distributed-listmania-part-1-645911140e53",
+      articles: [
+        { paragraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!\r\n\r\nAfter trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. \r\n\r\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress.", imgPath: "atom.png"},
+      ],
+      hasCaseStudy: false
+    },
+  ]);
 
   let playMainLoop : any;
   let skipToMainLoop : any;
@@ -233,7 +276,7 @@
     expandCaseStudyBtns.forEach((btn: any, i: number) => {
       btn.addEventListener('click', () => {
         (carouselCaseStudies[i] as any)!.style.height = btn.classList.contains('active') ? '0' : 'auto'; 
-        btn.style.width = !btn.classList.contains('active') ? 'calc(100%)' : '35%';
+        btn.style.width = !btn.classList.contains('active') ? 'calc(100%)' : '50%';
         btn.classList.toggle('active');
       });
     });
@@ -272,14 +315,9 @@
         <ContactForm></ContactForm>
       </div>
     </section>
-    <section class="page two">
-      <Article :details="details" :slide="slide" />
-    </section>
-    <section class="page three">
-      <Article :details="details" :slide="slide" />
-    </section>
-    <section class="page four">
-      <Article :details="details" :slide="slide" />
+    
+    <section v-for="(project, index) in projects" :class="project.pageClass">
+      <Article :details="project" :slide="slide"></Article>
     </section>
 
     <!-- Modal -->

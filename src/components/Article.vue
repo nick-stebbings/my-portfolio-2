@@ -2,7 +2,7 @@
   <article>
     <div class="article-wrapper">
       <ArticleTitle childClass="left" :h1text="details.title" :h2text="details.subtitle" />
-      <section  v-if="details?.hasCaseStudy" class="case-study">
+      <section v-if="details?.hasCaseStudy" class="case-study">
         <ArticleTitle childClass="right" h1text="Case Study" h2text=" " />
         <Carousel></Carousel>
       </section>
@@ -17,7 +17,13 @@
         :codebaseUrl="details.codebaseUrl"
         :designsUrl="details.designsUrl"
       />
-
+      
+      <ArticleSection
+        v-for="article in details.articles"
+        :paragraphs="article.paragraphs"
+        :imgPath="article.imgPath"
+        sectionType="para" />
+      
       <div class="top-button">
           <button class="return-home-up" @click="slide('top', 'first')"></button>
       </div>

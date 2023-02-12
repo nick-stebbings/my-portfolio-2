@@ -19,6 +19,7 @@
         position: relative;
     }
     header.article-title.left {
+        width: 100%;
         align-items: flex-start;
     }
     header.article-title.right {
@@ -76,10 +77,14 @@
     header.article-title.left h1, header.article-title.left h2  {
         text-align: left;
         padding-left: 3rem;
+        height: 3rem;
     }
     header.article-title.right h1, header.article-title.right h2  {
         text-align: right;
         padding-right: 3rem;
+    }
+    header.article-title.right:not(.active) h2  {
+        height: 4px;
     }
     
 
@@ -155,12 +160,12 @@
     @media (min-width: 1680px) {
         header.article-title h1 {
             font-size: 3.375em; 
-            line-height: 2.25rem;
+            line-height: 2.5rem;
             margin-bottom: .75rem;
         }
         header.article-title h2 {
             font-size: 2.25em; /* 36px */
-            line-height: 2.5rem;
+            line-height: 3.5rem;
         }
     }
 </style>

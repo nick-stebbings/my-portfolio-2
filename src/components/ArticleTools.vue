@@ -167,9 +167,15 @@
     section.article-tools .langs-list {
         padding-left: .5rem;
     }
+    section.article-tools .libs-list {
+        text-align: right;
+    }
     section.article-tools .langs-libs {
         flex-direction: column;
         padding-right: 3rem;
+    }
+    section.article-tools .langs, section.article-tools .libs {
+        width: 50%;
     }
 
     section.article-tools .tools-content ul {
