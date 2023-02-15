@@ -1,14 +1,14 @@
 <template>
     <section :class="[sectionType, 'article-section']">
         <div v-if="computedSectionIsSummary()" class="image">
-            <img :src="getImageUrl()" alt="" srcset="">
+            <img :src="getImageUrl()" :alt="getImgAltText()" srcset="">
         </div>
         <div v-else class="figure">
             <figure>
-                <img :src="getImageUrl()" alt="" srcset="">
+                <img :src="getImageUrl()" :alt="getImgAltText()" srcset="">
             </figure>
             <figcaption>
-                Here is a description of the image.
+                {{ imgCaption }}
             </figcaption>
         </div>
         <div class="copy">
@@ -75,7 +75,8 @@
         right: -52%;
         top: 8rem;
         padding-right: 3rem;
-        box-sizing: border-box;
+        max-width: 20vw;
+        align-items: end;
         background-repeat: repeat-y;
         background-position: right;
         background-image: url("../assets/images/bg/page-nav-bg-right.png");
@@ -88,9 +89,14 @@
         letter-spacing: 1px;
         font-family: 'Ropa Sans', 'Roboto', 'Arial', sans-serif;
     }
+    
     .article-section .figure img {
         object-fit: contain;
         max-width: 15vw;
+    }
+
+    .article-section .figure figcaption {
+        max-width: 80%;
     }
 
     p {
@@ -114,6 +120,8 @@
     const props = defineProps({
         paragraphs: { type: String },
         imgPath: { type: String },
+        imgAlt: { type: String },
+        imgCaption: { type: String },
         sectionType: { type: String },
     })
     function computedSectionIsSummary() {
@@ -121,6 +129,9 @@
     }
     function computedParas() {
         return props.paragraphs.split("\\r\\n\\r\\n")
+    }
+    function getImgAltText() {
+        return `${props.imgAlt}`
     }
     function getImageUrl() {
         const path = new URL('../assets/images/', import.meta.url);

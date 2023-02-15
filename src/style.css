@@ -47,7 +47,7 @@ button#return-home {
 }
 
 button#return-home:hover, button.return-home-up:hover, button#skip-intro:hover {
-  border: 4px dashed #846B63;
+  border: 2px dashed #846B63;
   padding: 1rem;
   height: 6rem;
   width: 6rem;

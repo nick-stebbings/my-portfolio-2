@@ -67,8 +67,8 @@
         gradientUnits="userSpaceOnUse"
         gradientTransform="translate(0 0)"
       >
-        <stop id="ekFf3Z5Im6j43-fill-0" offset="0%" stop-color="#015d70" />
-        <stop id="ekFf3Z5Im6j43-fill-1" offset="100%" stop-color="#23b5d3" />
+        <stop id="e9ApUEM4YT536-fill-0" offset="0%" stop-color="rgba(99, 242, 183,0.75)" />
+        <stop id="e9ApUEM4YT536-fill-1" offset="100%" stop-color="rgba(102, 233, 250,0.75)" />
       </linearGradient>
       <filter
         id="ekFf3Z5Im6j44-filter"
@@ -94,8 +94,8 @@
         gradientUnits="userSpaceOnUse"
         gradientTransform="translate(0 0)"
       >
-        <stop id="ekFf3Z5Im6j44-fill-0" offset="0%" stop-color="#015d70" />
-        <stop id="ekFf3Z5Im6j44-fill-1" offset="100%" stop-color="#23b5d3" />
+        <stop id="e9ApUEM4YT536-fill-0" offset="0%" stop-color="rgba(99, 242, 183,0.75)" />
+        <stop id="e9ApUEM4YT536-fill-1" offset="100%" stop-color="rgba(102, 233, 250,0.75)" />
       </linearGradient>
       <filter
         id="ekFf3Z5Im6j45-filter"

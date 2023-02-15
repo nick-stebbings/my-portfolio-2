@@ -1,10 +1,24 @@
 <template>
     <header>
-        <h1>e-commerce</h1>
-        <h2>e-commerce is so cool isn't it.</h2>
-        <h3>Consider the learning from working on the headless APIs for a big retailer of <span class="header-link">motorcycle goods</span>.</h3>
-        <h3>See the results of a bespoke Shopify application on a small <span class="header-link">spinning wheel distributor</span></h3>
-        <h3>See the results of a bespoke Shopify on a small <span class="header-link">spinning wheel distributor</span></h3>
+        <h1>web 3</h1>
+        <h2>Peer-to-peer web apps for the people... (thanks, Holochain!)</h2>
+        <h3>
+            Follow my journey developing the <span class="header-link">ultimate habit tracker</span>...
+        </h3>
+        <h3>
+                ...starting from
+            <span class="header-link">simple origins</span>...
+        </h3>
+        <h3>
+                ...why not demo the
+            <span class="header-link">Web2 UI?</span>
+        </h3>
+        <h3>
+            Lastly, consider how we could change our whole economy: starting with a simple  
+            <span class="header-link">food marketplace concept</span>.
+        </h3>
+        <!-- <h3>See the results of a bespoke Shopify application on a small <span class="header-link">spinning wheel distributor</span></h3>
+        <h3>See the results of a bespoke Shopify on a small <span class="header-link">spinning wheel distributor</span></h3> --> -->
     </header>
 </template>
 <style scoped>
@@ -47,7 +61,6 @@ h2 {
     line-height: 2.25rem;
     margin: 0 auto 2.25rem auto;
     font-weight: 500;
-    max-width: 85%;
 }
 
 h3 {
@@ -58,7 +71,8 @@ h3 {
     line-height: 1.5rem; 
     letter-spacing: 1px;
     max-width: 95%;
-    margin: 1rem 4rem;
+    height: 4rem;
+    margin: 0rem 4rem 1rem 4rem;
 }
 
 h3 span {
@@ -80,7 +94,7 @@ h3:nth-of-type(2) {
         margin-bottom: 1.5rem;
     }
     h3 {
-        height: 4rem;
+        height: 6rem;
         padding-right: 2rem;
     }
 }
@@ -105,7 +119,7 @@ h3:nth-of-type(2) {
     h3 {
         font-size: 1.5em; /* 121.5px */
         line-height: 1.5rem;
-        margin: 2rem 4rem;
+        margin: 4rem;
     }
 }
 @media (min-width: 1440px) {
@@ -125,10 +139,11 @@ h3:nth-of-type(2) {
 
     h3 {
         font-size: 1.5em; /* 24px */
-        line-height: 1.5em; /* 24px */
+        line-height: 1.1em;
         font-weight: 400;
-        margin: 2rem 4rem;
+        margin: 2rem;
         max-width: 90%;
+        height: 3.5rem;
     }
 
     h3:nth-of-type(2) {
@@ -145,7 +160,7 @@ h3:nth-of-type(2) {
 
     h2 { 
         font-size: 5.0625em; /* 81.5px */
-        margin-bottom: 5.0625rem;
+        margin-bottom: 3.375rem;
     }
 
     h1, h2 {
@@ -154,8 +169,8 @@ h3:nth-of-type(2) {
     }
 
     h3 {
-        font-size: 1.5em; /* 24px */
-        line-height: 1.5em; /* 24px */
+        font-size: 1.5em; /* 36px */
+        line-height: 2.25em; /* 34px */
         font-weight: 400;
         max-width: 90%;
     }
@@ -166,7 +181,7 @@ h3:nth-of-type(2) {
 
     header {
         right: 6rem;
-        top: 105px;
+        top: 4rem;
         width: calc( 69% - 7rem);
     }
 }

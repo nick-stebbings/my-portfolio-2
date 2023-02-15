@@ -21,7 +21,7 @@
       title: 'Habit/Fract (for Holochain)',
       subtitle: 'a social, fractal, atomic habit tracker',
       summary: {
-        paragraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question!After trying out many linear habit trackers (including some very visually and narratively interesting apps) I found that there was nothing meeting my personal requirements. \\r\\n\\r\\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). While it is always the day-to-day actions that one must focus on, as a result of this top-down way of thinking it can be difficult to link daily actions to the bigger picture and make consistent progress.\\r\\n\\r\\nConversely, many people are great at breaking down and acting on small-magnitude behaviours (the list-writers!). Habit/Fract came about as a way of uniting the two ways of thinking in a way that provides visual cues and helps to build and break down habitual behaviour over time.",
+        paragraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question! After trying out many linear habit trackers (including some very visually and narratively interesting apps) I found that there was nothing meeting my personal requirements. \\r\\n\\r\\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). While it is always the day-to-day actions that one must focus on, as a result of this top-down way of thinking it can be difficult to link daily actions to the bigger picture and make consistent progress.\\r\\n\\r\\nConversely, many people are great at breaking down and acting on small-magnitude behaviours (the list-writers!). Habit/Fract came about as a way of uniting the two modes of thinking in a way that provides visual cues and helps to build and break down habitual behaviour over time.",
         imgPath: "atom.png"
       },
       langs: ['Holochain', 'TypeScript', 'Rust', 'GraphQL'], 
@@ -29,34 +29,13 @@
       codebaseUrl: "https://github.com/HabFract",
       designsUrl: "https://www.figma.com/file/m8CE7oXUuSw2BGkS7fdvBD/Habfract-Holochain-1.1-Design-System?node-id=214%3A2091&t=QOvj4igG3f1neSkk-1",
       articles: [
-        { paragraphs: 'This working project will in time be the culmination of my fractally-structured personal habit tracking application - a social experience that will allow us to learn from each other through mimicry.\\r\\n\\r\\nThe end goal for the UI is to have a \"never-ending\" fractal structure that can be added to at the top, or at the bottom, perhaps terminating at the bottom in an \"atomic habit\", the smallest unit of habit, which can be stored as a simple To-do list. The structures can be built on the user\'s private account and then, if the agent wishes, tokenised and shared for free or traded (when the visualisation of the behaviours is valuable, e.g. the running of a business). Holochain ensures encryption and full agent-centric sovereignty over data. ', imgPath: "atom.png"},
-        { paragraphs: 'Once I learnt the basics of Rust and was able to understand how to run a Holochain conductor on my local host, I started off with a "Profiles" microservice provided by members of the Holochain open-dev community.', imgPath: "atom.png"},
+        { paragraphs: 'This working project will in time be the culmination of my fractally-visualised personal habit tracking application - a social experience that will allow us to learn from each other through mimicry.\\r\\n\\r\\nThe end goal for the UI is to have a \"never-ending\" fractal structure that can be added to at the top, or at the bottom, perhaps terminating at the bottom in an \"atomic habit\" - the smallest unit of habit, which could optionally be stored as a simple To-do list. The data and visuals can be stored on the user\'s private account (even available offline) and then, if the agent wishes, tokenised and shared for free/traded (when the visualisation of the behaviours is valuable, e.g. the running of a business).\\r\\n\\r\\nHolochain ensures encryption and full agent-centric sovereignty over data. ', imgPath: "holochain-logo.png", imgCaption: "Holochain is a distributed (p2p) data integrity framework", imgAlt: "Holochain logo"},
+        { paragraphs: 'I learnt the Rust programming language to intermediate level in order to understand how to scaffold and develop a Holochain app (hApp). I learnt how to run a Holochain conductor (node) on my local host, then I started with a \'Profiles\' microservice provided by members of the Holochain open-dev community.\\r\\n\\r\\nI have recently been focusing on the UI/UX and have completed user stories/screens (see \'Designs\' link, above) that flesh out the core functionality of the minimum viable product. There is no Holochain native mobile application currently possible and so the challenge has been to make it feel native whist remaining a web app.\\r\\n\\r\\nDeveloping on Holochain is like trying to hit a moving target, since the technology has only just reached Beta stage. I look forward to implementing a full p2p deployment integrating the new designs in the next year.\\r\\n\\r\\nIf anybody wishes to get involved in this development of this hApp, get in touch via the contact form.', imgPath: "screens/user-profile.png", imgCaption: "A look at a possible New User screen. No password is needed as an agent is identified by the app via their public/private key pair", imgAlt: "New user screenshot"},
       ],
       hasCaseStudy: true
     },
     {
       pageClass: "page three",
-      title: 'Habit/Fract (Web 2.0)',
-      subtitle: 'a proof of concept for the ultimate habit tracker',
-      summary: {
-        paragraphs: "This project was an improvement of my Habit Triangles app to include hierarchical visualisation of the habits using the d3 JavaScript library (Data Driven Documents).\\r\\n\\r\\nThis was a much more ambitious project than the first. I moved to a multi-layered architecture: my first single-paged app. I also performed a full manual deployment to a Digital Ocean droplet, Dockerised both layers and used Github actions and DockerHub for continual deployment",
-        imgPath: "sphere.png"
-      },
-      langs: ['Ruby', 'JavaScript', 'Sass', 'PostCSS'], 
-      libs: ['d3.js', 'Tailwind CSS', 'Webpack 4', 'Mithril.js', 'React', 'Redux'],
-      demoUrl: "https://habfract.online",
-      codebaseUrl: "https://github.com/nick-stebbings/fractal-habits-SPA-tailwind-react-redux",
-      designsUrl: "https://www.figma.com/file/bbLgug0bakLBh9xtbKwgon/HabitFract?node-id=0%3A1&t=x34BaWpkp7AtLn7o-1",
-      blogUrl:
-        'https://n-stebbings.medium.com/from-session-cookie-to-do-list-to-fractal-distributed-listmania-2da3e33728a?postPublishedType=repub',
-      articles: [
-        { paragraphs: "I spent some time working on integrating d3-hierarchy visualisations with a lightweight frontend framework called Mithril. Since Mithril is un-opiniated about global state management I tried to find my own solutions using functional streams of data. This prepared me well for learning Redux and understanding React state hooks, but was ultimately buggy and hard to maintain.\\r\\n\\r\\nI later completed a migration to React/Redux which solved most of the bugs. The demo link here is the migrated version, but without the landing page I originally deployed.", imgPath: "screens/habit-structure.png", imgCaption: "The primary habit visualisation is a tree structure", imgAlt: "The app's habit visualisation interface"},
-        { paragraphs: "I spent some time working on integrating d3-hierarchy visualisations with a lightweight frontend framework called Mithril. Since Mithril is un-opiniated about global state management I tried to find my own solutions using functional streams of data. This prepared me well for learning Redux and understanding React state hooks, but was ultimately buggy and hard to maintain.\\r\\n\\r\\nI later completed a migration to React/Redux which solved most of the bugs. The demo link here is the migrated version, but without the landing page I originally deployed.", imgPath: "screens/habitfractv2.png", imgCaption: "The original landing screen", imgAlt: "Landing screen screenshot"}
-      ],
-      hasCaseStudy: false
-    },
-    {
-      pageClass: "page four",
       title: 'Habit Triangles',
       subtitle: 'a visual, linear habit tracker',
       summary: {
@@ -72,6 +51,46 @@
         { paragraphs: "I drew inspiration from a Mathematics and fractal geometry. Check out this cool 3d version: https://www.reddit.com/r/woahdude/comments/hsu3f3/delightful_fractal_triangles/" , imgPath: "screens/happy-triangles.jpg", imgCaption: "My first attempt at visualising habits used a pyramid of triangles", imgAlt: "The app's habit visualisation interface"},
       ],
       hasCaseStudy: false
+    },
+    {
+      pageClass: "page four",
+      title: 'Habit/Fract (Web 2.0)',
+      subtitle: 'a proof of concept for the ultimate habit tracker',
+      summary: {
+        paragraphs: "This project was an improvement of my Habit Triangles app to include hierarchical visualisation of the habits using the d3 JavaScript library (Data Driven Documents).\\r\\n\\r\\nThis was a much more ambitious project than the first. I moved to a multi-layered architecture: my first single-paged app. I also performed a full manual deployment to a Digital Ocean droplet, Dockerised both layers and used Github actions and DockerHub for continual deployment",
+        imgPath: "sphere.png"
+      },
+      langs: ['Ruby', 'JavaScript', 'Sass', 'PostCSS'], 
+      libs: ['d3.js', 'Tailwind CSS', 'Webpack 4', 'Mithril.js', 'React', 'Redux'],
+      demoUrl: "https://habfract.online",
+      codebaseUrl: "https://github.com/nick-stebbings/fractal-habits-SPA-tailwind-react-redux",
+      designsUrl: "https://www.figma.com/file/bbLgug0bakLBh9xtbKwgon/HabitFract?node-id=0%3A1&t=x34BaWpkp7AtLn7o-1",
+      blogUrl:
+        'https://n-stebbings.medium.com/from-session-cookie-to-do-list-to-fractal-distributed-listmania-2da3e33728a?postPublishedType=repub',
+      articles: [
+        { paragraphs: "I spent some time working on integrating d3-hierarchy visualisations with a lightweight frontend framework called Mithril. Since Mithril is un-opiniated about global state management I tried to find my own solutions using functional streams of data. This prepared me well for learning Redux and understanding React state hooks, but was ultimately buggy and hard to maintain.\\r\\n\\r\\nI later completed a migration to React/Redux which solved most of the bugs. The demo link here is the migrated version, but without the landing page I originally deployed.", imgPath: "screens/habit-structure.png", imgCaption: "The primary habit visualisation is a tree structure", imgAlt: "The app's habit visualisation interface"},
+        { paragraphs: "The API for the single-page-application was written in Ruby, using the Sinatra framework. I tried to separate concerns as much as possible to allow the use of different storage mediums via adapters in the ROM-rb ORM library. This was a complicated library to learn but it ultimately enabled me to populate the visualisations on the frontend from web-scraped data.\\r\\n\\r\\nI scraped data from eHow using Cheerio, formulated it in a YAML file, then used a Ruby Tree library to adapt it into a hierarchical JSON ternary tree. A similar process could be used to allow users to start from a set of common templates, derived from famous ways to organise one's habits (e.g. a template copying the \'7 Habits of Highly Effective People\'').", imgPath: "screens/habitfractv2.png", imgCaption: "The original landing screen", imgAlt: "Landing screen screenshot"}
+      ],
+      hasCaseStudy: false
+    },
+    {
+      pageClass: "page five",
+      title: 'Farmr',
+      subtitle: 'a good price for good produce',
+      summary: {
+        paragraphs: "This is a concept for an hApp that is at the design and prototyping stage. Inspired by the work of the hREA project (the Holochain implementation of a bigger/older project called ValueFlows) I came up with this idea.\\r\\n\\r\\nWith traditional economic systems breaking down, and inflation rampant, there is a need for new economic alternatives. The ValueFlows project has been trying for some time to introduce a new economic ontology/grammar that will allow human beings to recognise the value of more than just money.\\r\\n\\r\\nI intend to build on the great work of these project by creating a simple app that allows consumers to find the best value produce meeting their supply-side standards (e.g. spray-free, organic, free-range).",
+        imgPath: "screens/farmr-user-stories.png", 
+        imgCaption: "Beginning of a user story for a food consumer", imgAlt: "User story flow-chart"
+      },
+      langs: ['Holochain', 'JavaScript', 'Rust'], 
+      libs: ['Still', 'at', 'the', 'design', 'stage'],
+      // codebaseUrl: "https://github.com/HabFract",
+      designsUrl: "https://www.figma.com/file/rNEfZ6vOS1UfUW0byjZbUm/Farmer-Stories?t=smffdhIRJcbG1z3n-1",
+      articles: [
+        { paragraphs: 'This working project will in time be the culmination of my fractally-visualised personal habit tracking application - a social experience that will allow us to learn from each other through mimicry.\\r\\n\\r\\nThe end goal for the UI is to have a \"never-ending\" fractal structure that can be added to at the top, or at the bottom, perhaps terminating at the bottom in an \"atomic habit\" - the smallest unit of habit, which could optionally be stored as a simple To-do list. The data and visuals can be stored on the user\'s private account (even available offline) and then, if the agent wishes, tokenised and shared for free/traded (when the visualisation of the behaviours is valuable, e.g. the running of a business).\\r\\n\\r\\nHolochain ensures encryption and full agent-centric sovereignty over data. ',
+        imgPath: "screens/farmr-user-stories.png", 
+        imgCaption: "Beginning of a user story for a food consumer", imgAlt: "User story flow-chart"},
+      ],
     },
   ]);
 
@@ -151,47 +170,49 @@
 
 
       const articleContent = document.querySelector(".page.two");
-      (articleContent as any)!.style['margin-top'] = 0;
+      (articleContent as any)!.style['margin-top'] = '8rem';
     }, 4500);
   }
 
   // Slide functionality adapted from https://medium.com/@mignunez/how-to-create-a-slide-transition-between-separate-pages-with-html-css-and-javascript-bb7a14393d1
   let translate = 0;
   let translateAmount;
+
   function slide(direction:string, articleName:string) {
-    document.documentElement.scroll(0,0);
-
     const pages = document.querySelectorAll(".page");
-    const frontPage = document.querySelector(".page.one");
-    const frontPageHeight = (frontPage as any).offsetHeight;
-    let translatingFromFrontPage = ["home", "first"].includes(articleName) ;
 
-    translateAmount = 100; 
+    translateAmount = 0; 
 
     switch (articleName) {
       case "home":
-        if(direction == "down") {
-          translateAmount = frontPageHeight;
-          // contact form to front page is 100vh translation
-          translatingFromFrontPage = false;
-        }
-        translateAmount = 100;
-        break;
       case "bookme":
         translateAmount = 100;
+        direction === "next" ? translate -= translateAmount : translate += translateAmount;
+        pages.forEach(
+          page => {
+            (page as HTMLBodyElement).style.transform = `translateY(${translate}vh)`;
+          }
+        );
+      break;
+
+      case "first": 
+        const page1 = document.querySelector('.page.two');
+        page1!.scrollIntoView();
         break;
-      case "first":
-        translateAmount = frontPageHeight;
+      case "second": 
+        const page2 = document.querySelector('.page.three');
+        page2!.scrollIntoView();
         break;
-        case "second": // second and third get frontPageHeight added later 
-        translateAmount = 100;
+      case "third": 
+      const page3 = document.querySelector('.page.four');
+      page3!.scrollIntoView();
         break;
-        case "third": // second and third get frontPageHeight added later
-        translateAmount = 200;
+      case "fourth":
+        const page4 = document.querySelector('.page.five');
+        page4!.scrollIntoView();
         break;
       }
       
-    direction === "next" ? translate -= translateAmount : translate += translateAmount;
 
     if(direction == "top") {
       document.querySelectorAll(".return-home-up").forEach(
@@ -200,25 +221,22 @@
           (button as any)!.style.visibility = "hidden";
         }
       );
+
+      const page0 = document.querySelector('.page.zero');
+      page0!.scrollIntoView();
     }
-    pages.forEach(
-      page => {
-        // Who needs a switch statement when you can have a torturously nested ternary expression?
-        (page as HTMLBodyElement).style.transform = (translatingFromFrontPage ? `translateY(${translate}px)` : `translateY(${translate}vh) translateY(${articleName == "bookme" ? "0" : (direction === "next" ? ("-" + frontPageHeight) : "0")}px)`);
-      }
-    );
   }
 
   // Lazy loading of images/buttons further down the page
   let options = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.9
+    threshold: 0.2
   }
 
   const callback = (entries:any) => {
     entries.forEach((entry:any) => {
-      console.log('upBtns :>> ', entry);
+      // console.log('entry :>> ', entry);
       if(entry.isIntersecting) {
         let upBtn;
         const upBtns = document.querySelectorAll('.return-home-up');
@@ -227,36 +245,40 @@
             upBtn = upBtns[0];
             (upBtn as any).style.opacity = "1";
             (upBtn as any).style.visibility = "visible";
-            translateAmount = 100;
             break;
-            
           case entry.target.classList.contains('three'):
             upBtn = upBtns[1];
             (upBtn as any).style.opacity = "1";
             (upBtn as any).style.visibility = "visible";
-            translateAmount = 200;
             break;
             
           case entry.target.classList.contains('four'):
             upBtn = upBtns[2];
             (upBtn as any).style.opacity = "1";
             (upBtn as any).style.visibility = "visible";
-            translateAmount = 300;
+            break;
+            
+          case entry.target.classList.contains('five'):
+            upBtn = upBtns[3];
+            (upBtn as any).style.opacity = "1";
+            (upBtn as any).style.visibility = "visible";
             break;
         }
       };
     
   });
   }
-  let observer = new IntersectionObserver(callback, options);
   
   onMounted(() => {
+    let observer = new IntersectionObserver(callback, options);
     let target2 : Element | null = document.querySelector('.page.two');
     let target3 : Element | null = document.querySelector('.page.three');
     let target4 : Element | null = document.querySelector('.page.four');
+    let target5 : Element | null = document.querySelector('.page.five');
     observer!.observe(target2 as Element);
     observer!.observe(target3 as Element);
     observer!.observe(target4 as Element);
+    observer!.observe(target5 as Element);
     
     const navBtns = document.querySelectorAll(".page-nav-btn");
     const headerLinks = document.querySelectorAll("span.header-link");
@@ -307,6 +329,7 @@
         <button id="page-nav-1-1" class="page-nav-btn" @click="slide('next', 'first')"></button>
         <button id="page-nav-1-2" class="page-nav-btn" @click="slide('next', 'second')"></button>
         <button id="page-nav-1-3" class="page-nav-btn" @click="slide('next', 'third')"></button>
+        <button id="page-nav-1-4" class="page-nav-btn" @click="slide('next', 'fourth')"></button>
       </nav>
     </div>
     <section id="contact" class="page zero">
@@ -417,7 +440,7 @@ section#contact {
   opacity: 0;
   visibility: hidden;
   transition: opacity 1s ease-in 0s, right 0.5s ease-out 0s;
-  bottom: 1rem; 
+  bottom: -6rem; 
   right: 8.5vw; 
   gap: 2rem;
   width: 24rem;
@@ -444,14 +467,19 @@ section#contact {
   background-repeat: no-repeat;
 }
 
-.page-nav-btn:nth-of-type(2) {
+.page-nav-btn:nth-of-type(3) {
   background: url("assets/images/sphere.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.page-nav-btn:nth-of-type(3) {
+.page-nav-btn:nth-of-type(2) {
   background: url("assets/images/pyramid.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.page-nav-btn:nth-of-type(4) {
+  background: url("assets/images/icons/veg-icon.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -479,7 +507,7 @@ section#contact {
 }
 .page.two {
   height: auto;
-  margin-top: 36rem;
+  margin-top: 32rem;
 }
 
 /* Media Queries */

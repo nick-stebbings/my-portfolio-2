@@ -5,7 +5,7 @@
         <div class="tools-titles">
             <h2>Tool Summary</h2>
             <h2 v-show="hasDemo">Demo</h2>
-            <h2>Codebase</h2>
+            <h2 v-show="hasCode">Codebase</h2>
             <h2 v-show="hasFigma">Designs</h2>  
             <h2 v-show="hasBlog">Blog</h2>  
         </div>
@@ -46,7 +46,7 @@
                     </a>
                 </div>
             </div>
-            <div class="codebase-content">
+            <div v-show="hasCode" class="codebase-content">
                 <div class="content-icon">
                     <img src="../assets/images/icons/gitcat-icon.png" alt="code-icon" />
                 </div>
@@ -215,6 +215,9 @@ export default {
     libs: Array,
   },
   computed : {
+    hasCode() {
+        return typeof this?.codebaseUrl != "undefined"
+    },
     hasBlog() {
         return typeof this?.blogUrl != "undefined"
     },
