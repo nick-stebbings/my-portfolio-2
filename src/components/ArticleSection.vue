@@ -134,7 +134,7 @@
         return `${props.imgAlt}`
     }
     function getImageUrl() {
-        const path = new URL('../assets/images/', import.meta.url);
+        const path = new URL('../assets/images', import.meta.url);
         return `${path}/${props.imgPath}`
     }
 </script>
