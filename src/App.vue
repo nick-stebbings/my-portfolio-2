@@ -78,7 +78,7 @@
       title: 'Farmr',
       subtitle: 'a good price for good produce',
       summary: {
-        paragraphs: "This is a concept for an hApp that is at the design and prototyping stage. Inspired by the work of the hREA project (the Holochain implementation of a bigger/older project called ValueFlows) I came up with this idea.\\r\\n\\r\\nWith traditional economic systems breaking down, and inflation rampant, there is a need for new economic alternatives. The ValueFlows project has been trying for some time to introduce a new economic ontology/grammar that will allow human beings to recognise the value of more than just money.\\r\\n\\r\\nI intend to build on the great work of these project by creating a simple app that allows consumers to find the best value produce meeting their supply-side standards (e.g. spray-free, organic, free-range).",
+        paragraphs: "This is a concept for an hApp that is at the design and prototyping stage. Inspired by the work of the hREA project (the Holochain implementation of a bigger/older project called ValueFlows) I came up with this idea.\\r\\n\\r\\nWith traditional economic systems breaking down, and inflation rampant, there is a need for new economic ideas. The ValueFlows project has been trying for some time to introduce a new economic ontology/grammar that will allow human beings to recognise the true value/costs of every micro-economic transaction and trace the flow of value throughout the system. \\r\\n\\r\\nI intend to build on the great work of these projects by creating a simple app that allows consumers to find the best value produce meeting their supply-side standards (e.g. spray-free, organic, free-range).",
         imgPath: "screens/farmr-user-stories.png", 
         imgCaption: "Beginning of a user story for a food consumer", imgAlt: "User story flow-chart"
       },
@@ -87,9 +87,9 @@
       // codebaseUrl: "https://github.com/HabFract",
       designsUrl: "https://www.figma.com/file/rNEfZ6vOS1UfUW0byjZbUm/Farmer-Stories?t=smffdhIRJcbG1z3n-1",
       articles: [
-        { paragraphs: 'This working project will in time be the culmination of my fractally-visualised personal habit tracking application - a social experience that will allow us to learn from each other through mimicry.\\r\\n\\r\\nThe end goal for the UI is to have a \"never-ending\" fractal structure that can be added to at the top, or at the bottom, perhaps terminating at the bottom in an \"atomic habit\" - the smallest unit of habit, which could optionally be stored as a simple To-do list. The data and visuals can be stored on the user\'s private account (even available offline) and then, if the agent wishes, tokenised and shared for free/traded (when the visualisation of the behaviours is valuable, e.g. the running of a business).\\r\\n\\r\\nHolochain ensures encryption and full agent-centric sovereignty over data. ',
-        imgPath: "screens/farmr-user-stories.png", 
-        imgCaption: "Beginning of a user story for a food consumer", imgAlt: "User story flow-chart"},
+        { paragraphs: 'I began by mapping out the core functionality from the two main user types: Producer and Consumer.\\r\\n\\r\\nUsing Figma design tools I created flow charts to investigate the potential paths for each new user and the hurdles to understanding and using this new economic grammar.\\r\\n\\r\\nOnce I better understood the potential paths for each new user I turned the user flows into mobile screens using the Flowbite Tailwind UI kit. This allowed me to flesh out the UI for both stories in one morning\'s work.\\r\\n\\r\\nIf anybody wishes to get involved in this development of this hApp, get in touch via the contact form.',
+        imgPath: "screens/early-farmr.png", 
+        imgCaption: "Above (large): user story planning with Figma. Above: early mobile screens were rapidly prototyped.", imgAlt: "Some mobile screens for Farmr showing a hero section and products list"},
       ],
     },
   ]);
