@@ -66,8 +66,8 @@
         gradientUnits="userSpaceOnUse"
         gradientTransform="translate(0 0)"
       >
-        <stop id="e9ApUEM4YT536-fill-0" offset="0%" stop-color="rgba(99, 242, 183,0.75)" />
-        <stop id="e9ApUEM4YT536-fill-1" offset="100%" stop-color="rgba(102, 233, 250,0.75)" />
+        <stop id="e9ApUEM4YT536-fill-0" offset="0%" stop-color="#015d70" />
+        <stop id="e9ApUEM4YT536-fill-1" offset="100%" stop-color="#23b5d3" />
       </linearGradient>
       <linearGradient
         id="e9ApUEM4YT536-stroke-g1"
@@ -255,7 +255,7 @@
       filter="url(#e9ApUEM4YT536-filter)"
       fill="url(#e9ApUEM4YT536-fill)"
       fill-opacity="0.8"
-      stroke="#3c3c3c"
+      stroke="#4ff3f3"
       stroke-width="8"
     />
     <g
