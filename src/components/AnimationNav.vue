@@ -565,7 +565,6 @@
   </template>
   <script>
   import { selectAll } from "https://cdn.jsdelivr.net/npm/d3-selection@3/+esm";
-  import { transition } from "https://cdn.jsdelivr.net/npm/d3-transition@3/+esm";
 
   export default {
     name: "Nav",
@@ -852,8 +851,13 @@
         
         headerSel.style('visibility', 'visible');
         headerSel.style('opacity', '1');
-        // headerSel.style('color', '#3C3C3C');
+        
+        this.hoverLayerActive('ecommerce');
       }
+      const selectLayer1 = () => {
+        this.switchToLayer('ecommerce');
+      }
+
       const makeLayer2Active = () => {
         if(notLoadedYet()) return;
         sawSelection.attr("opacity", 1);
@@ -867,8 +871,14 @@
         
         headerSel.style('visibility', 'visible');
         headerSel.style('opacity', '1');
-        // headerSel.style('color', '#3C3C3C');
+        
+        this.hoverLayerActive('elearning');
       }
+
+      const selectLayer2 = () => {
+        this.switchToLayer('elearning');
+      }
+
       const makeLayer3Active = () => {
         if(notLoadedYet()) return;
         corkScrewSelection.attr("opacity", 1);
@@ -881,20 +891,31 @@
 
         headerSel.style('visibility', 'visible');
         headerSel.style('opacity', '1');
-        // headerSel.style('color', '#3C3C3C');
+        
+        this.hoverLayerActive('web3');
+      }
+      const selectLayer3 = () => {
+        this.switchToLayer('web3');
       }
       //knife mouseover
       selectAll(knifeLayerId).on("mouseover", makeLayer1Active);
       selectAll("#e-commerce-label").on("mouseover", makeLayer1Active);
+      selectAll(knifeLayerId).on("click", selectLayer1);
+      selectAll("#e-commerce-label").on("click", selectLayer1);
 
       // saw mouseover
       selectAll(sawLayerId).on("mouseover", makeLayer2Active);
       selectAll("#e-learning-label").on("mouseover", makeLayer2Active);
+      selectAll(sawLayerId).on("click", selectLayer2);
+      selectAll("#e-learning-label").on("click", selectLayer2);
 
       // saw mouseover
       selectAll(layer3Id).on("mouseover", makeLayer3Active);
       selectAll("#web3-label").on("mouseover", makeLayer3Active);
       selectAll(corkscrewLayerId).on("mouseover", makeLayer3Active);
+      selectAll(layer3Id).on("click", selectLayer3);
+      selectAll("#web3-label").on("click", selectLayer3);
+      selectAll(corkscrewLayerId).on("click", selectLayer3);
       
       // book me mouseover
       selectAll(bookMeId).on("mouseover", () => { 
@@ -904,6 +925,10 @@
         corkScrewSelection.attr("opacity", 0);
         bookMeHoverSelection.attr("opacity", 1);
       });
+    },
+    props: {
+      switchToLayer: Function,
+      hoverLayerActive: Function,
     },
   };
   </script>

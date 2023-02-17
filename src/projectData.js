@@ -1,142 +1,78 @@
-export default {
-    habitFractV1: {
-      title: 'Local storage Habit Tracker',
-      mainText:
-        'Stemming from a project in the Launch School syllabus for backend, focusing on local storage and the ERB templating language.//This was my first go at building a basic interface for the visualisation of habit structures. I decided to use a hierarchy of triangles, trying to make 3 levels that would stack one on top of the other. I had success but it relied on too much monkeypatching of the SwiperJS API to be sustainable.',
-      subText: 'A simplistic linear habit tracker with a Sinatra backend',
-      img: happyTriangles,
-      img2: '',
-      skills: [
-        'Building a responsive UI',
-        'Local Storage',
-        'Using New Libraries',
-        'Testing',
-      ],
-      libs: ['jQuery Swiper', 'Bootstrap 4 & FlatUI', 'Sinatra', 'ERB'],
-      langs: ['HTML', 'CSS', 'JavaScript', 'Ruby'],
-      gitLink: 'https://github.com/nick-stebbings/habit_triangles',
-      demoLink: 'https://habit-triangles.herokuapp.com/',
-      blogLink:
-        'https://n-stebbings.medium.com/from-session-cookie-to-do-list-to-fractal-distributed-listmania-part-1-645911140e53',
+export default [
+  {
+    pageClass: "page two",
+    title: 'Habit/Fract (for Holochain)',
+    subtitle: 'a social, fractal, atomic habit tracker',
+    summary: {
+      paragraphs: "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question! After trying out many linear habit trackers (including some very visually and narratively interesting apps) I found that there was nothing meeting my personal requirements. \\r\\n\\r\\nI am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope). While it is always the day-to-day actions that one must focus on, as a result of this top-down way of thinking it can be difficult to link daily actions to the bigger picture and make consistent progress.\\r\\n\\r\\nConversely, many people are great at breaking down and acting on small-magnitude behaviours (the list-writers!). Habit/Fract came about as a way of uniting the two modes of thinking in a way that provides visual cues and helps to build and break down habitual behaviour over time.",
+      imgPath: "atom.png"
     },
-    habitFractV2: {
-      title: 'HabitFract v1 Frontend',
-      mainText:
-        'A development of my first habit tracking app to include hierarchical visualisation of the habits using the d3 library (Data Driven Documents). This was a much more ambitious project than the one from which it stemmed. I moved to a multi-layered architecture: my first single-paged app. I also performed a full manual deployment to a Digital Ocean droplet, Dockerised both layers and used Github actions and DockerHub for CD//I spent some time working on integrating d3-hierarchy visualisations with a lightweight frontend framework called Mithril. Since Mithril is unopiniated about global state management I tried to find my own solutions using functional streams of data. This prepared me well for learning Redux and understanding React state hooks, but was ultimately buggy and hard to maintain. // I plan to reuse the d3 interface in v2 of the project, since much of the logic was componentised and written in JSX// UPDATE: This version is no longer live as a migration to React is now complete. The demo link here demonstrates the new UI which is a clone of the v1 Frontend. Some features are yet to be migrated.',
-    //   subText: 'A fractal habit tracking single page application',
-      img2: habitFractV2Img,
-      img: habitFractV2ImgFront,
-      skills: [
-        'CI/CD',
-        'Data Visualisation',
-        'Using MVC Frameworks',
-        'Figma Design from Scratch',
-        'Build-first methodology',
-        'Code Splitting',
-      ],
-      langs: ['Ruby', 'JavaScript', 'Sass', 'PostCSS'],
-      libs: ['d3.js', 'Tailwind CSS', 'Webpack 4', 'Mithril'],
-      demoLink: 'https://habfract.online',
-      gitLink:
-        'https://github.com/nick-stebbings/fractal-habits-SPA-tailwind-react-redux',
-      blogLink:
-        'https://n-stebbings.medium.com/from-session-cookie-to-do-list-to-fractal-distributed-listmania-2da3e33728a?postPublishedType=repub',
+    langs: ['Holochain', 'TypeScript', 'Rust', 'GraphQL'], 
+    libs: ['React', 'Redis', 'Redux', 'Apollo', 'd3.js', 'Storybook'],
+    codebaseUrl: "https://github.com/HabFract",
+    designsUrl: "https://www.figma.com/file/m8CE7oXUuSw2BGkS7fdvBD/Habfract-Holochain-1.1-Design-System?node-id=214%3A2091&t=QOvj4igG3f1neSkk-1",
+    articles: [
+      { paragraphs: 'This working project will in time be the culmination of my fractally-visualised personal habit tracking application - a social experience that will allow us to learn from each other through mimicry.\\r\\n\\r\\nThe end goal for the UI is to have a \"never-ending\" fractal structure that can be added to at the top, or at the bottom, perhaps terminating at the bottom in an \"atomic habit\" - the smallest unit of habit, which could optionally be stored as a simple To-do list. The data and visuals can be stored on the user\'s private account (even available offline) and then, if the agent wishes, tokenised and shared for free/traded (when the visualisation of the behaviours is valuable, e.g. the running of a business).\\r\\n\\r\\nHolochain ensures encryption and full agent-centric sovereignty over data. ', imgPath: "holochain-logo.png", imgCaption: "Holochain is a distributed (p2p) data integrity framework", imgAlt: "Holochain logo"},
+      { paragraphs: 'I learnt the Rust programming language to intermediate level in order to understand how to scaffold and develop a Holochain app (hApp). I learnt how to run a Holochain conductor (node) on my local host, then I started with a \'Profiles\' microservice provided by members of the Holochain open-dev community.\\r\\n\\r\\nI have recently been focusing on the UI/UX and have completed user stories/screens (see \'Designs\' link, above) that flesh out the core functionality of the minimum viable product. There is no Holochain native mobile application currently possible and so the challenge has been to make it feel native whist remaining a web app.\\r\\n\\r\\nDeveloping on Holochain is like trying to hit a moving target, since the technology has only just reached Beta stage. I look forward to implementing a full p2p deployment integrating the new designs in the next year.\\r\\n\\r\\nIf anybody wishes to get involved in this development of this hApp, get in touch via the contact form.', imgPath: "screens/user-profile.png", imgCaption: "A look at a possible New User screen. No password is needed as an agent is identified by the app via their public/private key pair", imgAlt: "New user screenshot"},
+    ],
+    hasCaseStudy: true
+  },
+  {
+    pageClass: "page three",
+    title: 'Habit Triangles',
+    subtitle: 'a visual, linear habit tracker',
+    summary: {
+      paragraphs: "This small app stemmed from a project in the Launch School back-end syllabus which focused on persistence with local storage and rendering with the ERB template language.\\r\\n\\r\\nThis was my first attempt at building a basic interface for the visualisation of personal habits using multi-level structures. I decided to use a hierarchy of triangles, attempting to make 3 levels that could stack on top of the other. I had some success but relied on monkey-patching of the SwiperJS API which quickly became unmanageable.",
+      imgPath: "pyramid.png"
     },
-    habitFractV2Synopsis: {
-      title: 'HabitFract: Synopsis',
-      subText: 'An experiment in tracking habits Visually & Hierarchically',
-      mainText:
-        "Ever tried to follow a goal and had trouble trying to put it into action? Ok - that's a leading question! // After trying many linear habit trackers (including some very visually and narratively interesting applications) I found that there was nothing meeting my personal requirements. I am a person who thinks in big ideas and then recursively breaks down what needs to be done to achieve these ideas (sometimes epic in scope).// // As a result of this top-down way of thinking - while it is always the day-to-day actions that one must focus on - it can be difficult to link them to the bigger picture and make consistent progress. // Conversely - I know many people who are great at breaking down and acting on small-magnitude behaviours (the list-writers!). HabitFract came about as a way of uniting the two ways of thinking in a way to provide visual cues and help build/break down habitual behaviour over time. // The future of the app is to be available only on the distributed data integrity framework 'Holochain', allowing all users to have sovereignty over personal habit data and exchange it with others as they see fit. For more info please see the p2p HabitFract popup in the Projects section. // For now, feel free to play around with the Web 2.0 version (there is no user login system as the implementation for web3 will use private-public key encryption). Just follow the link to 'UI Demo' after closing this box. // UPDATE: The redesign of the frontend is coming together. For a sneak peak, have a look at the design frames in this Figma project: www.figma.com/file/2prmPWHnIqcfBabpjYv5Oj/Habit-Fract-Holochain-Onboarding-Process?node-id=321%3A15098",
-      img3: habitFractV2ScreenshotMobile,
-      img2: habitFractV2ScreenshotDesktop,
-      img: habitFractV2TopImg,
+    libs: ['jQuery Swiper', 'Bootstrap 4', 'FlatUI', 'Sinatra', 'ERB'],
+    langs: ['HTML', 'CSS', 'JavaScript', 'Ruby'],
+    demoUrl: "https://habit-triangles.herokuapp.com/",
+    codebaseUrl: "https://github.com/nick-stebbings/habit_triangles",
+    blogUrl: "https://n-stebbings.medium.com/from-session-cookie-to-do-list-to-fractal-distributed-listmania-part-1-645911140e53",
+    articles: [
+      { paragraphs: "I drew inspiration from a Mathematics and fractal geometry. Check out this cool 3d version: https://www.reddit.com/r/woahdude/comments/hsu3f3/delightful_fractal_triangles/" , imgPath: "screens/happy-triangles.jpg", imgCaption: "My first attempt at visualising habits used a pyramid of triangles", imgAlt: "The app's habit visualisation interface"},
+    ],
+    hasCaseStudy: false
+  },
+  {
+    pageClass: "page four",
+    title: 'Habit/Fract (Web 2.0)',
+    subtitle: 'a proof of concept for the ultimate habit tracker',
+    summary: {
+      paragraphs: "This project was an improvement of my Habit Triangles app to include hierarchical visualisation of the habits using the d3 JavaScript library (Data Driven Documents).\\r\\n\\r\\nThis was a much more ambitious project than the first. I moved to a multi-layered architecture: my first single-paged app. I also performed a full manual deployment to a Digital Ocean droplet, Dockerised both layers and used Github actions and DockerHub for continual deployment",
+      imgPath: "sphere.png"
     },
-    habitFractV2api: {
-      title: 'HabitFract v1 Web API',
-      mainText:
-        "An API developed for the single-page-application HabitFract. I tried to separate concerns as much as possible to allow the use of different storage mediums via adapters in the ROM-rb ORM library. This was a complicated library to learn but it ultimately enabled me to populate the visualisations on the frontend from web-scraped data.//I scraped data from eHow using Cheerio, formulated it in a YAML file, then used a Ruby Tree library to adapt it into a hierarchical JSON ternary tree. This could later allow rapid seeding of the database based on the user's choice of data.",
-      subText: 'A web API for storing and tracking habits',
-      img: sinatraRecord,
-      img2: '',
-      skills: [
-        'Dockerising a SPA',
-        'Nginx Reverse Proxy Setup',
-        'Inversion of Control',
-        'Dependency Injection',
-        'TDD',
-        'Web scraping',
-        'Modified pre-order tree traversal',
-      ],
-      libs: ['Sinatra', 'Ruby Object Mapper', 'dry-rb', 'Cheerio', 'PostgreSQL'],
-      langs: 'Ruby, SQL',
-      demoLink: 'https://api.habfract.online/demo/domain/1/habit_tree',
-      gitLink:
-        'https://github.com/nick-stebbings/fractal-habit-pyramid-sinatraAPI',
-      blogLink:
-        'https://n-stebbings.medium.com/from-session-cookie-to-do-list-to-fractal-distributed-listmania-2da3e33728a?postPublishedType=repub',
+    langs: ['Ruby', 'JavaScript', 'Sass', 'PostCSS'], 
+    libs: ['d3.js', 'Tailwind CSS', 'Webpack 4', 'Mithril.js', 'React', 'Redux'],
+    demoUrl: "https://habfract.online",
+    codebaseUrl: "https://github.com/nick-stebbings/fractal-habits-SPA-tailwind-react-redux",
+    designsUrl: "https://www.figma.com/file/bbLgug0bakLBh9xtbKwgon/HabitFract?node-id=0%3A1&t=x34BaWpkp7AtLn7o-1",
+    blogUrl:
+      'https://n-stebbings.medium.com/from-session-cookie-to-do-list-to-fractal-distributed-listmania-2da3e33728a?postPublishedType=repub',
+    articles: [
+      { paragraphs: "I spent some time working on integrating d3-hierarchy visualisations with a lightweight frontend framework called Mithril. Since Mithril is un-opiniated about global state management I tried to find my own solutions using functional streams of data. This prepared me well for learning Redux and understanding React state hooks, but was ultimately buggy and hard to maintain.\\r\\n\\r\\nI later completed a migration to React/Redux which solved most of the bugs. The demo link here is the migrated version, but without the landing page I originally deployed.", imgPath: "screens/habit-structure.png", imgCaption: "The primary habit visualisation is a tree structure", imgAlt: "The app's habit visualisation interface"},
+      { paragraphs: "The API for the single-page-application was written in Ruby, using the Sinatra framework. I tried to separate concerns as much as possible to allow the use of different storage mediums via adapters in the ROM-rb ORM library. This was a complicated library to learn but it ultimately enabled me to populate the visualisations on the frontend from web-scraped data.\\r\\n\\r\\nI scraped data from eHow using Cheerio, formulated it in a YAML file, then used a Ruby Tree library to adapt it into a hierarchical JSON ternary tree. A similar process could be used to allow users to start from a set of common templates, derived from famous ways to organise one's habits (e.g. a template copying the \'7 Habits of Highly Effective People\'').", imgPath: "screens/habitfractv2.png", imgCaption: "The original landing screen", imgAlt: "Landing screen screenshot"}
+    ],
+    hasCaseStudy: false
+  },
+  {
+    pageClass: "page five",
+    title: 'Farmr',
+    subtitle: 'a good price for good produce',
+    summary: {
+      paragraphs: "This is a concept for an hApp that is at the design and prototyping stage. Inspired by the work of the hREA project (the Holochain implementation of a bigger/older project called ValueFlows) I came up with this idea.\\r\\n\\r\\nWith traditional economic systems breaking down, and inflation rampant, there is a need for new economic ideas. The ValueFlows project has been trying for some time to introduce a new economic ontology/grammar that will allow human beings to recognise the true value/costs of every micro-economic transaction and trace the flow of value throughout the system. \\r\\n\\r\\nI intend to build on the great work of these projects by creating a simple app that allows consumers to find the best value produce meeting their supply-side standards (e.g. spray-free, organic, free-range).",
+      imgPath: "screens/farmr-user-stories.png", 
+      imgCaption: "Beginning of a user story for a food consumer", imgAlt: "User story flow-chart"
     },
-    habitFractV3: {
-      title: 'HabitFract v2 on Holochain',
-      mainText:
-        'This working project will in time be the culmination of my fractally-structured personal habit tracking application. Once I learnt the basics of Rust and was able to understand how to run a Holochain conductor on my local host, I started off with a "Profiles" microservice provided by members of the Holochain open-dev community.//I implemented Redux typesafe-actions in TypeScript which fits well with Redux Toolkit, simplifying the reducer while helping manage loading and error states.// Currently the app is a Todolist with the possibility to share lists with other agents running the same DNA. I will rebuild the hierarchy model of habits using paths instead of modified pre-order traversal. I have not yet decided whether to change, for performance and scalability, to an immediate mode graphics model like Canvas or WebGL. I also plan to implement caching with Redis.// The end goal for the UI is to have a "never-ending" fractal structure that can be added to at the top, or at the bottom, perhaps terminating at the bottom in an "atomic habit", the smallest unit of habit, which can be stored as a simple to do list.//The structures can be built, and then, if the agent wishes, tokenised and traded when the behaviour is valuable  (e.g. the running of a business) or shared for free. Holochain ensures encryption and fuil agent control of data.',
-      subText: 'Creating a distributed p2p marketplace for habit data',
-      img: habitPyramid,
-      img2: pyramidBlocks,
-      gitLink:
-        'https://github.com/nick-stebbings/hc-react-redux-shared-todo-feed.git',
-      skills: [
-        'Testing React & Redux',
-        'BDD',
-        'Typing Hooks & Actions',
-        'Decentralised Architecture',
-      ],
-      demoLink: '',
-      libs: [
-        'Redux Toolkit',
-        'React Testing Library',
-        'typesafe-actions',
-        'Tryorama (Holochain Testing)',
-        'Redux Thunk Middleware for Holochain',
-      ],
-      langs: 'TypeScript, Rust',
-      blogLink:
-        'https://n-stebbings.medium.com/from-local-storage-to-do-list-to-fractal-peer-to-peer-habit-tracker-3be56214c6ee?source=user_profile---------0-------------------------------',
-    },
-    instagramClone: {
-      title: 'React Image Sharing App',
-      mainText:
-        'I had fun building this copy of Instagram using a tutorial from Karl Hadwen. It was my second time using Firebase and I learnt how easy it is to setup user authentication. It was also good practice with React Hooks, Router, and managing loading states.',
-      subText: 'An image sharing app following the course of @karlhadwen',
-      img: instaClone,
-      img2: '',
-      gitLink: 'https://github.com/nick-stebbings/insta-clone',
-      demoLink: '',
-      skills: [
-        'User Auth with Firebase',
-        'React Hooks',
-        'Seeding Data to Firebase',
-      ],
-      libs: ['React', 'Tailwind CSS', 'React Loading Skeleton'],
-      langs: 'JavaScript, NoSQL',
-    },
-    auntJenny: {
-      title: 'Private App for AuntJenny.com.au',
-      mainText:
-        'Aunt Jenny is an e-commerce site specialising in products for weaving and spinning wool at home. I was briefed with planning and constructing a bespoke app to fit into the Admin dashboard of the existing store.//Much of the time was spent learning the Shopify auth processes, UI library and GraphQL API for fulfillment of orders. I was able to automate a certain amount of order processing and customer interaction, plus edit the storefront to update stock data on an automatic daily basis. I used PostgreSQL and server-side rendering (getServerSideProps) to capture data from the manufacturer via webhooks and to enhance dashboard reporting for the client.',
-      subText: 'Shopify app for a local distributor of spinning wheels',
-      img: spinner,
-      img2: '',
-      gitLink: '',
-      demoLink: '',
-      skills: [
-        'React Custom Hooks',
-        'GraphQL Hooks',
-        'JWT and OAuth flow',
-        'Server-side Rendering',
-        'Processing Webhooks',
-      ],
-      libs: ['NextJS', 'Koa', 'React', 'Polaris', 'Sequelize'],
-      langs: 'JavaScript, GraphQL, Liquid',
-    },
-  };
-  
+    langs: ['Holochain', 'JavaScript', 'Rust'], 
+    libs: ['Still', 'at', 'the', 'design', 'stage'],
+    // codebaseUrl: "https://github.com/HabFract",
+    designsUrl: "https://www.figma.com/file/rNEfZ6vOS1UfUW0byjZbUm/Farmer-Stories?t=smffdhIRJcbG1z3n-1",
+    articles: [
+      { paragraphs: 'I began by mapping out the core functionality from the two main user types: Producer and Consumer.\\r\\n\\r\\nUsing Figma design tools I created flow charts to investigate the potential paths for each new user and the hurdles to understanding and using this new economic grammar.\\r\\n\\r\\nOnce I better understood the potential paths for each new user I turned the user flows into mobile screens using the Flowbite Tailwind UI kit. This allowed me to flesh out the UI for both stories in one morning\'s work.\\r\\n\\r\\nIf anybody wishes to get involved in this development of this hApp, get in touch via the contact form.',
+      imgPath: "screens/early-farmr.png", 
+      imgCaption: "Above (large): user story planning with Figma. Above: early mobile screens were rapidly prototyped.", imgAlt: "Some mobile screens for Farmr showing a hero section and products list"},
+    ],
+  },
+];

@@ -157,7 +157,7 @@
 <script>
 export default {
   name: "MainLoop",
-  props: ["launchnav"],
+  props: ["launchNav"],
   mounted() {
     (function (s, i, u, o, c, w, d, t, n, x, e, p, a, b) {
       (a = document.getElementById(i.root)).svgatorPlayer = {
@@ -229,7 +229,7 @@ export default {
     );
 
     document.getElementById("eQLnfg7tbSq2").addEventListener("click", () => {
-      this.launchnav();
+      this.launchNav();
     });
   },
 };

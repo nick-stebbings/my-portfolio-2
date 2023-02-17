@@ -1,24 +1,22 @@
 <template>
     <header>
-        <h1>web 3</h1>
-        <h2>Peer-to-peer web apps for the people... (thanks, Holochain!)</h2>
-        <h3>
-            Follow my journey developing the <span class="header-link">ultimate habit tracker</span>...
+        <h1 :class="computedHeaderClass">web 3</h1>
+        <h2 :class="computedHeaderClass">Peer-to-peer web apps for the people... (thanks, Holochain!)</h2>
+        <h3 :class="computedHeaderClass">
+            Follow my journey developing the <span :class="header-link">ultimate habit tracker</span>...
         </h3>
-        <h3>
+        <h3 :class="computedHeaderClass">
                 ...starting from
-            <span class="header-link">simple origins</span>...
+            <span :class="header-link">simple origins</span>...
         </h3>
-        <h3>
+        <h3 :class="computedHeaderClass">
                 ...why not demo the
-            <span class="header-link">Web2 UI?</span>
+            <span :class="header-link">Web2 UI?</span>
         </h3>
-        <h3>
+        <h3 :class="computedHeaderClass">
             Lastly, consider how we could change our whole economy: starting with a simple  
-            <span class="header-link">food marketplace concept</span>.
+            <span :class="header-link">food marketplace concept</span>.
         </h3>
-        <!-- <h3>See the results of a bespoke Shopify application on a small <span class="header-link">spinning wheel distributor</span></h3>
-        <h3>See the results of a bespoke Shopify on a small <span class="header-link">spinning wheel distributor</span></h3> --> -->
     </header>
 </template>
 <style scoped>
@@ -83,6 +81,15 @@ h3 span {
 
 h3:nth-of-type(2) {
     padding-left: 4rem; 
+}
+
+h1, h2, h3 {
+    transition: .6s all;
+}
+h1.inactive, h2.inactive, h3.inactive, h3.inactive span {
+    transition:.61s all;
+    color: transparent;
+    text-shadow: 0 0 45px rgba(0,0,0,0.5);
 }
 
 @media (min-width: 1024px) {
@@ -186,3 +193,18 @@ h3:nth-of-type(2) {
     }
 }
 </style>
+
+<script>
+export default {
+    props: {
+        hoveredLayer: String,
+        activeLayer: String,
+        headerTitles: Object,
+    },
+  computed : {
+        computedHeaderClass() {
+            return this.activeLayer === this.hoveredLayer ? "active" : "inactive"
+        },
+    }
+}
+</script>

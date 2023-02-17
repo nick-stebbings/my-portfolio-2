@@ -658,7 +658,7 @@
 <script>
 export default {
   name: "Intro2",
-  props: ["launchmainloop"],
+  props: ["launchMainLoop"],
   mounted() {
     (function (s, i, u, o, c, w, d, t, n, x, e, p, a, b) {
       (a = document.getElementById(i.root)).svgatorPlayer = {
