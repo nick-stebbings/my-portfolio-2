@@ -838,7 +838,7 @@
       const sawSelection = selectAll(sawLayerHoverId);
       const corkScrewSelection = selectAll(corkscrewLayerHoverId);;
       const bookMeHoverSelection = selectAll(bookMeHoverId);;
-      const notLoadedYet = () => (document.querySelector(".page-nav-container").style.opacity != 1)
+      const notLoadedYet = () => (document.querySelector("nav").style.opacity != 1)
 
       const makeLayer1Active = () => {
         if(notLoadedYet()) return;

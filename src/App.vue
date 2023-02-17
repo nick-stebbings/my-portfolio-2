@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ref, onMounted } from "vue";
+  import { ref, onMounted, computed} from "vue";
   import Header from "./components/Header.vue";
   import Animation1 from "./components/Animation1.vue";
   import AnimationIntroLoop from "./components/AnimationIntroLoop.vue";
@@ -11,22 +11,19 @@
   import projects from "./projectData.js";
   import projectHeaders from "./headerData.js";
 
-  interface headerDict {
-    [key: string]: object;
-  }
-
+  // Animation scene flags
   const intro1Visible = ref(true);
   const introLoopVisible = ref(false);
   const intro2Visible = ref(false);
   const mainLoopVisible = ref(false);
   const navVisible = ref(false);
-  const activeLayer = ref('web3');
-  const hoveredLayer = ref('web3');
-  const headerTitles = ref(projectHeaders['web3']);
-  let headerLinks: any;
+  
+  // Settimeout return values
   let playMainLoop : any;
   let skipToMainLoop : any;
   
+  // Scene switch helper functions
+    
   function launchScene(animationId: number) {
     intro1Visible.value = false;
     introLoopVisible.value = false;
@@ -55,8 +52,7 @@
                   navVisible.value = true;
                   break;
                 }
-  }
-              
+  }           
   function launch2() {
     launchScene(2);
     const element = document.getElementById("ekFf3Z5Im6j1");
@@ -90,7 +86,7 @@
     skipBtn!.style.visibility = 'invisible';
     
     setTimeout(function () {
-      const element = document.querySelector(".page-nav-container");
+      const element = document.querySelector("nav");
       (element as HTMLBodyElement).style.opacity = '1';
       (element as HTMLBodyElement).style.visibility = 'visible';
       
@@ -104,17 +100,35 @@
     }, 4500);
   }
 
+  // Nav state
+  const activeLayer = ref('web3');
+  const hoveredLayer = ref('web3');
+  const headerTitles = ref(projectHeaders['web3']);
+  let headerLinks: any;
+  
   // Nav state controller functions
   function switchToLayer(layerName: string) {
     getHeaderTitles(layerName);
     activeLayer.value = layerName;
   }
   function hoverLayerActive(layerName: string) {
+    const subNav = document.querySelector("nav");
     getHeaderTitles(layerName);
     headerLinks = document.querySelectorAll("span.header-link");
+
+    console.log('subNav :>> ', subNav);
     hoveredLayer.value = layerName;
+    subNav!.className = "page-nav-container " + layerName;
   }
 
+  // Subnav state
+  const showSecondNavBtn = computed(() => ['web3', 'ecommerce'].includes(hoveredLayer.value));
+  const showThirdFourthNavBtn = computed(() => hoveredLayer.value == 'web3');
+
+  // Header state
+  interface headerDict {
+    [key: string]: object;
+  }
   function getHeaderTitles(pageName: string) {
     headerTitles.value = (projectHeaders as headerDict)[pageName]
   }
@@ -271,9 +285,9 @@
         <Header :activeLayer="activeLayer" :hoveredLayer="hoveredLayer" :headerTitles="headerTitles"></Header>
       <nav class="page-nav-container">
         <button id="page-nav-1-1" class="page-nav-btn" @click="slide('next', 'first')"></button>
-        <button id="page-nav-1-2" class="page-nav-btn" @click="slide('next', 'second')"></button>
-        <button id="page-nav-1-3" class="page-nav-btn" @click="slide('next', 'third')"></button>
-        <button id="page-nav-1-4" class="page-nav-btn" @click="slide('next', 'fourth')"></button>
+        <button id="page-nav-1-2" v-show="showSecondNavBtn" class="page-nav-btn" @click="slide('next', 'second')"></button>
+        <button id="page-nav-1-3" v-show="showThirdFourthNavBtn" class="page-nav-btn" @click="slide('next', 'third')"></button>
+        <button id="page-nav-1-4" v-show="showThirdFourthNavBtn" class="page-nav-btn" @click="slide('next', 'fourth')"></button>
       </nav>
     </div>
     <section id="contact" class="page zero">
@@ -400,25 +414,44 @@ section#contact {
   opacity: 0.75;
   cursor: pointer;
   margin: 1rem;
+  transition: all .4s ease-in;
 }
 .page-nav-btn:hover {
   opacity: 0.8;
   transform: scale(1.25);
 }
-.page-nav-btn:first-of-type {
-  background: url("assets/images/atom.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.page-nav-btn:nth-of-type(3) {
+.elearning.page-nav-container .page-nav-btn:first-of-type {
   background: url("assets/images/sphere.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
-
-.page-nav-btn:nth-of-type(2) {
+.elearning.page-nav-container .page-nav-btn:nth-of-type(2) {
+  background: url("assets/images/sphere.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.ecommerce.page-nav-container .page-nav-btn:first-of-type {
   background: url("assets/images/pyramid.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.ecommerce.page-nav-container .page-nav-btn:nth-of-type(2) {
+  background: url("assets/images/pyramid.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.web3.page-nav-container .page-nav-btn:first-of-type {
+  background: url("assets/images/atom.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.web3.page-nav-container .page-nav-btn:nth-of-type(2) {
+  background: url("assets/images/pyramid.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.page-nav-btn:nth-of-type(3) {
+  background: url("assets/images/sphere.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
