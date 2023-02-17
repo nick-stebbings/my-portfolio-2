@@ -1,11 +1,11 @@
 <template>
     <header>
-        <h1 :class="computedHeaderClass">web 3</h1>
-        <h2 :class="computedHeaderClass">Peer-to-peer web apps for the people... (thanks, Holochain!)</h2>
-        <h3 :class="computedHeaderClass">
-            Follow my journey developing the <span class="header-link">ultimate habit tracker</span>...
+        <h1 :class="computedHeaderClass">{{  headerTitles['h1'] }}</h1>
+        <h2 :class="computedHeaderClass">{{  headerTitles['h2'] }}</h2>
+        <h3 :class="computedHeaderClass" v-for="h3 in headerTitles['h3']" >
+            {{  h3.p }}<span class="header-link">{{ h3.span }}</span>...
         </h3>
-        <h3 :class="computedHeaderClass">
+        <!-- <h3 :class="computedHeaderClass">
                 ...starting from
             <span class="header-link">simple origins</span>...
         </h3>
@@ -16,7 +16,7 @@
         <h3 :class="computedHeaderClass">
             Lastly, consider how we could change our whole economy: starting with a simple  
             <span class="header-link">food marketplace concept</span>.
-        </h3>
+        </h3> -->
     </header>
 </template>
 <style scoped>

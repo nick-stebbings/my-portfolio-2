@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ref, onMounted, computed } from "vue";
+  import { ref, onMounted } from "vue";
   import Header from "./components/Header.vue";
   import Animation1 from "./components/Animation1.vue";
   import AnimationIntroLoop from "./components/AnimationIntroLoop.vue";
@@ -9,6 +9,11 @@
   import Article from "./components/Article.vue";
   import ContactForm from "./components/ContactForm.vue";
   import projects from "./projectData.js";
+  import projectHeaders from "./headerData.js";
+
+  interface headerDict {
+    [key: string]: object;
+  }
 
   const intro1Visible = ref(true);
   const introLoopVisible = ref(false);
@@ -17,6 +22,7 @@
   const navVisible = ref(false);
   const activeLayer = ref('web3');
   const hoveredLayer = ref('web3');
+  const headerTitles = ref(projectHeaders['web3']);
   let headerLinks: any;
   let playMainLoop : any;
   let skipToMainLoop : any;
@@ -98,11 +104,19 @@
     }, 4500);
   }
 
+  // Nav state controller functions
   function switchToLayer(layerName: string) {
+    getHeaderTitles(layerName);
     activeLayer.value = layerName;
   }
   function hoverLayerActive(layerName: string) {
+    getHeaderTitles(layerName);
+    headerLinks = document.querySelectorAll("span.header-link");
     hoveredLayer.value = layerName;
+  }
+
+  function getHeaderTitles(pageName: string) {
+    headerTitles.value = (projectHeaders as headerDict)[pageName]
   }
 
   // Slide functionality adapted from https://medium.com/@mignunez/how-to-create-a-slide-transition-between-separate-pages-with-html-css-and-javascript-bb7a14393d1
@@ -254,7 +268,7 @@
         <Animation2 v-show="intro2Visible" :launchMainLoop="launchMainLoop" />
         <AnimationMainLoop v-show="mainLoopVisible" :launchNav="launchNav" />
         <AnimationNav v-show="navVisible" :switchToLayer="switchToLayer" :hoverLayerActive="hoverLayerActive" />
-        <Header :activeLayer="activeLayer" :hoveredLayer="hoveredLayer"></Header>
+        <Header :activeLayer="activeLayer" :hoveredLayer="hoveredLayer" :headerTitles="headerTitles"></Header>
       <nav class="page-nav-container">
         <button id="page-nav-1-1" class="page-nav-btn" @click="slide('next', 'first')"></button>
         <button id="page-nav-1-2" class="page-nav-btn" @click="slide('next', 'second')"></button>
@@ -270,7 +284,7 @@
       </div>
     </section>
     
-    <section v-for="(project, index) in projects" :class="project.pageClass">
+    <section v-for="(project) in projects" :class="project.pageClass">
       <Article :details="project" :slide="slide"></Article>
     </section>
 
