@@ -3,19 +3,19 @@
         <h1 :class="computedHeaderClass">web 3</h1>
         <h2 :class="computedHeaderClass">Peer-to-peer web apps for the people... (thanks, Holochain!)</h2>
         <h3 :class="computedHeaderClass">
-            Follow my journey developing the <span :class="header-link">ultimate habit tracker</span>...
+            Follow my journey developing the <span class="header-link">ultimate habit tracker</span>...
         </h3>
         <h3 :class="computedHeaderClass">
                 ...starting from
-            <span :class="header-link">simple origins</span>...
+            <span class="header-link">simple origins</span>...
         </h3>
         <h3 :class="computedHeaderClass">
                 ...why not demo the
-            <span :class="header-link">Web2 UI?</span>
+            <span class="header-link">Web2 UI?</span>
         </h3>
         <h3 :class="computedHeaderClass">
             Lastly, consider how we could change our whole economy: starting with a simple  
-            <span :class="header-link">food marketplace concept</span>.
+            <span class="header-link">food marketplace concept</span>.
         </h3>
     </header>
 </template>

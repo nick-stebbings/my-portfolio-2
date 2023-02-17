@@ -100,13 +100,9 @@
 
   function switchToLayer(layerName: string) {
     activeLayer.value = layerName;
-    console.log('ACTIVE LAYER :>> ', activeLayer.value);
-    headerLinks = document.querySelectorAll("span.header-link");
   }
   function hoverLayerActive(layerName: string) {
     hoveredLayer.value = layerName;
-    console.log('HOVERED LAYER :>> ', hoveredLayer.value);
-    headerLinks = document.querySelectorAll("span.header-link");
   }
 
   // Slide functionality adapted from https://medium.com/@mignunez/how-to-create-a-slide-transition-between-separate-pages-with-html-css-and-javascript-bb7a14393d1
