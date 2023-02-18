@@ -62,3 +62,31 @@ button#return-home:hover {
   left: 6rem;
   top: -1rem;
 }
+
+
+@keyframes fade-in {
+  0% {
+      opacity: 0;
+      color: transparent;
+      text-shadow: 0 0 45px rgba(0,0,0,0.5);
+  }
+  50% {
+      color: transparent;
+      text-shadow: 0 0 15px rgba(0,0,0,0.5);
+  }
+  100% {
+      opacity: 1;
+      color: #3C3C3C;
+      text-shadow: none;
+  }
+}
+@keyframes fade-out {
+  0% {
+      color: #3C3C3C;
+      text-shadow: none;
+  }
+  100% {
+      color: transparent;
+      text-shadow: 0 0 45px rgba(0,0,0,0.5);
+  }
+}

@@ -210,7 +210,7 @@
 
         <g
           id="e8VQ6wvtuBg10"
-          class="bg-svg"
+          class="bg-svg active"
           transform="matrix(.56 0 0 0.59 1572.778466 557.997572)"
           opacity="0"
         >
@@ -897,20 +897,43 @@
       const selectLayer3 = () => {
         this.switchToLayer('web3');
       }
+      const returnToSelectedLayer = (e) => {  
+        console.log('e.target :>> ', e.target);
+        if(notLoadedYet()) return;     
+        switch (document.querySelector(".bg-svg.active").id) {
+          case 'e8VQ6wvtuBg6':
+            makeLayer1Active();
+            break;
+          case 'e8VQ6wvtuBg8':
+            makeLayer2Active();
+            break;
+          case 'e8VQ6wvtuBg10':
+            makeLayer3Active();
+            break;
+        
+          default:
+            break;
+        }
+      }
+
       //knife mouseover
+      selectAll(layer1Id).on("mouseout", returnToSelectedLayer);
       selectAll(knifeLayerId).on("mouseover", makeLayer1Active);
       selectAll("#e-commerce-label").on("mouseover", makeLayer1Active);
       selectAll(knifeLayerId).on("click", selectLayer1);
       selectAll("#e-commerce-label").on("click", selectLayer1);
 
       // saw mouseover
+      selectAll(layer2Id).on("mouseout", returnToSelectedLayer);
       selectAll(sawLayerId).on("mouseover", makeLayer2Active);
       selectAll("#e-learning-label").on("mouseover", makeLayer2Active);
       selectAll(sawLayerId).on("click", selectLayer2);
       selectAll("#e-learning-label").on("click", selectLayer2);
 
       // saw mouseover
+      selectAll(layer3Id).on("mouseout", returnToSelectedLayer);
       selectAll(layer3Id).on("mouseover", makeLayer3Active);
+      // selectAll(layer3Id).on("mouseout", returnToSelectedLayer);
       selectAll("#web3-label").on("mouseover", makeLayer3Active);
       selectAll(corkscrewLayerId).on("mouseover", makeLayer3Active);
       selectAll(layer3Id).on("click", selectLayer3);
@@ -925,11 +948,15 @@
         corkScrewSelection.attr("opacity", 0);
         bookMeHoverSelection.attr("opacity", 1);
       });
+
+      // Default layer is web3
+      makeLayer3Active();
     },
     props: {
       switchToLayer: Function,
       hoverLayerActive: Function,
     },
+
   };
   </script>
 

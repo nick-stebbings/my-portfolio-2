@@ -103,20 +103,29 @@
   // Nav state
   const activeLayer = ref('web3');
   const hoveredLayer = ref('web3');
-  const headerTitles = ref(projectHeaders['web3']);
+  const headerTitles : any = ref(projectHeaders['web3']);
   let headerLinks: any;
   
   // Nav state controller functions
   function switchToLayer(layerName: string) {
     getHeaderTitles(layerName);
+    document.querySelectorAll(".bg-svg")[0].classList.remove('active');
+    document.querySelectorAll(".bg-svg")[1].classList.remove('active');
+    document.querySelectorAll(".bg-svg")[2].classList.add('active');
+
     activeLayer.value = layerName;
   }
+  let currentHeaderChangeSetTimeout : any;
   function hoverLayerActive(layerName: string) {
     const subNav = document.querySelector("nav");
-    getHeaderTitles(layerName);
+
+    clearTimeout(currentHeaderChangeSetTimeout);
+    currentHeaderChangeSetTimeout = setTimeout(() => {
+      console.log(layerName)
+      getHeaderTitles(layerName);
+    }, layerName !== activeLayer.value ? 750 : 0);
     headerLinks = document.querySelectorAll("span.header-link");
 
-    console.log('subNav :>> ', subNav);
     hoveredLayer.value = layerName;
     subNav!.className = "page-nav-container " + layerName;
   }
@@ -242,10 +251,10 @@
     headerLinks = document.querySelectorAll("span.header-link");
     navBtns.forEach((btn: any, i: number) => {
       btn.addEventListener('mouseover', () => {
-        (headerLinks[i] as any).style['font-size'] = '1.1em';
+        (headerLinks[i] as any).style['background-color'] = '#303C6C';
       });
       btn.addEventListener('mouseout', () => {
-        (headerLinks[i] as any).style['font-size'] = '0.909090909em';
+        (headerLinks[i] as any).style['background-color'] = 'initial';
       });
     })
 
@@ -420,23 +429,33 @@ section#contact {
   opacity: 0.8;
   transform: scale(1.25);
 }
-.elearning.page-nav-container .page-nav-btn:first-of-type {
+
+    .elearning.page-nav-container .page-nav-btn, .ecommerce.page-nav-container .page-nav-btn, .web3.page-nav-container .page-nav-btn  {
+      animation: fade-in-img 3s;
+    }
+    .page-nav-container .page-nav-btn {
+      animation: fade-out-img 1s;
+      }
+
+  .elearning.page-nav-container .page-nav-btn:first-of-type {
   background: url("assets/images/sphere.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
-.elearning.page-nav-container .page-nav-btn:nth-of-type(2) {
+
+  .elearning.page-nav-container .page-nav-btn:nth-of-type(2) {
   background: url("assets/images/sphere.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
-.ecommerce.page-nav-container .page-nav-btn:first-of-type {
-  background: url("assets/images/pyramid.png");
+
+  .ecommerce.page-nav-container .page-nav-btn:first-of-type {
+  background: url("assets/images/icons/bike-icon.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
 .ecommerce.page-nav-container .page-nav-btn:nth-of-type(2) {
-  background: url("assets/images/pyramid.png");
+  background: url("assets/images/icons/spinning-icon.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -460,7 +479,26 @@ section#contact {
   background-repeat: no-repeat;
   background-size: contain;
 }
-
+@keyframes fade-in-img {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        color: #3C3C3C;
+        text-shadow: none;
+    }
+}
+@keyframes fade-out-img {
+    0% {
+        color: #3C3C3C;
+        text-shadow: none;
+    }
+    100% {
+        color: transparent;
+        text-shadow: 0 0 45px rgba(0,0,0,0.5);
+    }
+}
 /* Project pages */
 .pages {
   box-sizing: border-box;

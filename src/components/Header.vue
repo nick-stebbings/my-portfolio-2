@@ -2,9 +2,11 @@
     <header>
         <h1 :class="computedHeaderClass">{{  headerTitles['h1'] }}</h1>
         <h2 :class="computedHeaderClass">{{  headerTitles['h2'] }}</h2>
-        <h3 :class="computedHeaderClass" v-for="h3 in headerTitles['h3']" >
-            {{  h3.p }}<span class="header-link">{{ h3.span }}</span>...
-        </h3>
+        <div class="header-container">
+            <h3 :class="computedHeaderClass" v-for="h3 in headerTitles['h3']" >
+                {{  h3.p }}<span class="header-link">{{ h3.span }}</span>...
+            </h3>
+        </div>
         <!-- <h3 :class="computedHeaderClass">
                 ...starting from
             <span class="header-link">simple origins</span>...
@@ -21,6 +23,11 @@
 </template>
 <style scoped>
 header {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    height: 100%;
+    max-height: 75%;
     position: absolute;
     font-size: 16px;
     opacity: 0;
@@ -29,7 +36,11 @@ header {
     top: 2rem;
     right: 3rem;
 }
-
+header .header-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
 h1, h2 {
     margin: 0;
     padding: 0 4rem;
@@ -51,6 +62,7 @@ h1 {
     text-transform: capitalize;
     margin-bottom: 1rem;
     line-height: 3.375rem;
+    transition: .5s margin-top cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 h2 { 
@@ -69,7 +81,6 @@ h3 {
     line-height: 1.5rem; 
     letter-spacing: 1px;
     max-width: 95%;
-    height: 4rem;
     margin: 0rem 4rem 1rem 4rem;
 }
 
@@ -83,13 +94,23 @@ h3:nth-of-type(2) {
     padding-left: 4rem; 
 }
 
-h1, h2, h3 {
-    transition: .6s all;
+h1.inactive {
+    animation: fade-out, fade-in;
+    margin-top: 33%;
 }
-h1.inactive, h2.inactive, h3.inactive, h3.inactive span {
-    transition:.61s all;
-    color: transparent;
-    text-shadow: 0 0 45px rgba(0,0,0,0.5);
+h2.inactive, h3.inactive, h3.inactive span {
+    opacity: 0;
+}
+
+h1.inactive {
+    animation-duration: .7s, 1s;
+    animation-delay: 0s, .7s;
+    transition: 0s margin-top ease-in;
+}
+h2.inactive {
+    animation: fade-in;
+    animation-duration: 80s;
+    animation-delay: .7s;
 }
 
 @media (min-width: 1024px) {
@@ -101,7 +122,7 @@ h1.inactive, h2.inactive, h3.inactive, h3.inactive span {
         margin-bottom: 1.5rem;
     }
     h3 {
-        height: 6rem;
+        /* height: 6rem; */
         padding-right: 2rem;
     }
 }
@@ -126,7 +147,7 @@ h1.inactive, h2.inactive, h3.inactive, h3.inactive span {
     h3 {
         font-size: 1.5em; /* 121.5px */
         line-height: 1.5rem;
-        margin: 4rem;
+        margin: 0 4rem auto 4rem;
     }
 }
 @media (min-width: 1440px) {
@@ -148,9 +169,9 @@ h1.inactive, h2.inactive, h3.inactive, h3.inactive span {
         font-size: 1.5em; /* 24px */
         line-height: 1.1em;
         font-weight: 400;
-        margin: 2rem;
+        margin: 0 2rem auto 2rem;
         max-width: 90%;
-        height: 3.5rem;
+        /* height: 3.5rem; */
     }
 
     h3:nth-of-type(2) {
