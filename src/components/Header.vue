@@ -93,16 +93,10 @@ h2.inactive, h3.inactive, h3.inactive span {
 }
 
 h1.inactive {
-    animation-duration: .5s;
+    animation-duration: .3s;
     animation-delay: 0s;
     transition: 0s margin-top ease-in;
 }
-h1.inactive[data-val^='e'] {
-    animation: fade-in;
-    animation-duration: 1.5s;
-    animation-delay: 0s;
-}
-
 
 @media (min-width: 1024px) {
     header {

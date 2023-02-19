@@ -60,8 +60,8 @@
           gradientUnits="objectBoundingBox"
           gradientTransform="translate(0 0)"
         >
-          <stop id="e8VQ6wvtuBg7-fill-0" offset="0%" stop-color="#85cae7" />
-          <stop id="e8VQ6wvtuBg7-fill-1" offset="100%" stop-color="#ceeaf6" />
+          <stop id="e8VQ6wvtuBg7-fill-0" offset="0%" style="stop-opacity:0.5" stop-color="#85cae7" />
+          <stop id="e8VQ6wvtuBg7-fill-1" offset="100%" style="stop-opacity:1" stop-color="#ceeaf6" />
         </linearGradient>
         <filter
           id="e8VQ6wvtuBg9-filter"
@@ -87,8 +87,8 @@
           gradientUnits="objectBoundingBox"
           gradientTransform="translate(0 0)"
         >
-          <stop id="e8VQ6wvtuBg9-fill-0" offset="0%" stop-color="#ffe18b" />
-          <stop id="e8VQ6wvtuBg9-fill-1" offset="100%" stop-color="#fff2d0" />
+          <stop id="e8VQ6wvtuBg9-fill-0" offset="0%" style="stop-opacity:0.5" stop-color="#ffe18b" />
+          <stop id="e8VQ6wvtuBg9-fill-1" offset="100%" style="stop-opacity:1" stop-color="#fff2d0" />
         </linearGradient>
         <filter
           id="e8VQ6wvtuBg11-filter"
@@ -114,8 +114,8 @@
           gradientUnits="objectBoundingBox"
           gradientTransform="translate(0 0)"
         >
-          <stop id="e8VQ6wvtuBg11-fill-0" offset="0%" stop-color="#f1a3cd" />
-          <stop id="e8VQ6wvtuBg11-fill-1" offset="90%" stop-color="#fad9ea" />
+          <stop id="e8VQ6wvtuBg11-fill-0" offset="0%" style="stop-opacity:0.5" stop-color="#f1a3cd" />
+          <stop id="e8VQ6wvtuBg11-fill-1" offset="90%"  style="stop-opacity:1" stop-color="#fad9ea" />
         </linearGradient>
         <filter
           id="e8VQ6wvtuBg16-filter"
@@ -898,7 +898,6 @@
         this.switchToLayer('web3');
       }
       const returnToSelectedLayer = (e) => {  
-        console.log('e.target :>> ', e.target);
         if(notLoadedYet()) return;     
         switch (document.querySelector(".bg-svg.active").id) {
           case 'e8VQ6wvtuBg6':

@@ -107,6 +107,18 @@
         color: #3c3c3c;
     }
 
+    .page[data-active='true'] h1,.page[data-active='true'] h2,.page[data-active='true'] p {
+        transition: all 0.5s;
+    }
+    .page[data-active='false'] h1, .page[data-active='false'] h2, .page[data-active='false'] p , .page[data-active='false'] li, .page[data-active='false'] figcaption   {
+        color: transparent;
+        text-shadow: 0 0 45px rgba(0,0,0,0.3);
+        transition: all 0.5s;
+    }
+    .page[data-active='false'] img {
+        filter: blur(20px);
+    }
+
     @media (min-width: 1280px) {
         p {
             font-size: 1.2rem;

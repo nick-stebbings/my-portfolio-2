@@ -132,6 +132,7 @@
   // Subnav state
   const showSecondNavBtn = computed(() => ['web3', 'ecommerce'].includes(hoveredLayer.value));
   const showThirdFourthNavBtn = computed(() => hoveredLayer.value == 'web3');
+  const activeFirstSection = computed(() => activeLayer.value === hoveredLayer.value);
 
   // Header state
   interface headerDict {
@@ -304,12 +305,12 @@
     <section id="contact" class="page zero">
       <div id="contact-wrapper">
         <h1>contact me</h1>
-        <button id="return-home" @click="slide('next', 'home', $event)"></button>
+        <button id="return-home" @click="slide('next', 'home')"></button>
         <ContactForm></ContactForm>
       </div>
     </section>
     
-    <section v-for="(project) in projects" :class="project.pageClass">
+    <section v-for="(project) in projects" :class="project.pageClass" :data-active="activeFirstSection">
       <Article :details="project" :slide="slide"></Article>
     </section>
 
@@ -434,7 +435,7 @@ section#contact {
 }
 
     .elearning.page-nav-container .page-nav-btn, .ecommerce.page-nav-container .page-nav-btn, .web3.page-nav-container .page-nav-btn  {
-      animation: fade-in-img 3s;
+      animation: fade-in-img 2s;
     }
     .page-nav-container .page-nav-btn {
       animation: fade-out-img 1s;

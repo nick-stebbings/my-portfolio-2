@@ -18,13 +18,6 @@
         flex-direction: column;
         position: relative;
     }
-    section.inactive header.article-title h1, section.inactive header.article-title h2 {
-        /* animation: fade-out;
-        animation-duration: .7s;
-        animation-delay: 0s; */
-        opacity: 0;
-        transition: 1s opacity;
-    }
 
     header.article-title.left {
         width: 100%;
