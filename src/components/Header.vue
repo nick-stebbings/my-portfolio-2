@@ -1,24 +1,12 @@
 <template>
-    <header>
-        <h1 :class="computedHeaderClass">{{  headerTitles['h1'] }}</h1>
+    <header :class="computedHeaderClass">
+        <h1 :class="computedHeaderClass" :data-val="headerTitles['h1']">{{  headerTitles['h1'] }}</h1>
         <h2 :class="computedHeaderClass">{{  headerTitles['h2'] }}</h2>
         <div class="header-container">
             <h3 :class="computedHeaderClass" v-for="h3 in headerTitles['h3']" >
                 {{  h3.p }}<span class="header-link">{{ h3.span }}</span>...
             </h3>
         </div>
-        <!-- <h3 :class="computedHeaderClass">
-                ...starting from
-            <span class="header-link">simple origins</span>...
-        </h3>
-        <h3 :class="computedHeaderClass">
-                ...why not demo the
-            <span class="header-link">Web2 UI?</span>
-        </h3>
-        <h3 :class="computedHeaderClass">
-            Lastly, consider how we could change our whole economy: starting with a simple  
-            <span class="header-link">food marketplace concept</span>.
-        </h3> -->
     </header>
 </template>
 <style scoped>
@@ -62,7 +50,7 @@ h1 {
     text-transform: capitalize;
     margin-bottom: 1rem;
     line-height: 3.375rem;
-    transition: .5s margin-top cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: .8s all cubic-bezier(0.075, 0.82, 0.165, 1) ;
 }
 
 h2 { 
@@ -95,7 +83,9 @@ h3:nth-of-type(2) {
 }
 
 h1.inactive {
-    animation: fade-out, fade-in;
+    animation: fade-in;
+}
+h1.inactive {
     margin-top: 33%;
 }
 h2.inactive, h3.inactive, h3.inactive span {
@@ -103,15 +93,16 @@ h2.inactive, h3.inactive, h3.inactive span {
 }
 
 h1.inactive {
-    animation-duration: .7s, 1s;
-    animation-delay: 0s, .7s;
+    animation-duration: .5s;
+    animation-delay: 0s;
     transition: 0s margin-top ease-in;
 }
-h2.inactive {
+h1.inactive[data-val^='e'] {
     animation: fade-in;
-    animation-duration: 80s;
-    animation-delay: .7s;
+    animation-duration: 1.5s;
+    animation-delay: 0s;
 }
+
 
 @media (min-width: 1024px) {
     header {

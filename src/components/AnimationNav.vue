@@ -915,30 +915,40 @@
             break;
         }
       }
+      const debounce = function (func, delay) {
+        let timeout;
+        return setTimeout((...args) => {
+          if (timeout) {
+            clearTimeout(timeout);
+          }
+          timeout = setTimeout(() => func.apply(null, args), delay);
+        }, 500);
+      };
 
       //knife mouseover
-      selectAll(layer1Id).on("mouseout", returnToSelectedLayer);
-      selectAll(knifeLayerId).on("mouseover", makeLayer1Active);
-      selectAll("#e-commerce-label").on("mouseover", makeLayer1Active);
+      selectAll(layer1Id).on("mouseout", debounce(returnToSelectedLayer, 1000));
+      selectAll(knifeLayerId).on("mouseover", makeLayer1Active, 200);
+      selectAll("#e-commerce-label").on("mouseover", makeLayer1Active, 200);
       selectAll(knifeLayerId).on("click", selectLayer1);
       selectAll("#e-commerce-label").on("click", selectLayer1);
 
       // saw mouseover
-      selectAll(layer2Id).on("mouseout", returnToSelectedLayer);
-      selectAll(sawLayerId).on("mouseover", makeLayer2Active);
-      selectAll("#e-learning-label").on("mouseover", makeLayer2Active);
+      selectAll(layer2Id).on("mouseout", debounce(returnToSelectedLayer, 1000));
+      selectAll(sawLayerId).on("mouseover", makeLayer2Active, 200);
+      selectAll("#e-learning-label").on("mouseover", makeLayer2Active, 200);
       selectAll(sawLayerId).on("click", selectLayer2);
       selectAll("#e-learning-label").on("click", selectLayer2);
 
       // saw mouseover
-      selectAll(layer3Id).on("mouseout", returnToSelectedLayer);
-      selectAll(layer3Id).on("mouseover", makeLayer3Active);
+      selectAll(layer3Id).on("mouseout", debounce(returnToSelectedLayer, 1000));
+      selectAll(layer3Id).on("mouseover", makeLayer3Active, 200);
       // selectAll(layer3Id).on("mouseout", returnToSelectedLayer);
-      selectAll("#web3-label").on("mouseover", makeLayer3Active);
-      selectAll(corkscrewLayerId).on("mouseover", makeLayer3Active);
+      selectAll("#web3-label").on("mouseover", makeLayer3Active, 300);
+      selectAll(corkscrewLayerId).on("mouseover", makeLayer3Active, 200);
       selectAll(layer3Id).on("click", selectLayer3);
       selectAll("#web3-label").on("click", selectLayer3);
       selectAll(corkscrewLayerId).on("click", selectLayer3);
+      selectAll(corkscrewLayerHoverId).on("click", selectLayer3);
       
       // book me mouseover
       selectAll(bookMeId).on("mouseover", () => { 

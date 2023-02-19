@@ -121,9 +121,8 @@
 
     clearTimeout(currentHeaderChangeSetTimeout);
     currentHeaderChangeSetTimeout = setTimeout(() => {
-      console.log(layerName)
       getHeaderTitles(layerName);
-    }, layerName !== activeLayer.value ? 750 : 0);
+    }, layerName !== activeLayer.value ? 0 : 0);
     headerLinks = document.querySelectorAll("span.header-link");
 
     hoveredLayer.value = layerName;
@@ -146,7 +145,10 @@
   let translate = 0;
   let translateAmount;
 
-  function slide(direction:string, articleName:string) {
+  function slide(direction:string, articleName:string, event: any = null) {
+    if(event && event.target.parentNode.previousElementSibling.classList.contains('inactive')) return;
+    // if in hover state, change layer
+
     const pages = document.querySelectorAll(".page");
 
     translateAmount = 0; 
@@ -251,10 +253,10 @@
     headerLinks = document.querySelectorAll("span.header-link");
     navBtns.forEach((btn: any, i: number) => {
       btn.addEventListener('mouseover', () => {
-        (headerLinks[i] as any).style['background-color'] = '#303C6C';
+        // (headerLinks[i] as any).style['background-color'] = '#303C6C';
       });
       btn.addEventListener('mouseout', () => {
-        (headerLinks[i] as any).style['background-color'] = 'initial';
+        // (headerLinks[i] as any).style['background-color'] = 'initial';
       });
     })
 
@@ -293,16 +295,16 @@
         <AnimationNav v-show="navVisible" :switchToLayer="switchToLayer" :hoverLayerActive="hoverLayerActive" />
         <Header :activeLayer="activeLayer" :hoveredLayer="hoveredLayer" :headerTitles="headerTitles"></Header>
       <nav class="page-nav-container">
-        <button id="page-nav-1-1" class="page-nav-btn" @click="slide('next', 'first')"></button>
-        <button id="page-nav-1-2" v-show="showSecondNavBtn" class="page-nav-btn" @click="slide('next', 'second')"></button>
-        <button id="page-nav-1-3" v-show="showThirdFourthNavBtn" class="page-nav-btn" @click="slide('next', 'third')"></button>
-        <button id="page-nav-1-4" v-show="showThirdFourthNavBtn" class="page-nav-btn" @click="slide('next', 'fourth')"></button>
+        <button id="page-nav-1-1" class="page-nav-btn" @click="slide('next', 'first', $event)"></button>
+        <button id="page-nav-1-2" v-show="showSecondNavBtn" class="page-nav-btn" @click="slide('next', 'second', $event)"></button>
+        <button id="page-nav-1-3" v-show="showThirdFourthNavBtn" class="page-nav-btn" @click="slide('next', 'third', $event)"></button>
+        <button id="page-nav-1-4" v-show="showThirdFourthNavBtn" class="page-nav-btn" @click="slide('next', 'fourth', $event)"></button>
       </nav>
     </div>
     <section id="contact" class="page zero">
       <div id="contact-wrapper">
         <h1>contact me</h1>
-        <button id="return-home" @click="slide('next', 'home')"></button>
+        <button id="return-home" @click="slide('next', 'home', $event)"></button>
         <ContactForm></ContactForm>
       </div>
     </section>
@@ -423,7 +425,8 @@ section#contact {
   opacity: 0.75;
   cursor: pointer;
   margin: 1rem;
-  transition: all .4s ease-in;
+  transition-delay: background-image 1s;
+  transition: all .5s ease-in;
 }
 .page-nav-btn:hover {
   opacity: 0.8;
@@ -479,6 +482,19 @@ section#contact {
   background-repeat: no-repeat;
   background-size: contain;
 }
+
+
+header.inactive + .page-nav-container {
+  width: 45%;
+  margin-bottom: 12rem;
+  gap: 4rem;
+  padding: 2rem 3rem;
+}
+header.inactive + .page-nav-container .page-nav-btn {
+  transform: scale(1.5);
+  cursor: initial;
+}
+
 @keyframes fade-in-img {
     0% {
         opacity: 0;
