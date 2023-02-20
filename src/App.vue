@@ -313,7 +313,7 @@
       </div>
     </section>
     
-    <section v-for="(project) in activeProjects" :class="project.pageClass" :data-active="activeFirstSection">
+    <section v-for="(project) in activeProjects" :class="(project as any).pageClass" :data-active="activeFirstSection">
       <Article :details="project" :slide="slide"></Article>
     </section>
 
