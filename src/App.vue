@@ -300,6 +300,7 @@
     const carouselCaseStudies = document.querySelectorAll(".carousel.slide");
     expandCaseStudyBtns.forEach((btn: any, i: number) => {
       btn.addEventListener('click', () => {
+        console.log("Expanding case study...");
         (carouselCaseStudies[i] as any)!.style.height = btn.classList.contains('active') ? '0' : 'auto'; 
         btn.style.width = !btn.classList.contains('active') ? 'calc(100%)' : '50%';
         btn.classList.toggle('active');
