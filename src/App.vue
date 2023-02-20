@@ -206,7 +206,7 @@
   let options = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.4
+    threshold: 0.25
   }
 
   const callback = (entries:any) => {
@@ -257,10 +257,10 @@
     headerLinks = document.querySelectorAll("span.header-link");
     navBtns.forEach((btn: any, i: number) => {
       btn.addEventListener('mouseover', () => {
-        // (headerLinks[i] as any).style['background-color'] = '#303C6C';
+        (headerLinks[i] as any).style['text-decoration'] = 'underline';
       });
       btn.addEventListener('mouseout', () => {
-        // (headerLinks[i] as any).style['background-color'] = 'initial';
+        (headerLinks[i] as any).style['text-decoration'] = 'initial';
       });
     })
 
@@ -298,7 +298,7 @@
         <AnimationMainLoop v-show="mainLoopVisible" :launchNav="launchNav" />
         <AnimationNav v-show="navVisible" :switchToLayer="switchToLayer" :hoverLayerActive="hoverLayerActive" />
         <Header :activeLayer="activeLayer" :hoveredLayer="hoveredLayer" :headerTitles="headerTitles"></Header>
-      <nav class="page-nav-container">
+      <nav class="page-nav-container web3">
         <button id="page-nav-1-1" class="page-nav-btn" @click="slide('next', 'first', $event)"></button>
         <button id="page-nav-1-2" v-show="showSecondNavBtn" class="page-nav-btn" @click="slide('next', 'second', $event)"></button>
         <button id="page-nav-1-3" v-show="showThirdNavBtn" class="page-nav-btn" @click="slide('next', 'third', $event)"></button>

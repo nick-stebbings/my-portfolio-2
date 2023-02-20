@@ -40,6 +40,9 @@
     }
     .page article .article-section.summary:nth-child(2n),.page article .article-section.summary:nth-child(2n+1) { grid-column-start: 1; grid-column-end: 4;}
     
+    section.article-section img {
+        object-fit: contain;
+    }
     section.article-section.summary {
         background-image: url("../assets/images/bg/page-nav-bg-right.png");
         background-position: right;

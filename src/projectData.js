@@ -4,11 +4,12 @@ export default { "ecommerce" : [
       title: 'y5 Ltd.',
       subtitle: 'Building APIs for industry',
       summary: {
-        paragraphs: "I worked for this company, based in Hamilton, during the development of a series of headless \"micro-service style\" APIs for their largest customer who distributes motorcycle parts across NZ and AU. The role involved iterating on the main established APIs (e.g. for products) and implementing from scratch some of the smaller ones (e.g. for customers).\\r\\n\\r\\nAlthough we did not deploy a UI, leaving this upto the motorcycle company's in house developers, we worked closely with them to refine and implement features, while adapting a Demonstration UI for our own ends.",
+        paragraphs: "I worked for this company, based in Hamilton, during the development of a series of headless \"micro-service style\" APIs for their largest customer who distributes motorcycle parts across NZ and AU. The role involved iterating on the main established APIs (e.g. for products) and implementing from scratch some of the smaller ones (e.g. for customers).\\r\\n\\r\\nAlthough we did not deploy a UI, leaving this upto the motorcycle company's in house developers, we worked closely with them to refine and implement features, while adapting a Demonstration UI to aid feature handover.\\r\\n\\r\\nThe interview for the position involved a take-home project in data visualisation, which can be demo-ed below.",
         imgPath: "motorbike.png"
       },
       langs: ['Node.js', 'JavaScript', 'CSS', 'Bash'], 
-      libs: ['React', 'Docker', 'Caprover', 'Express'],
+      libs: ['React', 'Docker', 'Caprover', 'Express', 'd3.js'],
+      demoUrl: 'https://dreamy-jackson-a5fdb1.netlify.app/',
       articles: [
         { paragraphs: '● Analyzed and evaluated complex solutions to business problems. Liaised (sometimes remotely) with the team to co-ordinate the best response to the problem. \\r\\n\\r\\n  ● Estimated solution time, effort and other costs. \\r\\n\\r\\n  ● Implemented solutions using a micro-service architecture and agile methodology. \\r\\n\\r\\n   ● Developed test UI with React to display and document new features before deployment and handover to clients. \\r\\n\\r\\n   ● Wrote documentation and liaised with clients to ease deployment of features and integration with their own UI. \\r\\n\\r\\n   ● Responded remotely to client\'s queries, requests for changes and any technical issues with our services.\\r\\n\\r\\nSkills: UI Testing · Database Administration · PostgreSQL · Data Visualization · User Interface Design · Back-End Web Development · Full-Stack Development', imgPath: "caprover.png", imgCaption: "The backend was deployed using Docker and Open Source PaaS project, Caprover", imgAlt: "Caprover logo"},
       ],
