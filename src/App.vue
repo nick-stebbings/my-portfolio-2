@@ -10,6 +10,7 @@
   import ContactForm from "./components/ContactForm.vue";
   import projects from "./projectData.js";
   import projectHeaders from "./headerData.js";
+  import { Modal } from 'bootstrap';
 
   // Animation scene flags
   const intro1Visible = ref(false);
@@ -248,7 +249,7 @@
   }
 
   function showModal() {
-    var disclaimerModal = new bootstrap.Modal(document.getElementById("disclaimer")); 
+    var disclaimerModal = new Modal(document.getElementById("disclaimer") as any); 
     disclaimerModal.show()
 
     document.body.addEventListener("hidden.bs.modal", function (e) {
