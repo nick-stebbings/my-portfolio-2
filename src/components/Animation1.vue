@@ -6,6 +6,7 @@
     viewBox="0 0 1280 720"
     shape-rendering="geometricPrecision"
     text-rendering="geometricPrecision"
+    :class="animation1Class"
   >
     <defs>
       <filter
@@ -452,5 +453,8 @@ export default {
       "http://www.w3.org/1999/xlink"
     );
   },
+  props: {
+    animation1Class: Boolean
+  }
 };
 </script>

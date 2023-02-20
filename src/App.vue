@@ -12,12 +12,12 @@
   import projectHeaders from "./headerData.js";
 
   // Animation scene flags
-  const intro1Visible = ref(true);
+  const intro1Visible = ref(false);
   const introLoopVisible = ref(false);
   const intro2Visible = ref(false);
   const mainLoopVisible = ref(false);
   const navVisible = ref(false);
-  
+  const animation1Class = computed(() => intro1Visible.value ? "active" : "inactive");
   // Settimeout return values
   let playMainLoop : any;
   let skipToMainLoop : any;
@@ -70,6 +70,9 @@
   function skipToNav() {
     clearTimeout(playMainLoop);
     clearTimeout(skipToMainLoop);
+
+    const element = document.getElementById("eXJRUNPtokm1");
+    element!.style.display  = 'none';
     launchNav()
   }
   function launchNav() {
@@ -206,7 +209,7 @@
   let options = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.25
+    threshold: 0.1
   }
 
   const callback = (entries:any) => {
@@ -243,6 +246,31 @@
     
   });
   }
+
+  function showModal() {
+    var disclaimerModal = new bootstrap.Modal(document.getElementById("disclaimer")); 
+    disclaimerModal.show()
+
+    document.body.addEventListener("hidden.bs.modal", function (e) {
+        if((e!.target as any)!.id == 'disclaimer') {
+          intro1Visible.value = true;
+          const element = document.getElementById("eXJRUNPtokm1");
+          // Time the arrival of the first scene
+          (element as any).svgatorPlayer.restart()
+          
+          playMainLoop = setTimeout(function () {
+            element!.style.display  = 'none';
+            // Time the arrival of the second scene (index 1)
+            launchScene(1);
+          }, 8000);
+
+        // Assume the user will not click after this amount of time
+        skipToMainLoop = setTimeout(function () {
+          skipToNav();
+        }, 35000);
+        }
+    });
+  }
   
   onMounted(() => {
     let observer = new IntersectionObserver(callback, options);
@@ -277,22 +305,15 @@
       });
     });
     
-    // Time the arrival of the second scene (index 1)
-    playMainLoop = setTimeout(function () {
-      launchScene(1);
-    }, 8000);
 
-    // Assume the user will not click after this amount of time
-    skipToMainLoop = setTimeout(function () {
-      skipToNav();
-    }, 30000);
+    showModal();
   });
 </script>
 <template>
   <main class="pages">
     <button id="skip-intro" @click="skipToNav()"></button>
     <div id="wrapper" class="page one"> 
-        <Animation1 v-show="intro1Visible" />
+        <Animation1 :class="animation1Class" />
         <AnimationIntroLoop v-show="introLoopVisible" :launch2="launch2" />
         <Animation2 v-show="intro2Visible" :launchMainLoop="launchMainLoop" />
         <AnimationMainLoop v-show="mainLoopVisible" :launchNav="launchNav" />
@@ -317,6 +338,43 @@
       <Article :details="project" :slide="slide"></Article>
     </section>
 
+    <!-- First Disclaimer Modal -->
+    <div class="modal fade" id="disclaimer" tabindex="-1" aria-labelledby="disclaimerLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="disclaimerLabel">
+                    <blockquote>"Reality is What You Can Get Away With"</blockquote><span class="quote-author"> - Robert Anton Wilson</span></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>This is an experimental portfolio to see what I can get away with. It is playful but for the moment doesn't play well with all devices.</p>
+                <div class="viewports">
+                  <div class="viewport">
+                    <img src="./assets/images/icons/mob.png" alt="small-screen" />
+                    <img src="./assets/images/icons/sad.png" alt="sad-face" />
+                  </div>
+                  <div class="viewport">
+                    <img src="./assets/images/icons/tablet.png" alt="md-screen" />
+                    <img src="./assets/images/icons/neutral.png" alt="ok-face" />
+                  </div>
+                  <div class="viewport">
+                    <div class="screens">
+                      <img src="./assets/images/icons/lap.png" alt="large-screen" />
+                      <img src="./assets/images/icons/desktop.png" alt="larger-screen" />
+                    </div>
+                    <img src="./assets/images/icons/happy.png" alt="happy-face" />
+                  </div>
+                </div>
+                <p>To view a mobile friendly & less resource-hungry site, with similar content (& CV and social media links)  <a href="http://n-stebb.dev"> click here</a>.</p>
+                <p>Enjoy exploring. Look for clickable things!</p>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-success" data-bs-dismiss="modal">Let's Go</button>
+              </div>
+              </div>
+        </div>
+    </div>
     <!-- Modal -->
     <div class="modal fade" id="contactConfirmation" tabindex="-1" aria-labelledby="contactConfirmationLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -358,9 +416,96 @@
   width: 100%;
   max-width: 1680px;
 }
-
-modal-dialog {
+/* 
+.modal-dialog {
   top: 30vh;
+} */
+
+#disclaimer {
+  overflow: hidden;
+    position: fixed; 
+    top: 3%; 
+    right: 3%; 
+    left: 3%; 
+    width: auto; 
+    margin: 0; 
+}
+#disclaimer .modal-body { 
+    height: 100%; 
+    padding: 15px; 
+    overflow-y: auto; 
+    -webkit-overflow-scrolling: touch; 
+ }
+
+#disclaimer .modal-dialog {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding-bottom: 15rem;
+  min-width: 50vw;
+}
+#disclaimer .modal-content {
+  padding: 1rem;
+  display: grid !important;
+  grid-template-rows: auto;
+  grid-template-columns: auto;
+  gap: 2rem;
+  height: 90vh;
+}
+#disclaimer .modal-header blockquote, #disclaimer .modal-header .quote-author {
+  font-family: "Merriweather", "Georgia", "Times New Roman", serif;
+  font-size: 1.5rem;
+}
+#disclaimer .modal-header {
+  display: flex;
+  justify-content: center;
+}
+
+#disclaimerLabel + button {
+  display: none;
+}
+#disclaimer .modal-header .quote-author {
+  font-size: 0.9rem;
+  text-align: right;
+  display: block;
+  width: 100%;
+}
+
+#disclaimer .modal-content p {
+  box-sizing: border-box !important;
+  width: 100%;
+  margin: .5rem;
+}
+
+#disclaimer .modal-content .viewports, #disclaimer .modal-content .viewport {
+  display: flex;
+  gap: .5rem;
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: column;
+}
+#disclaimer .modal-content .screens {
+  display: flex;
+  gap: 1rem;
+}
+#disclaimer .modal-content .viewports {
+  padding: 1rem;
+  margin: 0 auto;
+}
+#disclaimer .modal-content .viewport {
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+}
+
+#disclaimer .modal-content p:nth-last-of-type(2){
+  font-size: .9rem;
+  font-weight: 300;
+  text-align: center;
+}
+#disclaimer .modal-content p:nth-last-of-type(1){
+  text-align: center;
 }
 
 /* Contact page form */
@@ -499,6 +644,16 @@ header.inactive + .page-nav-container .page-nav-btn {
   cursor: initial;
 }
 
+#eXJRUNPtokm1.active {
+  opacity: 1;
+  visibility: visible;
+  transition: 1s all ease-in;
+}
+#eXJRUNPtokm1.inactive {
+  opacity: 0;
+  visibility: hidden;
+}
+
 @keyframes fade-in-img {
     0% {
         opacity: 0;
@@ -549,6 +704,36 @@ header.inactive + .page-nav-container .page-nav-btn {
 @media (min-width: 1440px) {
   .page > article {
     padding: 5rem 5vw;
+  }
+
+
+  #disclaimer .modal-content {
+    padding: 4rem;
+    height: 60vh;
+  }
+
+  #disclaimer .modal-body {
+    height: 100%;
+    max-height: 400px;
+    overflow: hidden;
+    max-height: none!important;
+  }
+  #disclaimer .modal-content p {
+    height: auto;
+  }
+
+  #disclaimer .modal-content p {
+    margin: 0 2rem 1rem 2rem;
+  }
+  #disclaimer .modal-content .viewport {
+    flex-direction: column;
+    width: 33%;
+    gap: 2rem;
+  }
+  #disclaimer .modal-content .viewports {
+    max-width: 50%;
+    gap: 2rem;
+    flex-direction: row;
   }
 }
 
