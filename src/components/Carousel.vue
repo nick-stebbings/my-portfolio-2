@@ -1,7 +1,7 @@
 <script setup>
 </script>
 <template>
-    <div id="case-study-carousel" class="carousel slide" data-bs-interval="false" data-bs-ride="carousel">
+    <div id="case-study-carousel" class="carousel slide" data-bs-interval="false" data-bs-ride="true">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#case-study-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#case-study-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
