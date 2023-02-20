@@ -959,7 +959,10 @@
       });
 
       // Default layer is web3
-      makeLayer3Active();
+      setTimeout(() => {
+        makeLayer3Active();
+      }, 5000);
+
     },
     props: {
       switchToLayer: Function,
