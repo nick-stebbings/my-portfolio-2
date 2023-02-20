@@ -101,8 +101,13 @@
   }
 
   // Nav state
+
+  interface projectsDict {
+    [key: string]: object;
+  }
   const activeLayer = ref('web3');
   const hoveredLayer = ref('web3');
+  const activeProjects = computed(() => ['web3', 'ecommerce','elearning'].includes(activeLayer.value) && (projects as projectsDict)[(activeLayer.value as string)]);
   const headerTitles : any = ref(projectHeaders['web3']);
   let headerLinks: any;
   
@@ -130,8 +135,8 @@
   }
 
   // Subnav state
-  const showSecondNavBtn = computed(() => ['web3', 'ecommerce'].includes(hoveredLayer.value));
-  const showThirdFourthNavBtn = computed(() => hoveredLayer.value == 'web3');
+  const showSecondNavBtn = computed(() => ['web3', 'ecommerce', 'elearning'].includes(hoveredLayer.value));
+  const showThirdNavBtn = computed(() => hoveredLayer.value == 'web3');
   const activeFirstSection = computed(() => activeLayer.value === hoveredLayer.value);
 
   // Header state
@@ -244,11 +249,9 @@
     let target2 : Element | null = document.querySelector('.page.two');
     let target3 : Element | null = document.querySelector('.page.three');
     let target4 : Element | null = document.querySelector('.page.four');
-    let target5 : Element | null = document.querySelector('.page.five');
     observer!.observe(target2 as Element);
     observer!.observe(target3 as Element);
     observer!.observe(target4 as Element);
-    observer!.observe(target5 as Element);
     
     const navBtns = document.querySelectorAll(".page-nav-btn");
     headerLinks = document.querySelectorAll("span.header-link");
@@ -298,8 +301,8 @@
       <nav class="page-nav-container">
         <button id="page-nav-1-1" class="page-nav-btn" @click="slide('next', 'first', $event)"></button>
         <button id="page-nav-1-2" v-show="showSecondNavBtn" class="page-nav-btn" @click="slide('next', 'second', $event)"></button>
-        <button id="page-nav-1-3" v-show="showThirdFourthNavBtn" class="page-nav-btn" @click="slide('next', 'third', $event)"></button>
-        <button id="page-nav-1-4" v-show="showThirdFourthNavBtn" class="page-nav-btn" @click="slide('next', 'fourth', $event)"></button>
+        <button id="page-nav-1-3" v-show="showThirdNavBtn" class="page-nav-btn" @click="slide('next', 'third', $event)"></button>
+        <!-- <button id="page-nav-1-4" v-show="showThirdFourthNavBtn" class="page-nav-btn" @click="slide('next', 'fourth', $event)"></button> -->
       </nav>
     </div>
     <section id="contact" class="page zero">
@@ -310,7 +313,7 @@
       </div>
     </section>
     
-    <section v-for="(project) in projects" :class="project.pageClass" :data-active="activeFirstSection">
+    <section v-for="(project) in activeProjects" :class="project.pageClass" :data-active="activeFirstSection">
       <Article :details="project" :slide="slide"></Article>
     </section>
 
@@ -442,13 +445,13 @@ section#contact {
       }
 
   .elearning.page-nav-container .page-nav-btn:first-of-type {
-  background: url("assets/images/sphere.png");
+  background: url("assets/images/icons/nuku-icon.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
   .elearning.page-nav-container .page-nav-btn:nth-of-type(2) {
-  background: url("assets/images/sphere.png");
+  background: url("assets/images/pyramid.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -464,21 +467,21 @@ section#contact {
   background-size: contain;
 }
 .web3.page-nav-container .page-nav-btn:first-of-type {
-  background: url("assets/images/atom.png");
+  background: url("assets/images/icons/atom-small.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
 .web3.page-nav-container .page-nav-btn:nth-of-type(2) {
-  background: url("assets/images/pyramid.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-.page-nav-btn:nth-of-type(3) {
   background: url("assets/images/sphere.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
-.page-nav-btn:nth-of-type(4) {
+/* .page-nav-btn:nth-of-type(3) {
+  background: url("assets/images/sphere.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+} */
+.page-nav-btn:nth-of-type(3) {
   background: url("assets/images/icons/veg-icon.png");
   background-repeat: no-repeat;
   background-size: contain;

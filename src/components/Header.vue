@@ -28,6 +28,7 @@ header .header-container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    gap: 4vh;
 }
 h1, h2 {
     margin: 0;
