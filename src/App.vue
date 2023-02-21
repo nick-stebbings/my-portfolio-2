@@ -10,7 +10,7 @@
   import ContactForm from "./components/ContactForm.vue";
   import projects from "./projectData.js";
   import projectHeaders from "./headerData.js";
-  import { Modal } from 'bootstrap';
+  import { Modal, Carousel } from 'bootstrap';
 
   // Animation scene flags
   const intro1Visible = ref(false);
@@ -249,8 +249,12 @@
   }
 
   function showModal() {
-    var disclaimerModal = new Modal(document.getElementById("disclaimer") as any); 
-    disclaimerModal.show()
+    // var disclaimerModal = new Modal(document.getElementById("disclaimer") as any); 
+    // disclaimerModal.show()
+    const disclaimerModal = document.getElementById("trigger-disclaimer");
+    disclaimerModal?.click()
+    
+
 
     document.body.addEventListener("hidden.bs.modal", function (e) {
         if((e!.target as any)!.id == 'disclaimer') {
@@ -281,7 +285,7 @@
     observer!.observe(target2 as Element);
     observer!.observe(target3 as Element);
     observer!.observe(target4 as Element);
-    
+
     const navBtns = document.querySelectorAll(".page-nav-btn");
     headerLinks = document.querySelectorAll("span.header-link");
     navBtns.forEach((btn: any, i: number) => {
@@ -295,24 +299,13 @@
 
     const bookMeLinkTarget = document.getElementById("book-me-label");
     bookMeLinkTarget?.addEventListener('click', () => slide('top', 'bookme'))
-
-    const expandCaseStudyBtns = document.querySelectorAll(".case-study header");
-    const carouselCaseStudies = document.querySelectorAll(".carousel.slide");
-    expandCaseStudyBtns.forEach((btn: any, i: number) => {
-      btn.addEventListener('click', () => {
-        console.log("Expanding case study...");
-        (carouselCaseStudies[i] as any)!.style.height = btn.classList.contains('active') ? '0' : 'auto'; 
-        btn.style.width = !btn.classList.contains('active') ? 'calc(100%)' : '50%';
-        btn.classList.toggle('active');
-      });
-    });
     
-
     showModal();
   });
 </script>
 <template>
   <main class="pages">
+    <button type="button" id="trigger-disclaimer" style="opacity:0;" data-bs-toggle="modal" data-bs-target="#disclaimer"></button>
     <button id="skip-intro" @click="skipToNav()"></button>
     <div id="wrapper" class="page one"> 
         <Animation1 :class="animation1Class" />

@@ -38,6 +38,7 @@ import ArticleSection from "./ArticleSection.vue";
 import ArticleTitle from "./ArticleTitle.vue";
 import ArticleTools from "./ArticleTools.vue";
 import Carousel from "./Carousel.vue";
+
 export default {
   props: {
     details: Object,
@@ -48,6 +49,18 @@ export default {
     ArticleTitle,
     ArticleTools,
     Carousel,
+  },
+  mounted: () => {
+    const expandCaseStudyBtns = document.querySelectorAll(".case-study header");
+    const carouselCaseStudies = document.querySelectorAll(".carousel.slide");
+    expandCaseStudyBtns.forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        console.log("Expanding case study...");
+        (carouselCaseStudies[i]).style.height = btn.classList.contains('active') ? '0' : 'auto'; 
+        btn.style.width = !btn.classList.contains('active') ? 'calc(100%)' : '50%';
+        btn.classList.toggle('active');
+      });
+    });
   }
 }
 </script>
