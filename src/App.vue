@@ -361,7 +361,7 @@
                     <img src="./assets/images/icons/happy.png" alt="happy-face" />
                   </div>
                 </div>
-                <p>To view a mobile friendly & less resource-hungry site, with similar content (& CV and social media links)  <a href="http://n-stebb.dev"> click here</a>.</p>
+                <p>To view a mobile friendly approximation <a href="http://n-stebb.dev"> click here</a>.</p>
                 <p>Enjoy exploring. Look for clickable things!</p>
               </div>
               <div class="modal-footer">
