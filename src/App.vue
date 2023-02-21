@@ -703,8 +703,8 @@ header.inactive + .page-nav-container .page-nav-btn {
 
 
   #disclaimer .modal-content {
-    padding: 4rem;
-    height: 60vh;
+    padding: 2vh;
+    height: 90vh;
   }
 
   #disclaimer .modal-body {

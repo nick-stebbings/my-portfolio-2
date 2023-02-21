@@ -20,6 +20,12 @@ button#return-home, button.return-home-up, button#skip-intro {
   background-repeat: no-repeat;
   transition: all .3s;
 }
+button#return-home, button.return-home-up {
+  background-color: #846b63;
+  background-size: 3rem;
+  background-position: center;
+  border-radius: 1rem;
+}
 
 button.return-home-up {
   padding: 0 !important;
