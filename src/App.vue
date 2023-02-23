@@ -411,24 +411,23 @@
   width: 100%;
   max-width: 1680px;
 }
-/* 
-.modal-dialog {
-  top: 30vh;
-} */
 
 #disclaimer {
-  overflow: hidden;
-    position: fixed; 
+    overflow: hidden;
+    position: absolute; 
+    padding-right: 6%;
     top: 3%; 
     right: 3%; 
     left: 3%; 
-    width: auto; 
+    /* width: auto;  */
+    display: block;
     margin: 0; 
 }
 #disclaimer .modal-body { 
     height: 100%; 
     padding: 15px; 
     overflow-y: auto; 
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch; 
  }
 
@@ -444,7 +443,7 @@
   display: grid !important;
   grid-template-rows: auto;
   grid-template-columns: auto;
-  gap: 2rem;
+  gap: 1vh;
   height: 90vh;
 }
 #disclaimer .modal-header blockquote, #disclaimer .modal-header .quote-author {
@@ -693,6 +692,10 @@ header.inactive + .page-nav-container .page-nav-btn {
 .page.two {
   height: auto;
   margin-top: 32rem;
+}
+
+body, #app {
+  overflow: hidden !important;
 }
 
 /* Media Queries */
