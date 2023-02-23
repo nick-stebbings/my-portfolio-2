@@ -707,7 +707,7 @@ body, #app {
 
   #disclaimer .modal-content {
     padding: 2vh;
-    height: 90vh;
+    height: auto;
   }
 
   #disclaimer .modal-body {
