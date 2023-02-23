@@ -441,10 +441,10 @@
 #disclaimer .modal-content {
   padding: 1rem;
   display: grid !important;
-  grid-template-rows: auto;
+  grid-template-rows: 8rem auto 3rem;
   grid-template-columns: auto;
   gap: 1vh;
-  height: 90vh;
+  height: auto;
 }
 #disclaimer .modal-header blockquote, #disclaimer .modal-header .quote-author {
   font-family: "Merriweather", "Georgia", "Times New Roman", serif;
@@ -721,7 +721,7 @@ body, #app {
   }
 
   #disclaimer .modal-content p {
-    margin: 0 2rem 1rem 2rem;
+    margin: 0;
   }
   #disclaimer .modal-content .viewport {
     flex-direction: column;
