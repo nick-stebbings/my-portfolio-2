@@ -61,15 +61,12 @@ export default {
 
                     this.playMainLoop = setTimeout(() => {
                         element.style.display = 'none';
-                        debugger;
                         // Time the arrival of the second scene (index 1)
                         this.launchScene(1);
                     }, 8000);
 
                     // Assume the user will not click after this amount of time
-                    this.skipToMainLoop = setTimeout(() => {
-                        this.skipToNav();
-                    }, 35000);
+                    this.skipToMainLoop = setTimeout(this.skipToNav, 35000);
                 }
             });
         },
@@ -80,7 +77,6 @@ export default {
             this.intro2Visible = false;
             this.mainLoopVisible = false;
             this.navVisible = false;
-            debugger;
             switch (animationId) {
                 case 0:
                     this.intro1Visible = true;
@@ -110,9 +106,7 @@ export default {
                 // Restart the animation too
                 el.play();
             });
-            setTimeout(function () {
-                this.launch3();
-            }, 5000);
+            setTimeout(this.launch3, 5000);
         },
         launch3() {
             this.launchScene(3);
