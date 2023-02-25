@@ -2,10 +2,10 @@
     <button id="skip-intro" @click="skipToNav()"></button>
     <div id="animation-wrapper">
         <AnimationScene1 :class="animationScene1Class" />
-        <AnimationGlowingNLoopScene v-if="glowingNLoopSceneVisible" />
-        <AnimationScene2 v-if="intro2Visible" />
-        <AnimationMainLoopScene v-if="mainLoopVisible" />
-        <AnimationNavScene v-if="navVisible" />
+        <AnimationGlowingNLoopScene v-show="glowingNLoopSceneVisible" :launch="launch2" />
+        <AnimationScene2 v-show="intro2Visible" :launch="launch3" />
+        <AnimationMainLoopScene v-show="mainLoopVisible" :launch="launch4" />
+        <AnimationNavScene v-show="navVisible" />
     </div>
 </template>
   
@@ -59,7 +59,7 @@ export default {
                     // Time the arrival of the first scene
                     element.svgatorPlayer.restart()
 
-                    this.playMainLoop = setTimeout(function () {
+                    this.playMainLoop = setTimeout(() => {
                         element.style.display = 'none';
                         debugger;
                         // Time the arrival of the second scene (index 1)
@@ -67,7 +67,7 @@ export default {
                     }, 8000);
 
                     // Assume the user will not click after this amount of time
-                    this.skipToMainLoop = setTimeout(function () {
+                    this.skipToMainLoop = setTimeout(() => {
                         this.skipToNav();
                     }, 35000);
                 }
@@ -86,7 +86,7 @@ export default {
                     this.intro1Visible = true;
                     break;
                 case 1:
-                    this.introLoopVisible = true;
+                    this.glowingNLoopSceneVisible = true;
                     break;
                 case 2:
                     this.intro2Visible = true;
@@ -111,21 +111,13 @@ export default {
                 el.play();
             });
             setTimeout(function () {
-                this.launchMainLoop();
+                this.launch3();
             }, 5000);
         },
-        launchMainLoop() {
+        launch3() {
             this.launchScene(3);
         },
-        skipToNav() {
-            clearTimeout(this.playMainLoop);
-            clearTimeout(this.skipToMainLoop);
-
-            const element = document.getElementById("eXJRUNPtokm1");
-            element.style.display = 'none';
-            this.launchNav()
-        },
-        launchNav() {
+        launch4() {
             clearTimeout(this.skipToMainLoop);
             const skipBtn = document.querySelector("#skip-intro");
             this.launchScene(4);
@@ -151,7 +143,15 @@ export default {
                 const articleContent = document.querySelector(".page.two");
                 articleContent.style['margin-top'] = '8rem';
             }, 4500);
-        }
+        },
+        skipToNav() {
+            clearTimeout(this.playMainLoop);
+            clearTimeout(this.skipToMainLoop);
+
+            const element = document.getElementById("eXJRUNPtokm1");
+            element.style.display = 'none';
+            this.launch4()
+        },
     }
 };
 </script>
