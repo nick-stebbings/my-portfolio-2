@@ -25,9 +25,8 @@ export default {
         AnimationNavScene,
     },
     props: {
-        // Settimeout return values
-        playMainLoop: Number,
-        skipToMainLoop: Number,
+        switchToLayer: Function,
+        hoverLayerActive: Function,
     },
     mounted() {
         this.showModal()
@@ -40,6 +39,7 @@ export default {
             intro2Visible: false,
             mainLoopVisible: false,
             navVisible: false,
+            // Settimeout return values
             playMainLoop: undefined,
             skipToMainLoop: undefined,
         };

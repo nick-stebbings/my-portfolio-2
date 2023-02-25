@@ -24,7 +24,7 @@
 import { ref, onMounted, computed } from "vue";
 
 import Header from "./components/Header.vue";
-import Article from "./components/Article.vue";
+import Article from "./components/Article/Article.vue";
 import AnimationWrapper from "./components/Animation/AnimationWrapper.vue";
 import DisclaimerModal from "./components/Modal/DisclaimerModal.vue";
 import ContactConfirmationModal from "./components/Modal/ContactConfirmationModal.vue";

@@ -13,6 +13,9 @@ import ContactForm from "./ContactForm.vue";
 export default {
     props: {
         slide: Function,
+    },
+    components: {
+        ContactForm
     }
 }
 </script>

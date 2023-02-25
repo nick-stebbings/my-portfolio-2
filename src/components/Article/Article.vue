@@ -20,10 +20,10 @@
   </article>
 </template>
 <script>
-import ArticleSection from "./ArticleSection.vue";
-import ArticleTitle from "./ArticleTitle.vue";
-import ArticleTools from "./ArticleTools.vue";
-import Carousel from "./Carousel.vue";
+import ArticleSection from "../Article/ArticleSection.vue";
+import ArticleTitle from "../Article/ArticleTitle.vue";
+import ArticleTools from "../Article/ArticleTools.vue";
+import Carousel from "../Carousel.vue";
 
 export default {
   props: {
@@ -71,7 +71,7 @@ export default {
 
 .page>article>.article-wrapper,
 .top-button {
-  background-image: url("../assets/images/bg/page-nav-bg-white.png");
+  background-image: url("../../assets/images/bg/page-nav-bg-white.png");
   background-repeat: repeat-y;
   background-position: right;
 }
