@@ -366,16 +366,6 @@ header.inactive+.page-nav-container .page-nav-btn {
   cursor: initial;
 }
 
-#eXJRUNPtokm1.active {
-  opacity: 1;
-  visibility: visible;
-  transition: 1s all ease-in;
-}
-
-#eXJRUNPtokm1.inactive {
-  opacity: 0;
-  visibility: hidden;
-}
 
 @keyframes fade-in-img {
   0% {
