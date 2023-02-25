@@ -1,12 +1,11 @@
 <template>
-    <div>
-        <div class="animation-wrapper">
-            <AnimationScene1 :class="animationScene1Class" />
-            <AnimationGlowingNLoopScene v-if="AnimationGlowingNLoopSceneVisible" />
-            <AnimationScene2 v-if="intro2Visible" />
-            <AnimationMainLoopScene v-if="mainLoopVisible" />
-            <AnimationNavScene v-if="navVisible" />
-        </div>
+    <button id="skip-intro" @click="skipToNav()"></button>
+    <div id="animation-wrapper">
+        <AnimationScene1 :class="animationScene1Class" />
+        <AnimationGlowingNLoopScene v-if="glowingNLoopSceneVisible" />
+        <AnimationScene2 v-if="intro2Visible" />
+        <AnimationMainLoopScene v-if="mainLoopVisible" />
+        <AnimationNavScene v-if="navVisible" />
     </div>
 </template>
   
@@ -26,16 +25,18 @@ export default {
         AnimationNavScene,
     },
     props: {
-        projects: Object,
-        projectHeaders: Object,
+        // Settimeout return values
+        playMainLoop: Number,
+        skipToMainLoop: Number,
     },
-    setup(props) {
+    mounted() {
+        this.showModal()
     },
     data() {
         return {
             // Animation scene flags
             intro1Visible: false,
-            AnimationGlowingNLoopSceneVisible: false,
+            glowingNLoopSceneVisible: false,
             intro2Visible: false,
             mainLoopVisible: false,
             navVisible: false,
@@ -47,91 +48,134 @@ export default {
         },
     },
     methods: {
+        showModal() {
+            const disclaimerModal = document.querySelector(".trigger-disclaimer");
+            disclaimerModal?.click()
 
-        // Settimeout return values
-        // let playMainLoop: any;
-        // let skipToMainLoop: any;
+            document.body.addEventListener("hidden.bs.modal", (e) => {
+                if (e.target.id == 'disclaimer') {
+                    this.intro1Visible = true;
+                    const element = document.getElementById("eXJRUNPtokm1");
+                    // Time the arrival of the first scene
+                    element.svgatorPlayer.restart()
 
-        // // Scene switch helper functions
+                    this.playMainLoop = setTimeout(function () {
+                        element.style.display = 'none';
+                        debugger;
+                        // Time the arrival of the second scene (index 1)
+                        this.launchScene(1);
+                    }, 8000);
 
-        // function launchScene(animationId: number) {
-        //   intro1Visible.value = false;
-        //   introLoopVisible.value = false;
-        //   intro2Visible.value = false;
-        //   mainLoopVisible.value = false;
-        //   navVisible.value = false;
+                    // Assume the user will not click after this amount of time
+                    this.skipToMainLoop = setTimeout(function () {
+                        this.skipToNav();
+                    }, 35000);
+                }
+            });
+        },
+        // Scene switch helper functions
+        launchScene(animationId) {
+            this.intro1Visible = false;
+            this.glowingNLoopSceneVisible = false;
+            this.intro2Visible = false;
+            this.mainLoopVisible = false;
+            this.navVisible = false;
+            debugger;
+            switch (animationId) {
+                case 0:
+                    this.intro1Visible = true;
+                    break;
+                case 1:
+                    this.introLoopVisible = true;
+                    break;
+                case 2:
+                    this.intro2Visible = true;
+                    break;
+                case 3:
+                    this.mainLoopVisible = true;
+                    break;
+                case 4:
+                    this.navVisible = true;
+                    break;
 
-        //   switch (animationId) {
-        //     case 0:
-        //       intro1Visible.value = true;
-        //       break;
-        //     case 1:
-        //       introLoopVisible.value = true;
-        //       break;
-        //     case 2:
-        //       intro2Visible.value = true;
-        //       break;
-        //     case 3:
-        //       mainLoopVisible.value = true;
-        //       break;
-        //     case 4:
-        //       navVisible.value = true;
-        //       break;
+                default:
+                    this.navVisible = true;
+                    break;
+            }
+        },
+        launch2() {
+            this.launchScene(2);
+            const element = document.getElementById("ekFf3Z5Im6j1");
+            element.svgatorPlayer.ready(function (el) {
+                // Restart the animation too
+                el.play();
+            });
+            setTimeout(function () {
+                this.launchMainLoop();
+            }, 5000);
+        },
+        launchMainLoop() {
+            this.launchScene(3);
+        },
+        skipToNav() {
+            clearTimeout(this.playMainLoop);
+            clearTimeout(this.skipToMainLoop);
 
-        //     default:
-        //       navVisible.value = true;
-        //       break;
-        //   }
-        // }
-        // function launch2() {
-        //   launchScene(2);
-        //   const element = document.getElementById("ekFf3Z5Im6j1");
-        //   (element as any).svgatorPlayer.ready(function (el: any) {
-        //     // Restart the animation too
-        //     el.play();
-        //   });
-        //   setTimeout(function () {
-        //     launchMainLoop();
-        //   }, 5000);
-        // }
-        // function launchMainLoop() {
-        //   launchScene(3);
-        // }
-        // function skipToNav() {
-        //   clearTimeout(playMainLoop);
-        //   clearTimeout(skipToMainLoop);
+            const element = document.getElementById("eXJRUNPtokm1");
+            element.style.display = 'none';
+            this.launchNav()
+        },
+        launchNav() {
+            clearTimeout(this.skipToMainLoop);
+            const skipBtn = document.querySelector("#skip-intro");
+            this.launchScene(4);
 
-        //   const element = document.getElementById("eXJRUNPtokm1");
-        //   element!.style.display = 'none';
-        //   launchNav()
-        // }
-        // function launchNav() {
-        //   clearTimeout(skipToMainLoop);
-        //   const skipBtn: HTMLBodyElement | null = document.querySelector("#skip-intro");
-        //   launchScene(4);
+            const element = document.getElementById("e8VQ6wvtuBg1");
+            element.svgatorPlayer.ready(function (el) {
+                // Restart the animation too
+                el.play();
+            });
+            skipBtn.style.opacity = '0';
+            skipBtn.style.visibility = 'invisible';
 
-        //   const element = document.getElementById("e8VQ6wvtuBg1");
-        //   (element as any).svgatorPlayer.ready(function (el: any) {
-        //     // Restart the animation too
-        //     el.play();
-        //   });
-        //   skipBtn!.style.opacity = '0';
-        //   skipBtn!.style.visibility = 'invisible';
+            setTimeout(function () {
+                const element = document.querySelector("nav");
+                element.style.opacity = '1';
+                element.style.visibility = 'visible';
 
-        //   setTimeout(function () {
-        //     const element = document.querySelector("nav");
-        //     (element as HTMLBodyElement).style.opacity = '1';
-        //     (element as HTMLBodyElement).style.visibility = 'visible';
-
-        //     const header = document.querySelector("#wrapper header");
-        //     (header as HTMLBodyElement).style.opacity = '1';
-        //     (header as HTMLBodyElement).style.visibility = 'visible';
+                const header = document.querySelector("#animation-wrapper header");
+                header.style.opacity = '1';
+                header.style.visibility = 'visible';
 
 
-        //     const articleContent = document.querySelector(".page.two");
-        //     (articleContent as any)!.style['margin-top'] = '8rem';
-        //   }, 4500);
-        // }
+                const articleContent = document.querySelector(".page.two");
+                articleContent.style['margin-top'] = '8rem';
+            }, 4500);
+        }
     }
 };
 </script>
+<style scoped>
+#animation-wrapper {
+    max-width: 1680px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+#animation-wrapper>svg {
+    overflow: initial;
+    width: 100%;
+    max-width: 1680px;
+}
+
+.page.one {
+    height: 100vh;
+}
+
+#animation-wrapper {
+    height: 100%;
+    width: 100%;
+}
+</style>

@@ -1,8 +1,6 @@
 <template>
   <main class="pages">
-    <button type="button" id="trigger-disclaimer" style="opacity:0;" data-bs-toggle="modal"
-      data-bs-target="#disclaimer"></button>
-    <button id="skip-intro" @click="skipToNav()"></button>
+    <button type="button" class="trigger-disclaimer" data-bs-toggle="modal" data-bs-target="#disclaimer"></button>
 
     <section class="page one">
       <AnimationWrapper :switchToLayer="switchToLayer" :hoverLayerActive="hoverLayerActive" />
@@ -34,16 +32,14 @@ import { ref, onMounted, computed } from "vue";
 import Header from "./components/Header.vue";
 import Article from "./components/Article.vue";
 import ContactForm from "./components/ContactForm.vue";
+import AnimationWrapper from "./components/Animation/AnimationWrapper.vue";
 import DisclaimerModal from "./components/Modal/DisclaimerModal.vue";
 import ContactConfirmationModal from "./components/Modal/ContactConfirmationModal.vue";
 
 import projects from "./projectData.js";
 import projectHeaders from "./headerData.js";
 
-
-
 // Nav state
-
 interface projectsDict {
   [key: string]: object;
 }
@@ -186,31 +182,6 @@ const callback = (entries: any) => {
   });
 }
 
-function showModal() {
-  const disclaimerModal = document.getElementById("trigger-disclaimer");
-  disclaimerModal?.click()
-
-  document.body.addEventListener("hidden.bs.modal", function (e) {
-    if ((e!.target as any)!.id == 'disclaimer') {
-      intro1Visible.value = true;
-      const element = document.getElementById("eXJRUNPtokm1");
-      // Time the arrival of the first scene
-      (element as any).svgatorPlayer.restart()
-
-      playMainLoop = setTimeout(function () {
-        element!.style.display = 'none';
-        // Time the arrival of the second scene (index 1)
-        launchScene(1);
-      }, 8000);
-
-      // Assume the user will not click after this amount of time
-      skipToMainLoop = setTimeout(function () {
-        skipToNav();
-      }, 35000);
-    }
-  });
-}
-
 onMounted(() => {
   let observer = new IntersectionObserver(callback, options);
   let target2: Element | null = document.querySelector('.page.two');
@@ -234,7 +205,6 @@ onMounted(() => {
   const bookMeLinkTarget = document.getElementById("book-me-label");
   bookMeLinkTarget?.addEventListener('click', () => slide('top', 'bookme'))
 
-  showModal();
 });
 </script>
 <style scoped>
@@ -245,22 +215,6 @@ onMounted(() => {
   height: 100vh;
   overflow: hidden;
 }
-
-#wrapper {
-  max-width: 1680px;
-  margin: 0 auto;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-#wrapper>svg {
-  overflow: initial;
-  width: 100%;
-  max-width: 1680px;
-}
-
-
 
 /* Contact page form */
 section#contact {
@@ -395,6 +349,10 @@ section#contact {
   background-size: contain;
 }
 
+.trigger-disclaimer {
+  position: relative;
+  left: -100vh;
+}
 
 header.inactive+.page-nav-container {
   width: 45%;
@@ -444,37 +402,10 @@ header.inactive+.page-nav-container .page-nav-btn {
 }
 
 /* Project pages */
-.pages {
-  box-sizing: border-box;
-  scroll-snap-type: y mandatory;
-}
-
-.page {
-  color: white;
-  width: 100%;
-  margin: 0 auto;
-  max-width: 1680px;
-  margin-bottom: 12rem;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  flex-direction: column;
-  gap: 10px;
-  transition: all 0.7s;
-}
-
-.page.one {
-  height: auto;
-}
 
 .page.two {
   height: auto;
   margin-top: 32rem;
-}
-
-body,
-#app {
-  overflow: hidden !important;
 }
 
 /* Media Queries */

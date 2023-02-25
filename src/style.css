@@ -8,7 +8,29 @@ body {
   margin: 0 !important;
 }
 
+body,
+#app {
+  overflow: hidden !important;
+}
+
+/* Layout */
+
+.page {
+  color: white;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1680px;
+  margin-bottom: 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.7s;
+}
+
 /* Buttons */
+
 button#return-home, button.return-home-up, button#skip-intro {
   position: absolute;
   border: 0;
