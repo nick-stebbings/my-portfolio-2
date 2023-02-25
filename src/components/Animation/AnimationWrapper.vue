@@ -40,7 +40,17 @@ export default {
             intro2Visible: false,
             mainLoopVisible: false,
             navVisible: false,
+            playMainLoop: undefined,
+            skipToMainLoop: undefined,
         };
+    },
+    watch: {
+        playMainLoop: function (newVal) {
+            this.playMainLoop = newVal;
+        },
+        skipToMainLoop: function (newVal) {
+            this.skipToMainLoop = newVal;
+        },
     },
     computed: {
         animationScene1Class() {
@@ -64,7 +74,6 @@ export default {
                         // Time the arrival of the second scene (index 1)
                         this.launchScene(1);
                     }, 8000);
-
                     // Assume the user will not click after this amount of time
                     this.skipToMainLoop = setTimeout(this.skipToNav, 35000);
                 }
@@ -132,7 +141,6 @@ export default {
                 const header = document.querySelector("#animation-wrapper header");
                 header.style.opacity = '1';
                 header.style.visibility = 'visible';
-
 
                 const articleContent = document.querySelector(".page.two");
                 articleContent.style['margin-top'] = '8rem';

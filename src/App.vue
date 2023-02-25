@@ -10,14 +10,8 @@
           v-show="button.show" @click="slide('next', button.section, $event)"></button>
       </nav>
     </section>
-    <section id="contact" class="page zero">
-      <div id="contact-wrapper">
-        <h1>contact me</h1>
-        <button id="return-home" @click="slide('next', 'home')"></button>
-        <ContactForm></ContactForm>
-      </div>
-    </section>
 
+    <ContactSection :slide="slide" />
     <section v-for="(project) in activeProjects" :class="(project as any).pageClass" :data-active="activeFirstSection">
       <Article :details="project" :slide="slide"></Article>
     </section>
@@ -31,13 +25,13 @@ import { ref, onMounted, computed } from "vue";
 
 import Header from "./components/Header.vue";
 import Article from "./components/Article.vue";
-import ContactForm from "./components/ContactForm.vue";
 import AnimationWrapper from "./components/Animation/AnimationWrapper.vue";
 import DisclaimerModal from "./components/Modal/DisclaimerModal.vue";
 import ContactConfirmationModal from "./components/Modal/ContactConfirmationModal.vue";
 
 import projects from "./projectData.js";
 import projectHeaders from "./headerData.js";
+import ContactSection from "./components/ContactSection.vue";
 
 // Nav state
 interface projectsDict {
@@ -147,34 +141,29 @@ let options = {
   threshold: 0.1
 }
 
-const callback = (entries: any) => {
+const makeVisible = (upBtn: any) => {
+  upBtn.style.visibility = "visible";
+  upBtn.style.opacity = "1";
+}
+
+const intersectionObsCallback = (entries: any) => {
   entries.forEach((entry: any) => {
-    // console.log('entry :>> ', entry);
     if (entry.isIntersecting) {
-      let upBtn;
       const upBtns = document.querySelectorAll('.return-home-up');
       switch (true) {
         case entry.target.classList.contains('two'):
-          upBtn = upBtns[0];
-          (upBtn as any).style.opacity = "1";
-          (upBtn as any).style.visibility = "visible";
+          makeVisible(upBtns[0]);
           break;
         case entry.target.classList.contains('three'):
-          upBtn = upBtns[1];
-          (upBtn as any).style.opacity = "1";
-          (upBtn as any).style.visibility = "visible";
+          makeVisible(upBtns[1]);
           break;
 
         case entry.target.classList.contains('four'):
-          upBtn = upBtns[2];
-          (upBtn as any).style.opacity = "1";
-          (upBtn as any).style.visibility = "visible";
+          makeVisible(upBtns[2]);
           break;
 
         case entry.target.classList.contains('five'):
-          upBtn = upBtns[3];
-          (upBtn as any).style.opacity = "1";
-          (upBtn as any).style.visibility = "visible";
+          makeVisible(upBtns[3]);
           break;
       }
     };
@@ -183,7 +172,7 @@ const callback = (entries: any) => {
 }
 
 onMounted(() => {
-  let observer = new IntersectionObserver(callback, options);
+  let observer = new IntersectionObserver(intersectionObsCallback, options);
   let target2: Element | null = document.querySelector('.page.two');
   let target3: Element | null = document.querySelector('.page.three');
   let target4: Element | null = document.querySelector('.page.four');
