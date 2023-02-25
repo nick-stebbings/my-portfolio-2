@@ -1,6 +1,15 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&family=Ropa+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&family=Rubik:wght@300;400;500;600&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  --svg-width: 1280px;
+  --svg-viewbox-width: 1280;
+  --svg-x: 80;
+  --svg-x-px: 80px;
+  --viewport-width--px: calc(100vw - 0px);
+  --margin-sm-md-l: calc((  (var(--svg-x) / 1280) * 100vw));
+  --margin-xl: calc((100vw - 1680px) / 2 + var(--svg-x-px))
+}
 
 html,
 body {
@@ -28,9 +37,7 @@ body,
   gap: 10px;
   transition: all 0.7s;
 }
-
 /* Buttons */
-
 button#return-home, button.return-home-up, button#skip-intro {
   position: absolute;
   border: 0;
@@ -52,25 +59,25 @@ button#return-home, button.return-home-up {
 button.return-home-up {
   padding: 0 !important;
   background-image: url("assets/images/icons/up-icon.png");
-  right: 5.75rem;
-  top: 8rem;
   opacity: 0;
   visibility: hidden;
+  position: relative;
+  right: -1rem;
 }
 button.return-home-up:hover {
-  right: 4.75rem;
-  top: 7rem;
+  right: -2rem;
+  top: -1rem;
 }
 
 button#skip-intro {
-  left: 11vw;
+  right: var(--margin-sm-md-l);
   top: 2rem;
   z-index: 100;
   background-image: url("assets/images/icons/skip-icon.png");
 }
 
 button#return-home {
-  left: 7rem;
+  left: var(--margin-sm-md-l);
   top: 0;
 }
 
@@ -83,11 +90,11 @@ button#return-home:hover, button.return-home-up:hover, button#skip-intro:hover {
   border-radius: 1rem;
 }
 button#skip-intro:hover {
-  left: calc(11vw - 1rem);
+  right: calc(var(--margin-sm-md-l) - 1rem);
   top: 1rem;
 }
 button#return-home:hover {
-  left: 6rem;
+  right: calc(var(--margin-sm-md-l) - 1rem);
   top: -1rem;
 }
 

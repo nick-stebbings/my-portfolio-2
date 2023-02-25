@@ -400,9 +400,10 @@ header.inactive+.page-nav-container .page-nav-btn {
 
 /* Media Queries */
 @media (min-width: 1440px) {
-  .page>article {
+  /* .page>article {
     padding: 5rem 5vw;
-  }
+  } */
+
 }
 
 @media (min-width: 1680px) {
