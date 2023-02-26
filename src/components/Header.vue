@@ -14,15 +14,16 @@ header {
     display: flex;
     flex-direction: column;
     gap: 0;
-    height: 100%;
     max-height: 75%;
     position: absolute;
     font-size: 16px;
     opacity: 0;
     visibility: hidden;
-    max-width: 60vw;
-    top: 2rem;
-    right: var(--margin-sm-md-l);
+    padding-top: 20px;
+
+    top: var(--margin-top-sm-md-l);
+    right: var(--header-left-sm-md-l);
+    left: var(--header-left-sm-md-l);
 }
 
 header .header-container {
@@ -115,10 +116,6 @@ h1.inactive {
 }
 
 @media (min-width: 1024px) {
-    header {
-        top: 4rem;
-    }
-
     h1 {
         font-size: 5.0625em;
         /* 81.5px */
@@ -131,10 +128,9 @@ h1.inactive {
     }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1281px) {
     header {
-        right: var(--margin-sm-md-l);
-        top: 6rem;
+        height: 100%;
     }
 
     h1 {
@@ -159,9 +155,6 @@ h1.inactive {
 }
 
 @media (min-width: 1440px) {
-    header {
-        top: 5rem;
-    }
 
     h1,
     h2 {
@@ -193,15 +186,16 @@ h1.inactive {
 @media (min-width: 1680px) {
     header {
         right: var(--margin-xl);
-        top: 4rem;
-        width: calc(69% - 7rem);
+        left: var(--header-left-xl);
+        top: var(--margin-top-xl);
+        padding: 0 26px;
     }
 
     h1 {
         /* type scale: perfect fifth */
         font-size: 7.59375em;
         /* 121.5px */
-        margin: 1.5rem 0;
+        margin: 0 0 1.5rem 0;
     }
 
     h2 {

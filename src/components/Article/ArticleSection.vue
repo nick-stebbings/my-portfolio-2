@@ -39,43 +39,6 @@ function getImageUrl() {
 }
 </script>
 <style>
-section.article-section {
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-    background-image: url("../../assets/images/bg/page-nav-bg-left.png");
-    background-repeat: repeat-y;
-    background-position: left;
-    padding: 0 3rem 0 0;
-    gap: 3rem;
-}
-
-.page article .article-section:nth-child(2n+1) {
-    grid-column-start: 2;
-    grid-column-end: 4;
-}
-
-.page article .article-section:nth-child(2n) {
-    grid-column-start: 1;
-    grid-column-end: 3;
-}
-
-.page article .article-section:nth-child(2n+1) .figure {
-    right: initial;
-    left: -49%;
-    /* FIX THIS */
-    padding-right: initial;
-    padding-left: 3rem;
-    background-image: url("../../assets/images/bg/page-nav-bg-left.png");
-    background-position: left;
-}
-
-.page article .article-section.summary:nth-child(2n),
-.page article .article-section.summary:nth-child(2n+1) {
-    grid-column-start: 1;
-    grid-column-end: 4;
-}
-
 section.article-section img {
     object-fit: contain;
 }
@@ -172,7 +135,49 @@ p {
     filter: blur(20px);
 }
 
-@media (min-width: 1280px) {
+/* @media (max-width: 1280px) {
+    .article-section .figure { top: 8rem; }
+} */
+
+@media (min-width: 1281px) {
+    section.article-section {
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        background-image: url("../../assets/images/bg/page-nav-bg-left.png");
+        background-repeat: repeat-y;
+        background-position: left;
+        padding: 0 3rem 0 0;
+        gap: 3rem;
+    }
+
+    .page article .article-section:nth-child(2n+1) {
+        grid-column-start: 2;
+        grid-column-end: 4;
+    }
+
+    .page article .article-section:nth-child(2n) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .page article .article-section:nth-child(2n+1) .figure {
+        right: initial;
+        left: -49%;
+        /* FIX THIS */
+        padding-right: initial;
+        padding-left: 3rem;
+        background-image: url("../../assets/images/bg/page-nav-bg-left.png");
+        background-position: left;
+    }
+
+    .page article .article-section.summary:nth-child(2n),
+    .page article .article-section.summary:nth-child(2n+1) {
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+
+
     p {
         font-size: 1.2rem;
         font-weight: 400;

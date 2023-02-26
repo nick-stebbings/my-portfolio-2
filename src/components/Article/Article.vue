@@ -1,6 +1,6 @@
 <template>
   <article>
-    <div class="article-wrapper">
+    <div class="article-content-wrapper">
       <ArticleTitle childClass="left" :h1text="details.title" :h2text="details.subtitle" />
       <section v-if="details?.hasCaseStudy" class="case-study">
         <ArticleTitle childClass="right" h1text="Case Study" h2text=" " />
@@ -51,25 +51,17 @@ export default {
 }
 </script>
 <style>
-.page>article {
-  width: 100%;
-  height: 100%;
-  padding: 1rem 6vw;
-  position: relative;
-  min-height: 100vh;
-}
-
-.page .article-wrapper {
+.page .article-content-wrapper {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 33% 33% 34%;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 6rem minmax(8rem, auto) minmax(8rem, auto) 14rem minmax(8rem, auto);
   grid-template-areas: "title title button" "row1 row1 row1" "row2 row2 row2" "row3 row3 row3" "row4 row4 row4";
   row-gap: 3rem;
 }
 
-.page>article>.article-wrapper,
+.page>article>.article-content-wrapper,
 .top-button {
   background-image: url("../../assets/images/bg/page-nav-bg-white.png");
   background-repeat: repeat-y;
@@ -93,7 +85,7 @@ export default {
   grid-area: row3;
 }
 
-.page .article-wrapper>section.case-study {
+.page .article-content-wrapper>section.case-study {
   grid-area: row2;
 }
 
@@ -101,5 +93,19 @@ export default {
   display: flex;
   align-items: flex-end;
   flex-direction: column;
+}
+
+@media only screen and (max-width: 1280px) {
+  .page .article-content-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: 6rem auto auto auto auto;
+    grid-template-areas:
+      "title"
+      "row1"
+      "row2"
+      "row3"
+      "row4";
+    row-gap: 20px;
+  }
 }
 </style>

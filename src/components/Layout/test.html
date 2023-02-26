@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Layout Example</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .pages {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-gap: 20px;
+      }
+
+      .page {
+        padding: 20px;
+        background-color: #f2f2f2;
+        grid-column: 1 / -1;
+      }
+
+      .page:nth-child(2n) {
+        background-color: #ffc107;
+      }
+
+      .page:nth-child(2n + 1) {
+        background-color: #03a9f4;
+      }
+
+      /* Add more rules for additional pages as needed */
+
+      @media screen and (max-width: 767px) {
+        .pages {
+          grid-template-columns: 1fr;
+          grid-gap: 0;
+        }
+
+        .page {
+          padding: 0;
+          width: 100%;
+        }
+      }
+
+      /* Add more rules for larger screen sizes as needed */
+    </style>
+  </head>
+  <body>
+    <main class="pages">
+      <section class="page"></section>
+      <section class="page"></section>
+      <section class="page"></section>
+      <section class="page"></section>
+      <section class="page"></section>
+      <section class="page"></section>
+      <section class="page"></section>
+      <section class="page"></section>
+      <section class="page"></section>
+    </main>
+  </body>
+</html>

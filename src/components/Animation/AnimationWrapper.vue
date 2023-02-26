@@ -5,7 +5,10 @@
         <AnimationGlowingNLoopScene v-show="glowingNLoopSceneVisible" :launch="launch2" />
         <AnimationScene2 v-show="intro2Visible" :launch="launch3" />
         <AnimationMainLoopScene v-show="mainLoopVisible" :launch="launch4" />
-        <AnimationNavScene v-show="navVisible" />
+        <AnimationNavScene v-show="navVisible" :hoverLayerActive="hoverLayerActive" :switchToLayer="switchToLayer" />
+    </div>
+    <div id="animation-wrapper-static">
+        <StaticNavSvg />
     </div>
 </template>
   
@@ -15,6 +18,7 @@ import AnimationGlowingNLoopScene from "./AnimationGlowingNLoopScene.vue";
 import AnimationScene2 from "./AnimationScene2.vue";
 import AnimationMainLoopScene from "./AnimationMainLoopScene.vue";
 import AnimationNavScene from "./AnimationNavScene.vue";
+import StaticNavSvg from "./StaticNavSvg.vue";
 
 export default {
     components: {
@@ -23,6 +27,7 @@ export default {
         AnimationScene2,
         AnimationMainLoopScene,
         AnimationNavScene,
+        StaticNavSvg,
     },
     props: {
         switchToLayer: Function,
@@ -137,6 +142,11 @@ export default {
             skipBtn.style.visibility = 'invisible';
 
             setTimeout(function () {
+                // bypass this on mobile
+                const staticNav = document.getElementById("#animation-wrapper-static");
+                console.log('staticNav :>> ', staticNav);
+                if (staticNav) return;
+
                 const element = document.querySelector("nav");
                 element.style.opacity = '1';
                 element.style.visibility = 'visible';
@@ -164,6 +174,16 @@ export default {
     position: relative;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+#animation-wrapper-static {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 #animation-wrapper>svg {
@@ -176,8 +196,14 @@ export default {
     height: 100vh;
 }
 
-#animation-wrapper {
-    height: 100%;
-    width: 100%;
+/* Media Queries */
+@media (min-width: 1281px) {
+    #animation-wrapper {
+        display: initial;
+    }
+
+    #animation-wrapper-static {
+        display: none;
+    }
 }
 </style>

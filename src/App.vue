@@ -1,7 +1,6 @@
 <template>
+  <button type="button" class="trigger-disclaimer" data-bs-toggle="modal" data-bs-target="#disclaimer"></button>
   <main class="pages">
-    <button type="button" class="trigger-disclaimer" data-bs-toggle="modal" data-bs-target="#disclaimer"></button>
-
     <section class="page one">
       <AnimationWrapper :switchToLayer="switchToLayer" :hoverLayerActive="hoverLayerActive" />
       <Header :activeLayer="activeLayer" :hoveredLayer="hoveredLayer" :headerTitles="headerTitles" />
@@ -13,6 +12,7 @@
       <Article :details="project" :slide="slide"></Article>
     </section>
   </main>
+
   <DisclaimerModal />
   <ContactConfirmationModal />
 </template>
@@ -373,40 +373,6 @@ header.inactive+.page-nav-container .page-nav-btn {
   100% {
     color: transparent;
     text-shadow: 0 0 45px rgba(0, 0, 0, 0.5);
-  }
-}
-
-/* Project pages */
-
-.page.two {
-  height: auto;
-  margin-top: 32rem;
-}
-
-/* Media Queries */
-@media (min-width: 1440px) {
-  /* .page>article {
-    padding: 5rem 5vw;
-  } */
-
-}
-
-@media (min-width: 1680px) {
-  .page-nav-container {
-    width: 20vw;
-    right: 6vw !important;
-  }
-
-  .page>article {
-    padding: 5rem 6.5rem 5rem 4.85vw;
-  }
-
-  button#skip-intro {
-    left: 3rem;
-  }
-
-  button#skip-intro:hover {
-    left: 2rem;
   }
 }
 </style>
