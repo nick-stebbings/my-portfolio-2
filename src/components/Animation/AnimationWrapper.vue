@@ -40,16 +40,16 @@ export default {
             mainLoopVisible: false,
             navVisible: false,
             // Settimeout return values
-            playMainLoop: undefined,
-            skipToMainLoop: undefined,
+            playNextSceneTimeout: undefined,
+            launchNavAfterTimeout: undefined,
         };
     },
     watch: {
-        playMainLoop: function (newVal) {
-            this.playMainLoop = newVal;
+        playNextSceneTimeout: function (newVal) {
+            this.playNextSceneTimeout = newVal;
         },
-        skipToMainLoop: function (newVal) {
-            this.skipToMainLoop = newVal;
+        launchNavAfterTimeout: function (newVal) {
+            this.launchNavAfterTimeout = newVal;
         },
     },
     computed: {
@@ -69,23 +69,27 @@ export default {
                     // Time the arrival of the first scene
                     element.svgatorPlayer.restart()
 
-                    this.playMainLoop = setTimeout(() => {
+                    this.playNextSceneTimeout = setTimeout(() => {
                         element.style.display = 'none';
                         // Time the arrival of the second scene (index 1)
                         this.launchScene(1);
                     }, 8000);
                     // Assume the user will not click after this amount of time
-                    this.skipToMainLoop = setTimeout(this.skipToNav, 35000);
+                    this.launchNavAfterTimeout = setTimeout(this.skipToNav, 35000);
                 }
             });
         },
         // Scene switch helper functions
         launchScene(animationId) {
+            clearTimeout(this.playNextSceneTimeout);
+            clearTimeout(this.launchNavAfterTimeout);
+
             this.intro1Visible = false;
             this.glowingNLoopSceneVisible = false;
             this.intro2Visible = false;
             this.mainLoopVisible = false;
             this.navVisible = false;
+
             switch (animationId) {
                 case 0:
                     this.intro1Visible = true;
@@ -115,16 +119,15 @@ export default {
                 // Restart the animation too
                 el.play();
             });
-            setTimeout(this.launch3, 5000);
+            this.playNextSceneTimeout = setTimeout(this.launch3, 5000);
         },
         launch3() {
             this.launchScene(3);
         },
         launch4() {
-            clearTimeout(this.skipToMainLoop);
-            const skipBtn = document.querySelector("#skip-intro");
             this.launchScene(4);
 
+            const skipBtn = document.querySelector("#skip-intro");
             const element = document.getElementById("e8VQ6wvtuBg1");
             element.svgatorPlayer.ready(function (el) {
                 // Restart the animation too
@@ -138,7 +141,7 @@ export default {
                 element.style.opacity = '1';
                 element.style.visibility = 'visible';
 
-                const header = document.querySelector("#animation-wrapper header");
+                const header = document.querySelector(".page.one header");
                 header.style.opacity = '1';
                 header.style.visibility = 'visible';
 
@@ -147,12 +150,9 @@ export default {
             }, 4500);
         },
         skipToNav() {
-            clearTimeout(this.playMainLoop);
-            clearTimeout(this.skipToMainLoop);
-
+            this.launch4()
             const element = document.getElementById("eXJRUNPtokm1");
             element.style.display = 'none';
-            this.launch4()
         },
     }
 };

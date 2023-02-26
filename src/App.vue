@@ -5,10 +5,7 @@
     <section class="page one">
       <AnimationWrapper :switchToLayer="switchToLayer" :hoverLayerActive="hoverLayerActive" />
       <Header :activeLayer="activeLayer" :hoveredLayer="hoveredLayer" :headerTitles="headerTitles" />
-      <nav class="page-nav-container web3">
-        <button v-for="(button, index) in navButtons" :key="index" :id="button.id" class="page-nav-btn"
-          v-show="button.show" @click="slide('next', button.section, $event)"></button>
-      </nav>
+      <Nav :slide="slide" />
     </section>
 
     <ContactSection :slide="slide" />
@@ -32,6 +29,7 @@ import ContactConfirmationModal from "./components/Modal/ContactConfirmationModa
 import projects from "./projectData.js";
 import projectHeaders from "./headerData.js";
 import ContactSection from "./components/ContactSection.vue";
+import Nav from "./components/Layout/Nav.vue";
 
 // Nav state
 interface projectsDict {
@@ -66,10 +64,6 @@ function hoverLayerActive(layerName: string) {
   subNav!.className = "page-nav-container " + layerName;
 }
 
-// Subnav state
-const showSecondNavBtn = computed(() => ['web3', 'ecommerce', 'elearning'].includes(hoveredLayer.value));
-const showThirdNavBtn = computed(() => hoveredLayer.value == 'web3');
-const activeFirstSection = computed(() => activeLayer.value === hoveredLayer.value);
 
 // Header state
 interface headerDict {
@@ -78,6 +72,8 @@ interface headerDict {
 function getHeaderTitles(pageName: string) {
   headerTitles.value = (projectHeaders as headerDict)[pageName]
 }
+// First articles title state
+const activeFirstSection = computed(() => activeLayer.value === hoveredLayer.value);
 
 // Slide functionality adapted from https://medium.com/@mignunez/how-to-create-a-slide-transition-between-separate-pages-with-html-css-and-javascript-bb7a14393d1
 let translate = 0;
