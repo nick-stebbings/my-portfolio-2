@@ -11,11 +11,12 @@
 export default {
     props: {
         slide: Function,
+        hoveredLayer: String,
     },
     computed: {
         showSecondNavBtn() {
-            console.log('this.$parent :>> ', { ... this.$parent });
-            return ['web3', 'ecommerce', 'elearning'].includes(this.$parent.$refs.hoveredLayer)
+            // console.log('this.props.hoveredLayer :>> ', this.props);
+            // return ['web3', 'ecommerce', 'elearning'].includes(this.props.hoveredLayer);
         },
         showThirdNavBtn() {
             return this.$parent.$refs.hoveredLayer == 'web3';

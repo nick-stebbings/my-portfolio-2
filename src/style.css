@@ -16,8 +16,8 @@
   --margin-top-xl: calc(var(--svg-logo-y) / var(--svg-height) * 100vh);
   --margin-sm-md-l: calc((  (var(--svg-x) / 1280) * 100vw));
   --header-left-sm-md-l: calc(var(--margin-sm-md-l) + 360px);
-  --header-left-xl: calc(var(--margin-xl) + 420px);
-  --margin-xl: calc((100vw - 1680px) / 2 + var(--svg-x-px))
+  --header-left-xl: calc(var(--margin-xl) + 400px);
+  --margin-xl: calc((100vw - 1680px) / 2 + var(--svg-x-px));
 }
 
 html,
@@ -116,20 +116,6 @@ button#return-home:hover {
   right: calc(var(--margin-sm-md-l) - 1rem);
   top: -1rem;
 }
-
-@media (min-width: 1680px) {
-  .page.two {
-    height: auto;
-    margin-top: 32rem;
-  }
-
-  .page-nav-container {
-    width: 20vw;
-    right: var(--margin-xl);
-    margin-right: 30px;
-  }
-
-  }
   
   @media only screen and (max-width: 1280px) {
     #app main {
@@ -158,6 +144,10 @@ button#return-home:hover {
   .page:not(.page.one) {
     padding: 0 var(--margin-sm-md-l);
   }
+  /* Navigation Bar */
+  .page-nav-container {
+    right: var(--margin-top-sm-md-l) !important;
+  }
 }
 
 @media only screen and (min-width: 1680px) {
@@ -170,8 +160,17 @@ button#return-home:hover {
   button#skip-intro:hover {
     right: calc(var(--margin-xl));
   }
+  .page.two {
+    height: auto;
+    margin-top: 32rem;
+  }
+  
+  .page-nav-container {
+    width: 20vw;
+    right: var(--margin-xl) !important;
+    margin-right: 10px;
+  }
 }
-
 
 @keyframes fade-in {
   0% {

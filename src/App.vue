@@ -4,7 +4,7 @@
     <section class="page one">
       <AnimationWrapper :switchToLayer="switchToLayer" :hoverLayerActive="hoverLayerActive" />
       <Header :activeLayer="activeLayer" :hoveredLayer="hoveredLayer" :headerTitles="headerTitles"></Header>
-      <Nav :slide="slide"></Nav>
+      <Nav :slide="slide" :hoveredLayer="hoveredLayer"></Nav>
     </section>
 
     <ContactSection :slide="slide" />
@@ -251,8 +251,7 @@ section#contact {
   opacity: 0;
   visibility: hidden;
   transition: opacity 1s ease-in 0s, right 0.5s ease-out 0s;
-  /* bottom: -6rem; */
-  right: 0;
+  /* right: 0; */
 
   gap: 2rem;
   width: 24rem;
