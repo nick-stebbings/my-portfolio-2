@@ -5,7 +5,7 @@
     <section class="page one">
       <AnimationWrapper :switchToLayer="switchToLayer" :hoverLayerActive="hoverLayerActive" />
       <Header :activeLayer="activeLayer" :hoveredLayer="hoveredLayer" :headerTitles="headerTitles"></Header>
-      <Nav :slide="slide" :hoveredLayer="hoveredLayer"></Nav>
+      <Nav :slide="slide" :hoveredLayer="hoveredLayer" :activeLayer="activeLayer"></Nav>
     </section>
 
     <ContactSection :slide="slide" />
@@ -24,12 +24,12 @@ import { ref, onMounted, computed } from "vue";
 import Header from "./components/Header.vue";
 import Article from "./components/Article/Article.vue";
 import AnimationWrapper from "./components/Animation/AnimationWrapper.vue";
+import ContactSection from "./components/ContactSection.vue";
 import DisclaimerModal from "./components/Modal/DisclaimerModal.vue";
 import ContactConfirmationModal from "./components/Modal/ContactConfirmationModal.vue";
 
 import projects from "./projectData.js";
 import projectHeaders from "./headerData.js";
-import ContactSection from "./components/ContactSection.vue";
 import Nav from "./components/Layout/Nav.vue";
 import HamburgerNav from "./components/Layout/HamburgerNav.vue";
 
@@ -41,7 +41,6 @@ const activeLayer = ref('web3');
 const hoveredLayer = ref('web3');
 const activeProjects = computed(() => ['web3', 'ecommerce', 'elearning'].includes(activeLayer.value) && (projects as projectsDict)[(activeLayer.value as string)]);
 const headerTitles: any = ref(projectHeaders['web3']);
-let headerLinks: any;
 
 // Nav state controller functions
 function switchToLayer(layerName: string) {
@@ -60,12 +59,10 @@ function hoverLayerActive(layerName: string) {
   currentHeaderChangeSetTimeout = setTimeout(() => {
     getHeaderTitles(layerName);
   }, layerName !== activeLayer.value ? 0 : 0);
-  headerLinks = document.querySelectorAll("span.header-link");
 
   hoveredLayer.value = layerName;
   subNav!.className = "page-nav-container " + layerName;
 }
-
 
 // Header state
 interface headerDict {
@@ -80,7 +77,6 @@ const activeFirstSection = computed(() => activeLayer.value === hoveredLayer.val
 // Slide functionality adapted from https://medium.com/@mignunez/how-to-create-a-slide-transition-between-separate-pages-with-html-css-and-javascript-bb7a14393d1
 let translate = 0;
 let translateAmount;
-
 function slide(direction: string, articleName: string, event: any = null) {
   if (event && event.target.parentNode.previousElementSibling.classList.contains('inactive')) return;
   // if in hover state, change layer
@@ -133,158 +129,42 @@ function slide(direction: string, articleName: string, event: any = null) {
 }
 
 // Lazy loading of images/buttons further down the page
-let options = {
+const options = {
   root: null,
   rootMargin: '0px',
   threshold: 0.1
-}
-
+};
 const makeVisible = (upBtn: any) => {
-  upBtn.style.visibility = "visible";
-  upBtn.style.opacity = "1";
-}
+  upBtn.style.visibility = 'visible';
+  upBtn.style.opacity = '1';
+};
 
-const intersectionObsCallback = (entries: any) => {
-  entries.forEach((entry: any) => {
+const intersectionObsCallback = (entries: IntersectionObserverEntry[], observer: any) => {
+  entries.forEach((entry: IntersectionObserverEntry) => {
     if (entry.isIntersecting) {
+      const targetClassList = entry.target.classList;
       const upBtns = document.querySelectorAll('.return-home-up');
-      switch (true) {
-        case entry.target.classList.contains('two'):
-          makeVisible(upBtns[0]);
-          break;
-        case entry.target.classList.contains('three'):
-          makeVisible(upBtns[1]);
-          break;
-
-        case entry.target.classList.contains('four'):
-          makeVisible(upBtns[2]);
-          break;
-
-        case entry.target.classList.contains('five'):
-          makeVisible(upBtns[3]);
-          break;
+      const targetIndex: any = ['two', 'three', 'four', 'five'].indexOf(
+        targetClassList[1]
+      );
+      if (targetIndex !== -1) {
+        makeVisible(upBtns[targetIndex]);
       }
-    };
-
+      observer.unobserve(entry.target);
+    }
   });
-}
+};
 
 onMounted(() => {
-  let observer = new IntersectionObserver(intersectionObsCallback, options);
-  let target2: Element | null = document.querySelector('.page.two');
-  let target3: Element | null = document.querySelector('.page.three');
-  let target4: Element | null = document.querySelector('.page.four');
-  observer!.observe(target2 as Element);
-  observer!.observe(target3 as Element);
-  observer!.observe(target4 as Element);
-
-  const navBtns = document.querySelectorAll(".page-nav-btn");
-  headerLinks = document.querySelectorAll("span.header-link");
-  navBtns.forEach((btn: any, i: number) => {
-    btn.addEventListener('mouseover', () => {
-      (headerLinks[i] as any).style['text-decoration'] = 'underline';
-    });
-    btn.addEventListener('mouseout', () => {
-      (headerLinks[i] as any).style['text-decoration'] = 'initial';
-    });
-  })
-
-  const bookMeLinkTarget = document.getElementById("book-me-label");
-  bookMeLinkTarget?.addEventListener('click', () => slide('top', 'bookme'))
-
+  const observer = new IntersectionObserver(intersectionObsCallback, options);
+  const targets = document.querySelectorAll('.page.two, .page.three, .page.four, .page.five');
+  targets.forEach((target) => observer.observe(target));
 });
 </script>
 <style scoped>
-#app {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-/* Contact page form */
-section#contact {
-  position: absolute;
-  top: -100vh;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-#contact-wrapper {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  justify-content: start;
-  margin: 10vh 0;
-  position: relative;
-  box-sizing: border-box;
-  margin: 7rem 5vw;
-  max-width: 1680px;
-  padding-right: 6rem;
-}
-
-#contact-wrapper h1 {
-  font-family: "Londrina Solid", "Roboto", "Arial", "sans-serif";
-  font-size: 5.0625em;
-
-  /* type scale: perfect fifth */
-  font-weight: 400;
-  text-transform: capitalize;
-}
-
-#contact-wrapper h1 {
-  width: 50%;
-  text-align: center;
-  line-height: 3.375rem;
-  margin: 0;
-  margin-bottom: 2.25rem;
-  padding: 0;
-  color: #3C3C3C;
-  filter: sepia(1)
-}
-
 .trigger-disclaimer {
   position: relative;
   left: -100vh;
-}
-
-header.inactive+.page-nav-container {
-  width: 45%;
-  margin-bottom: 12rem;
-  gap: 4rem;
-  padding: 2rem 3rem;
-}
-
-header.inactive+.page-nav-container .page-nav-btn {
-  transform: scale(1.5);
-  cursor: initial;
-}
-
-
-@keyframes fade-in-img {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-    color: #3C3C3C;
-    text-shadow: none;
-  }
-}
-
-@keyframes fade-out-img {
-  0% {
-    color: #3C3C3C;
-    text-shadow: none;
-  }
-
-  100% {
-    color: transparent;
-    text-shadow: 0 0 45px rgba(0, 0, 0, 0.5);
-  }
+  display: contents;
 }
 </style>
