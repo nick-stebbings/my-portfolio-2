@@ -15,7 +15,7 @@
   --margin-top-sm-md-l: calc((  (var(--svg-logo-y) / var(--svg-height-sm-md-l)) * 100vh));
   --margin-top-xl: calc(var(--svg-logo-y) / var(--svg-height) * 100vh);
   --margin-sm-md-l: calc((  (var(--svg-x) / 1280) * 100vw));
-  --header-left-sm-md-l: 20px;
+  --header-left-sm-md-l: calc(var(--margin-sm-md-l) + 360px);
   --header-left-xl: calc(var(--margin-xl) + 420px);
   --margin-xl: calc((100vw - 1680px) / 2 + var(--svg-x-px))
 }
@@ -33,21 +33,8 @@ body,
 
 /* Layout */
 .page {
-  padding: 0 20px;
-  background-color: #f2f2f2;
   grid-column: 1 / -1;
-}
-
-.page:nth-child(2n) {
-  background-color: #ffc107;
-}
-
-.page:nth-child(2n + 1) {
-  background-color: #03a9f4;
-}
-
-.page {
-  color: white;
+  background-color: white;
   width: 100%;
   margin: 0 auto;
   max-width: 1680px;
@@ -138,40 +125,53 @@ button#return-home:hover {
 
   .page-nav-container {
     width: 20vw;
-    right: 6vw !important;
+    right: var(--margin-xl);
+    margin-right: 30px;
   }
 
-  .page>article {
-    padding: 5rem 6.5rem 5rem 4.85vw;
+  }
+  
+  @media only screen and (max-width: 1280px) {
+    #app main {
+      display: grid;
+      grid-gap: 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      grid-template-columns: 100%;
+      grid-template-rows: repeat(auto-fit, minmax(720px, 1fr));
+    }
+    
+    .page {
+      margin: 0 auto;
+      width: 100vw;
+      padding: 0 20px;
+    }
+    
+    button#skip-intro {
+      display:none;
+    }
   }
 
+@media only screen and (min-width: 1281px) {
+  .page:not(.page.one) {
+    padding: 0 var(--margin-sm-md-l);
+  }
+}
+
+@media only screen and (min-width: 1680px) {
+  .page:not(.page.one) {
+    padding: 0 calc(80px + 1.5rem);
+  }
   button#skip-intro {
-    left: 3rem;
+    right: calc(var(--margin-xl) + 1rem);
   }
-
   button#skip-intro:hover {
-    left: 2rem;
+    right: calc(var(--margin-xl));
   }
 }
 
-@media only screen and (max-width: 1280px) {
-  #app main {
-    display: grid;
-    grid-gap: 20px;
-    position: absolute;
-    top: 0;
-    grid-template-columns: 100vw;
-    grid-template-rows: repeat(auto-fit, minmax(720px, 1fr));
-  }
-
-  .page {
-    margin-bottom: 20px;
-  }
-
-  button#skip-intro {
-    display:none;
-  }
-}
 
 @keyframes fade-in {
   0% {

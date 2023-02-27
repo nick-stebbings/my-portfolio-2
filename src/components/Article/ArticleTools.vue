@@ -106,7 +106,6 @@ export default {
 </script>
 <style>
 section.article-tools {
-    width: 65%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -242,5 +241,47 @@ section.article-tools .tools-content ul {
 section.article-tools .tools-content ul li {
     padding: 0;
     margin: 0 0 .1rem 0;
+}
+
+
+@media only screen and (max-width: 1280px) {
+    section.article-tools {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+
+    section.article-tools .tools-titles {
+        justify-content: start;
+    }
+
+    section.article-tools .tools-titles h2 {
+        margin: 1.5rem 0 0 0;
+        flex-basis: 3rem;
+        text-align: left;
+    }
+
+    section.article-tools .tools-titles,
+    section.article-tools .tools-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        /* grid-template-rows: 3fr 2fr minmax(auto, 2fr) minmax(auto, 2fr) minmax(auto, 2fr);
+        grid-template-columns: 100%; */
+        width: 100%;
+        gap: 10px;
+        padding-left: 0;
+    }
+
+    header.article-title.left {
+        padding-right: 3rem;
+    }
+
+    section.article-section.para:nth-of-type(2n + 1) {
+        padding: 0;
+    }
+
+    section.article-tools .langs-libs {
+        padding-right: 0;
+    }
 }
 </style>

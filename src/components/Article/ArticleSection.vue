@@ -39,8 +39,15 @@ function getImageUrl() {
 }
 </script>
 <style>
+section.article-section {
+    background-repeat: repeat-y;
+    display: flex;
+    justify-content: end;
+}
+
 section.article-section img {
-    object-fit: contain;
+    object-fit: cover;
+    width: 100%;
 }
 
 section.article-section.summary {
@@ -53,7 +60,7 @@ section.article-section.para:nth-of-type(2n) {
     background-image: url("../../assets/images/bg/page-nav-bg-right.png");
 }
 
-section.article-section.para {
+section.article-section.paras {
     margin-bottom: 6rem;
 }
 
@@ -62,12 +69,12 @@ section.article-section.para:nth-of-type(2n + 1) {
 }
 
 section.article-section .copy {
-    padding: 0 1rem;
+    display: flex;
+    flex-direction: column
 }
 
 section.article-section .image {
-    display: flex;
-    flex-basis: 100%;
+    max-width: calc(100vw - 40px);
 }
 
 section.page:nth-of-type(2n+1) article section.summary.article-section {
@@ -135,11 +142,39 @@ p {
     filter: blur(20px);
 }
 
-/* @media (max-width: 1280px) {
-    .article-section .figure { top: 8rem; }
-} */
+@media (min-width: 768px) {
+    section.article-section {
+        display: flex;
+    }
+
+    .page article .summary.article-section {
+        flex-wrap: nowrap !important;
+    }
+
+    section.article-section .image img {
+        width: 50vw;
+    }
+}
 
 @media (min-width: 1281px) {
+    section.article-section .image {
+        display: flex;
+        flex-basis: 100%;
+    }
+
+    section.article-section .copy {
+        padding: 0 1rem;
+        flex-basis: 80%;
+    }
+
+    section.article-section .image img {
+        width: auto;
+    }
+
+    section.article-section img {
+        object-fit: contain;
+    }
+
     section.article-section {
         display: flex;
         position: relative;

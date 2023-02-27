@@ -14,6 +14,7 @@ export default {
     },
     computed: {
         showSecondNavBtn() {
+            console.log('this.$parent :>> ', { ... this.$parent });
             return ['web3', 'ecommerce', 'elearning'].includes(this.$parent.$refs.hoveredLayer)
         },
         showThirdNavBtn() {

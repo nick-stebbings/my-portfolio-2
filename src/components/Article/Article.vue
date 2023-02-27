@@ -10,9 +10,11 @@
       <ArticleTools :libs="details.libs" :langs="details.langs" :demoUrl="details.demoUrl"
         :codebaseUrl="details.codebaseUrl" :designsUrl="details.designsUrl" :blogUrl="details.blogUrl" />
 
-      <ArticleSection v-for="article in details.articles" :paragraphs="article.paragraphs" :imgPath="article.imgPath"
-        :imgCaption="article.imgCaption" :imgAlt="article.imgAlt" sectionType="para" />
 
+      <div class="article-paras-wrapper">
+        <ArticleSection v-for="article in details.articles" :paragraphs="article.paragraphs" :imgPath="article.imgPath"
+          :imgCaption="article.imgCaption" :imgAlt="article.imgAlt" sectionType="para" />
+      </div>
       <div class="top-button">
         <button class="return-home-up" @click="slide('top', 'first')"></button>
       </div>
@@ -37,13 +39,15 @@ export default {
     Carousel,
   },
   mounted: () => {
+    const expandCaseStudy = document.querySelector(".case-study");
     const expandCaseStudyBtns = document.querySelectorAll(".case-study header");
     const carouselCaseStudies = document.querySelectorAll(".carousel.slide");
     expandCaseStudyBtns.forEach((btn, i) => {
       btn.addEventListener('click', () => {
         console.log("Expanding case study...");
         (carouselCaseStudies[i]).style.height = btn.classList.contains('active') ? '0' : 'auto';
-        btn.style.width = !btn.classList.contains('active') ? 'calc(100%)' : '50%';
+
+        expandCaseStudy.classList.toggle('active');
         btn.classList.toggle('active');
       });
     });
@@ -81,12 +85,30 @@ export default {
   grid-area: title;
 }
 
-.page article .article-tools {
-  grid-area: row3;
+.page article .summary.article-section {
+  grid-area: row1;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-gap: 10px;
 }
 
 .page .article-content-wrapper>section.case-study {
-  grid-area: row2;
+  grid-row: auto;
+  grid-column: -2 / -1;
+}
+
+.page .article-content-wrapper>section.case-study.active {
+  grid-column: 1 / -1;
+}
+
+.page article .article-tools {
+  grid-row: auto;
+  grid-column: 1/3;
+}
+
+.article-paras-wrapper {
+  grid-row: auto;
+  grid-column: 1/-1;
 }
 
 .case-study {
@@ -95,16 +117,41 @@ export default {
   flex-direction: column;
 }
 
+
+
+
 @media only screen and (max-width: 1280px) {
+  .section.article-section.para {
+    margin-bottom: 0;
+  }
+
+  .case-study header {
+    width: 100%;
+  }
+
+  .page article .top-button {
+    position: absolute;
+    right: 0px;
+  }
+
+  .case-study,
+  .article-tools {
+    width: 100%;
+    height: auto;
+    justify-content: start;
+  }
+
   .page .article-content-wrapper {
-    grid-template-columns: 1fr;
-    grid-template-rows: 6rem auto auto auto auto;
+    grid-template-columns: 100%;
+    grid-template-rows: 6rem auto minmax(4rem, auto);
     grid-template-areas:
       "title"
       "row1"
       "row2"
       "row3"
-      "row4";
+      "row4"
+      "row5"
+      "row6";
     row-gap: 20px;
   }
 }

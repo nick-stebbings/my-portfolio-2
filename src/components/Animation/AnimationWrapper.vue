@@ -192,14 +192,14 @@ export default {
     max-width: 1680px;
 }
 
-.page.one {
-    height: 100vh;
-}
-
 /* Media Queries */
 @media (min-width: 1281px) {
     #animation-wrapper {
         display: initial;
+    }
+
+    .page.one {
+        position: relative;
     }
 
     #animation-wrapper-static {

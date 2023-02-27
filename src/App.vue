@@ -3,8 +3,8 @@
   <main class="pages">
     <section class="page one">
       <AnimationWrapper :switchToLayer="switchToLayer" :hoverLayerActive="hoverLayerActive" />
-      <Header :activeLayer="activeLayer" :hoveredLayer="hoveredLayer" :headerTitles="headerTitles" />
-      <Nav :slide="slide" />
+      <Header :activeLayer="activeLayer" :hoveredLayer="hoveredLayer" :headerTitles="headerTitles"></Header>
+      <Nav :slide="slide"></Nav>
     </section>
 
     <ContactSection :slide="slide" />
@@ -251,8 +251,9 @@ section#contact {
   opacity: 0;
   visibility: hidden;
   transition: opacity 1s ease-in 0s, right 0.5s ease-out 0s;
-  bottom: -6rem;
-  right: 8.5vw;
+  /* bottom: -6rem; */
+  right: 0;
+
   gap: 2rem;
   width: 24rem;
   background-image: url("assets/images/bg/page-nav-bg-bottom.png");

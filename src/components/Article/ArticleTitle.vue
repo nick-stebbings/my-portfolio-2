@@ -19,7 +19,7 @@ export default {
 </script>
 <style>
 header.article-title {
-    width: 50%;
+    width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -96,13 +96,14 @@ header.article-title.left h1,
 header.article-title.left h2 {
     text-align: left;
     padding-left: 3rem;
-    height: 3rem;
 }
 
 header.article-title.right h1,
 header.article-title.right h2 {
+    padding-right: 0;
+    min-height: 2rem;
+    margin: 1.5rem 0;
     text-align: right;
-    padding-right: 3rem;
 }
 
 header.article-title.right:not(.active) h2 {
@@ -171,6 +172,28 @@ header.article-title.left h2 {
 }
 
 @media (min-width: 1280px) {
+
+    header.article-title.left h1,
+    header.article-title.left h2 {
+        height: 3rem;
+    }
+
+    header.article-title.right h1,
+    header.article-title.right h2 {
+        padding-right: 3rem;
+        margin: 0;
+    }
+
+    .carousel-control-prev {
+        left: 0;
+        right: initial;
+    }
+
+    .carousel-control-next {
+        right: 0;
+        left: initial;
+    }
+
     header.article-title h1 {
         font-size: 2.25em;
         /* 36px */
@@ -181,6 +204,14 @@ header.article-title.left h2 {
     header.article-title h2 {
         font-size: 1.5em;
         line-height: 2rem;
+    }
+
+    .case-study header.article-title::before {
+        top: -1.5rem
+    }
+
+    .case-study header.article-title:hover::before {
+        top: -2.5rem
     }
 }
 

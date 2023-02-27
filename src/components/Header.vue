@@ -22,7 +22,7 @@ header {
     padding-top: 20px;
 
     top: var(--margin-top-sm-md-l);
-    right: var(--header-left-sm-md-l);
+    right: 20px;
     left: var(--header-left-sm-md-l);
 }
 
@@ -81,7 +81,7 @@ h3 {
     font-weight: 300;
     line-height: 1.5rem;
     letter-spacing: 1px;
-    max-width: 95%;
+    /* max-width: 95%; */
     margin: 0rem 4rem 1rem 4rem;
 }
 
@@ -119,7 +119,7 @@ h1.inactive {
     h1 {
         font-size: 5.0625em;
         /* 81.5px */
-        margin-bottom: 1.5rem;
+        /* margin-bottom: 1.5rem; */
     }
 
     h3 {
@@ -131,6 +131,9 @@ h1.inactive {
 @media (min-width: 1281px) {
     header {
         height: 100%;
+        top: var(--margin-top-sm-md-l);
+        right: var(--margin-sm-md-l);
+        left: var(--header-left-sm-md-l);
     }
 
     h1 {
@@ -188,7 +191,7 @@ h1.inactive {
         right: var(--margin-xl);
         left: var(--header-left-xl);
         top: var(--margin-top-xl);
-        padding: 0 26px;
+        padding: 0 16px;
     }
 
     h1 {
