@@ -100,9 +100,7 @@ header.article-title.left h2 {
 
 header.article-title.right h1,
 header.article-title.right h2 {
-    padding-right: 0;
-    min-height: 2rem;
-    margin: 1.5rem 0;
+    margin: 1rem 0 0 0;
     text-align: right;
 }
 
@@ -172,6 +170,14 @@ header.article-title.left h2 {
 }
 
 @media (min-width: 1280px) {
+
+    header.article-title.right h1,
+    header.article-title.right h2 {
+        padding-right: 0;
+        min-height: 2rem;
+        margin: 1.5rem 0;
+        text-align: right;
+    }
 
     header.article-title.left h1,
     header.article-title.left h2 {

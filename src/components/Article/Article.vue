@@ -118,7 +118,9 @@ export default {
 }
 
 
-
+.section.article-section.para {
+  display: flex;
+}
 
 @media only screen and (max-width: 1280px) {
   .section.article-section.para {

@@ -245,6 +245,19 @@ section.article-tools .tools-content ul li {
 
 
 @media only screen and (max-width: 1280px) {
+
+    section.article-tools .langs-libs,
+    section.article-tools .langs-libs-lists,
+    section.article-tools .langs-libs-icons {
+
+        justify-content: space-around;
+    }
+
+    section.article-tools .langs-libs-lists ul {
+        display: flex;
+        justify-content: center;
+    }
+
     section.article-tools {
         display: grid;
         grid-template-columns: 1fr 3fr;

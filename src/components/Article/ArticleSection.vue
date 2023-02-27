@@ -81,24 +81,17 @@ section.page:nth-of-type(2n+1) article section.summary.article-section {
     flex-direction: row-reverse;
 }
 
+.page article .article-section.para {
+    flex-direction: column;
+}
+
 section.page:nth-of-type(2n+1) article section.summary.article-section .copy {
     padding-left: 0;
 }
 
 .article-section .figure {
-    position: absolute;
-    right: -52%;
-    top: 8rem;
-    padding-right: 3rem;
-    max-width: 20vw;
-    align-items: end;
-    background-repeat: repeat-y;
-    background-position: right;
-    background-image: url("../../assets/images/bg/page-nav-bg-right.png");
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
     color: #3c3c3c;
     font-size: 1rem;
     letter-spacing: 1px;
@@ -106,8 +99,7 @@ section.page:nth-of-type(2n+1) article section.summary.article-section .copy {
 }
 
 .article-section .figure img {
-    object-fit: contain;
-    max-width: 15vw;
+    object-fit: cover;
 }
 
 .article-section .figure figcaption {
@@ -160,6 +152,7 @@ p {
     section.article-section .image {
         display: flex;
         flex-basis: 100%;
+        justify-content: center;
     }
 
     section.article-section .copy {
@@ -168,7 +161,7 @@ p {
     }
 
     section.article-section .image img {
-        width: auto;
+        max-width: 25vw;
     }
 
     section.article-section img {
@@ -196,14 +189,29 @@ p {
         grid-column-end: 3;
     }
 
+    .page article .article-section.para {
+        flex-direction: row;
+    }
+
+    .page article .article-section.para:nth-child(2n+1) {
+        flex-direction: row-reverse;
+    }
+
+    .page article .article-section .figure {
+        padding-right: 3rem;
+        max-width: 20vw;
+        background-repeat: repeat-y;
+        background-position: right;
+        justify-content: flex-end;
+    }
+
     .page article .article-section:nth-child(2n+1) .figure {
-        right: initial;
-        left: -49%;
-        /* FIX THIS */
         padding-right: initial;
         padding-left: 3rem;
-        background-image: url("../../assets/images/bg/page-nav-bg-left.png");
+        /* background-image: url("../../assets/images/bg/page-nav-bg-left.png"); */
         background-position: left;
+        align-items: end;
+        justify-content: center;
     }
 
     .page article .article-section.summary:nth-child(2n),
