@@ -129,7 +129,8 @@ button#return-home:hover {
       left: 0;
       right: 0;
       grid-template-columns: 100%;
-      grid-template-rows: repeat(auto-fit, minmax(720px, 1fr));
+      /* grid-template-rows: 3rem repeat(auto-fit, minmax(720px, 1fr)); */
+      grid-template-rows: 3rem auto auto auto auto auto;
     }
     
     .page {

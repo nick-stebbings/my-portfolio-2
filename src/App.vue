@@ -1,6 +1,7 @@
 <template>
   <button type="button" class="trigger-disclaimer" data-bs-toggle="modal" data-bs-target="#disclaimer"></button>
   <main class="pages">
+    <HamburgerNav></HamburgerNav>
     <section class="page one">
       <AnimationWrapper :switchToLayer="switchToLayer" :hoverLayerActive="hoverLayerActive" />
       <Header :activeLayer="activeLayer" :hoveredLayer="hoveredLayer" :headerTitles="headerTitles"></Header>
@@ -30,6 +31,7 @@ import projects from "./projectData.js";
 import projectHeaders from "./headerData.js";
 import ContactSection from "./components/ContactSection.vue";
 import Nav from "./components/Layout/Nav.vue";
+import HamburgerNav from "./components/Layout/HamburgerNav.vue";
 
 // Nav state
 interface projectsDict {

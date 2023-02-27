@@ -200,6 +200,7 @@ export default {
 
     .page.one {
         position: relative;
+        min-height: 60vh;
     }
 
     #animation-wrapper-static {
