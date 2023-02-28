@@ -39,7 +39,7 @@ export default {
     data() {
         return {
             // Animation scene flags
-            intro1Visible: false,
+            intro1Visible: true,
             glowingNLoopSceneVisible: false,
             intro2Visible: false,
             mainLoopVisible: false,
@@ -62,28 +62,42 @@ export default {
             return this.intro1Visible ? "active" : "inactive";
         },
     },
+    mounted: function () {
+        // Time the arrival of the first scene
+        // element.svgatorPlayer.restart()
+
+        this.playNextSceneTimeout = setTimeout(() => {
+            this.launchScene(1);
+            // Time the arrival of the second scene (index 1)
+            const scene2 = document.getElementById("eXJRUNPtokm1");
+            scene2.style.display = 'none';
+        }, 8000);
+        // Assume the user will not click after this amount of time
+        this.launchNavAfterTimeout = setTimeout(this.skipToNav, 35000);
+
+    },
     methods: {
-        showModal() {
-            const disclaimerModal = document.querySelector(".trigger-disclaimer");
-            disclaimerModal?.click()
+        // showModal() {
+        //     const disclaimerModal = document.querySelector(".trigger-disclaimer");
+        //     disclaimerModal?.click()
 
-            document.body.addEventListener("hidden.bs.modal", (e) => {
-                if (e.target.id == 'disclaimer') {
-                    this.intro1Visible = true;
-                    const element = document.getElementById("eXJRUNPtokm1");
-                    // Time the arrival of the first scene
-                    element.svgatorPlayer.restart()
+        //     document.body.addEventListener("hidden.bs.modal", (e) => {
+        //         if (e.target.id == 'disclaimer') {
+        //             this.intro1Visible = true;
+        //             const element = document.getElementById("eXJRUNPtokm1");
+        //             // Time the arrival of the first scene
+        //             element.svgatorPlayer.restart()
 
-                    this.playNextSceneTimeout = setTimeout(() => {
-                        element.style.display = 'none';
-                        // Time the arrival of the second scene (index 1)
-                        this.launchScene(1);
-                    }, 8000);
-                    // Assume the user will not click after this amount of time
-                    this.launchNavAfterTimeout = setTimeout(this.skipToNav, 35000);
-                }
-            });
-        },
+        //             this.playNextSceneTimeout = setTimeout(() => {
+        //                 element.style.display = 'none';
+        //                 // Time the arrival of the second scene (index 1)
+        //                 this.launchScene(1);
+        //             }, 8000);
+        //             // Assume the user will not click after this amount of time
+        //             this.launchNavAfterTimeout = setTimeout(this.skipToNav, 35000);
+        //         }
+        //     });
+        // },
         // Scene switch helper functions
         launchScene(animationId) {
             clearTimeout(this.playNextSceneTimeout);

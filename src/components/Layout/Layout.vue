@@ -6,13 +6,11 @@
         <slot name="article-sections"></slot>
     </main>
 </template>
-  
 <script>
 export default {
     name: "Layout",
 };
 </script>
-  
 <style>
 html,
 body {
@@ -90,7 +88,6 @@ button#skip-intro:hover {
 /* Medium viewport */
 @media (min-width: 768px) {
     :root {
-        /* --margin-x: calc(((var(--svg-x) / 1280) * 100vw)); */
         --header-left: calc(var(--margin-x) + 360px);
 
         --margin-y: 2rem;
