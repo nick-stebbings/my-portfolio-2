@@ -90,6 +90,7 @@ section.page:nth-of-type(2n+1) article section.summary.article-section .copy {
 }
 
 .article-section .figure {
+    padding: var(--margin-y) var(--gutter-x) 0 var(--gutter-x);
     display: flex;
     flex-direction: column;
     color: #3c3c3c;
@@ -156,7 +157,7 @@ p {
     }
 
     section.article-section .copy {
-        padding: 0 1rem;
+        padding: 0 var(--gutter-x);
         flex-basis: 80%;
     }
 

@@ -76,7 +76,6 @@ function handleSubmit(e) {
 </script>
 <style>
 form {
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -95,4 +94,5 @@ form input {
 form input[type=textarea] {
     height: 12rem;
     font-size: 1.5rem;
-}</style>
+}
+</style>

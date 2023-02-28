@@ -23,9 +23,14 @@ body,
     overflow-x: hidden !important;
 }
 
+#app {
+    overflow-y: hidden !important;
+}
+
 /* Default styles */
 :root {
     --margin-x: 1rem;
+    --gutter-x: 2.5rem;
     --margin-y: 1rem;
     --h1-line-height: 1.2;
     --h2-line-height: 1.1;
@@ -45,6 +50,9 @@ body,
     --svg-height: 945;
     --svg-logo-y: 80;
 
+    /* --svg-height-sm-md-l: calc((100vw / 1680) * 945);
+    --margin-top-sm-md-l: calc((  (var(--svg-logo-y) / var(--svg-height-sm-md-l)) * 100vh));
+    --margin-top-xl: calc(var(--svg-logo-y) / var(--svg-height) * 100vh); */
 }
 
 .layout {
@@ -75,14 +83,14 @@ section>* {
 /* Buttons */
 button#skip-intro {
     display: none;
-    right: calc(var(--margin-x) + 1rem);
+    right: calc(var(--margin-x));
     top: 2rem;
     z-index: 100;
     background-image: url("../assets/images/icons/skip-icon.png");
 }
 
 button#skip-intro:hover {
-    right: calc(var(--margin-x));
+    right: calc(var(--margin-x) + -1rem);
 }
 
 /* Medium viewport */

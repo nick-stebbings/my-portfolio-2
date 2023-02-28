@@ -33,6 +33,7 @@ header.article-title.left {
 
 header.article-title.right {
     align-items: flex-end;
+    padding: 0;
 }
 
 .case-study header.article-title::before {
@@ -80,7 +81,6 @@ header.article-title.right {
 
 .case-study header.article-title:hover::before {
     left: -1.5rem;
-    top: -.5rem;
 }
 
 header.article-title h1,
@@ -124,7 +124,6 @@ header.article-title h1 {
 header.article-title h2::before {
     position: absolute;
     content: '';
-    top: -0.05rem;
     width: 100%;
     height: 2px;
     background-repeat: no-repeat;
@@ -213,11 +212,11 @@ header.article-title.left h2 {
     }
 
     .case-study header.article-title::before {
-        top: -1.5rem
+        top: -.5rem
     }
 
     .case-study header.article-title:hover::before {
-        top: -2.5rem
+        top: -1.5rem
     }
 }
 

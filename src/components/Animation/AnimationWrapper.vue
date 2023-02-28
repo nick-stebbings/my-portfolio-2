@@ -188,7 +188,6 @@ export default {
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%;
     display: none;
     padding: 0;
 }
@@ -209,7 +208,6 @@ export default {
 /* Media Queries */
 @media (min-width: 1281px) {
     #animation-wrapper {
-        height: 100%;
         display: block;
     }
 

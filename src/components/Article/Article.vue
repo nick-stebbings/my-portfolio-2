@@ -67,7 +67,7 @@ article {
   /* height: 100%; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 6rem minmax(8rem, auto) minmax(8rem, auto) 14rem minmax(8rem, auto);
+  grid-template-rows: 6rem minmax(8rem, auto) minmax(8rem, auto) minmax(14rem, auto) minmax(8rem, auto);
   grid-template-areas: "title title button" "row1 row1 row1" "row2 row2 row2" "row3 row3 row3" "row4 row4 row4";
   row-gap: 3rem;
 }
