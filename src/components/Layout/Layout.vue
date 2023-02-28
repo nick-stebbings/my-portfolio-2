@@ -1,6 +1,8 @@
 <template>
     <main class="layout">
         <slot name="nav"></slot>
+        <slot name="hero"></slot>
+        <slot name="animation"></slot>
         <slot name="article-sections"></slot>
     </main>
 </template>

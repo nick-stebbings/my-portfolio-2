@@ -1,15 +1,19 @@
 <template>
   <!-- <button type="button" class="trigger-disclaimer" data-bs-toggle="modal" data-bs-target="#disclaimer"></button> -->
-  <!-- <Layout>
-    <template v-for="(project, i) in activeProjects" :key="i" :slot="'section-' + i" :class="(project as any).pageClass"
-      :data-active="activeFirstSection">
-      <Article :details="project" :slide="slide"></Article>
-    </template>
-  </Layout> -->
   <Layout>
     <template v-slot:nav>
       <HamburgerNav :switchPage="switchPage"></HamburgerNav>
       <Nav :slide="slide" :hoveredLayer="hoveredLayer" :activeLayer="activeLayer"></Nav>
+    </template>
+    <template v-slot:hero>
+      <!-- <Hero heading="I make amazing interactive web experiences" buttonText="Book Me"
+        subheading="Lets talk about your next project"></Hero> -->
+    </template>
+    <template v-slot:animation>
+      <section class="anim-to-nav">
+        <AnimationWrapper :switchToLayer="switchToLayer" :hoverLayerActive="hoverLayerActive" />
+        <Header :activeLayer="activeLayer" :hoveredLayer="hoveredLayer" :headerTitles="headerTitles"></Header>
+      </section>
     </template>
     <template v-slot:article-sections>
       <section v-for="(project, i) in activeProjects" :key="i" :slot="'section-' + i" :id="'section-' + i"
@@ -19,10 +23,6 @@
     </template>
   </Layout>
   <!-- <main class="pages">
-        <section class="page one">
-          <AnimationWrapper :switchToLayer="switchToLayer" :hoverLayerActive="hoverLayerActive" />
-          <Header :activeLayer="activeLayer" :hoveredLayer="hoveredLayer" :headerTitles="headerTitles"></Header>
-        </section>
 
         <ContactSection :slide="slide" />
     
@@ -44,10 +44,11 @@ import ContactConfirmationModal from "./components/Modal/ContactConfirmationModa
 
 import projects from "./projectData.js";
 import projectHeaders from "./headerData.js";
+import Hero from "./components/Layout/Hero.vue";
 import Nav from "./components/Layout/Nav.vue";
 import HamburgerNav from "./components/Layout/HamburgerNav.vue";
 
-// Nav state
+// Nav state variables
 interface projectsDict {
   [key: string]: object;
 }
@@ -56,9 +57,7 @@ const hoveredLayer = ref('web3');
 const activeProjects = computed(() => ['web3', 'ecommerce', 'elearning'].includes(activeLayer.value) && (projects as projectsDict)[(activeLayer.value as string)]);
 const headerTitles: any = ref(projectHeaders['web3']);
 
-
 // Nav state controller functions
-
 // Hamburger
 function switchPage(e: any) {
   activeLayer.value = (e.target.innerText.replace('-', ''));
@@ -85,7 +84,7 @@ function hoverLayerActive(layerName: string) {
   subNav!.className = "page-nav-container " + layerName;
 }
 
-// Header state
+// Header state variables
 interface headerDict {
   [key: string]: object;
 }
@@ -183,9 +182,16 @@ onMounted(() => {
 });
 </script>
 <style scoped>
-.trigger-disclaimer {
+/* .trigger-disclaimer {
   position: relative;
   left: -100vh;
-  display: contents;
+  display: contents; */
+/* }
+ */
+
+
+.anim-to-nav {
+  position: relative;
+  min-height: 60vh;
 }
 </style>

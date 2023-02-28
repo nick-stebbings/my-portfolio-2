@@ -198,11 +198,6 @@ export default {
         display: initial;
     }
 
-    .page.one {
-        position: relative;
-        min-height: 60vh;
-    }
-
     #animation-wrapper-static {
         display: none;
     }
