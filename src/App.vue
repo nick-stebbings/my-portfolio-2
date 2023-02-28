@@ -191,7 +191,8 @@ onMounted(() => {
 
 
 .anim-to-nav {
-  position: relative;
-  min-height: 60vh;
+  /* position: relative;
+  min-height: 60vh; */
+  padding: 0;
 }
 </style>

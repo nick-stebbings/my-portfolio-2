@@ -19,10 +19,10 @@ header {
     font-size: 16px;
     opacity: 0;
     visibility: hidden;
-    padding-top: 20px;
+    padding-top: var(--margin-x);
 
     top: var(--margin-top-sm-md-l);
-    right: 20px;
+    right: var(--margin-x);
     left: var(--header-left-sm-md-l);
 }
 
@@ -130,7 +130,6 @@ h1.inactive {
 
 @media (min-width: 1281px) {
     header {
-        height: 100%;
         top: var(--margin-top-sm-md-l);
         right: var(--margin-sm-md-l);
         left: var(--header-left-sm-md-l);

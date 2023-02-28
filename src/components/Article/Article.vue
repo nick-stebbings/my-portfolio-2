@@ -55,8 +55,15 @@ export default {
 }
 </script>
 <style>
-.page .article-content-wrapper {
-  width: 100%;
+article {
+  /* width: 100%; */
+  padding: 0;
+  position: relative;
+  min-height: 100vh;
+}
+
+.article-content-wrapper {
+  /* width: 100%; */
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -65,14 +72,14 @@ export default {
   row-gap: 3rem;
 }
 
-.page>article>.article-content-wrapper,
+article>.article-content-wrapper,
 .top-button {
   background-image: url("../../assets/images/bg/page-nav-bg-white.png");
   background-repeat: repeat-y;
   background-position: right;
 }
 
-.page article .top-button {
+article .top-button {
   grid-area: button;
   border: none;
   background-color: #fff;
@@ -81,27 +88,27 @@ export default {
   align-items: center
 }
 
-.page article .article-title {
+article .article-title {
   grid-area: title;
 }
 
-.page article .summary.article-section {
+article .summary.article-section {
   grid-area: row1;
   flex-wrap: wrap;
   justify-content: center;
   grid-gap: 10px;
 }
 
-.page .article-content-wrapper>section.case-study {
+.article-content-wrapper>section.case-study {
   grid-row: auto;
   grid-column: -2 / -1;
 }
 
-.page .article-content-wrapper>section.case-study.active {
+.article-content-wrapper>section.case-study.active {
   grid-column: 1 / -1;
 }
 
-.page article .article-tools {
+article .article-tools {
   grid-row: auto;
   grid-column: 1/3;
 }
@@ -131,7 +138,7 @@ export default {
     width: 100%;
   }
 
-  .page article .top-button {
+  article .top-button {
     position: absolute;
     right: 0px;
   }
@@ -143,7 +150,7 @@ export default {
     justify-content: start;
   }
 
-  .page .article-content-wrapper {
+  .article-content-wrapper {
     grid-template-columns: 100%;
     grid-template-rows: 6rem auto minmax(4rem, auto);
     grid-template-areas:
@@ -154,7 +161,7 @@ export default {
       "row4"
       "row5"
       "row6";
-    row-gap: 20px;
+    row-gap: var(--margin-x);
   }
 }
 </style>

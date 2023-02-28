@@ -44,7 +44,7 @@ export default {
         display: flex;
         width: 100vw;
         justify-content: end;
-        padding: 20px;
+        padding: var(--margin-x);
         position: relative;
         z-index: 100;
         padding-bottom: 40px;
@@ -98,6 +98,7 @@ export default {
         width: 2rem;
         height: 1.5rem;
         cursor: pointer;
+        margin-right: var(--margin-x);
     }
 
     .hamburger-icon span {

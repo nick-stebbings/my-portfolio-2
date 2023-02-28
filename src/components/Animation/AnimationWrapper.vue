@@ -174,9 +174,9 @@ export default {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 100%;
     width: 100%;
     display: none;
+    padding: 0;
 }
 
 #animation-wrapper-static {
@@ -195,7 +195,8 @@ export default {
 /* Media Queries */
 @media (min-width: 1281px) {
     #animation-wrapper {
-        display: initial;
+        height: 100%;
+        display: block;
     }
 
     #animation-wrapper-static {

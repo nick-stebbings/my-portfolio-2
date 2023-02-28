@@ -131,7 +131,7 @@ p {
 }
 
 .page[data-active='false'] img {
-    filter: blur(20px);
+    filter: blur(var(--margin-x));
 }
 
 @media (min-width: 768px) {
