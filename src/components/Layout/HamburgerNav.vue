@@ -7,10 +7,10 @@
         </div>
         <nav class="nav-menu" :class="{ 'is-active': navOpen }">
             <ul>
-                <li><a href="#">e-learning</a></li>
-                <li><a href="#">e-commerce</a></li>
-                <li><a href="#">web3</a></li>
-                <li><a href="#">book me</a></li>
+                <li><a href="#" @click="switchPage($event)">e-learning</a></li>
+                <li><a href="#" @click="switchPage($event)">e-commerce</a></li>
+                <li><a href="#" @click="switchPage($event)">web3</a></li>
+                <li><a href="#" @click="switchPage($event)">book me</a></li>
             </ul>
         </nav>
     </div>
@@ -22,6 +22,9 @@ export default {
         return {
             navOpen: false,
         };
+    },
+    props: {
+        switchPage: Function,
     },
     methods: {
         toggleNav() {

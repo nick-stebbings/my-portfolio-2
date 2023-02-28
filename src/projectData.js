@@ -1,6 +1,5 @@
 export default { "ecommerce" : [
     {
-      pageClass: "page two",
       title: 'y5 Ltd.',
       subtitle: 'Building APIs for industry',
       summary: {
@@ -15,7 +14,6 @@ export default { "ecommerce" : [
       ],
     },
     {
-      pageClass: "page three",
       title: 'Bespoke Shopify app',
       subtitle: 'Custom fulfillment/stock management',
       summary: {
@@ -32,7 +30,6 @@ export default { "ecommerce" : [
   ], 
   "elearning" : [
     {
-      pageClass: "page two",
       title: 'Nukutawhiti',
       subtitle: 'The rediscovery of Te Puna i te Ao Marama',
       summary: {
@@ -43,7 +40,6 @@ export default { "ecommerce" : [
       libs: ['Moodle', 'Postgres', 'H5P.org', 'Canva'],
     },
     {
-      pageClass: "page three",
       title: 'Habit Triangles',
       subtitle: 'a visual, linear habit tracker',
       summary: {
@@ -62,7 +58,6 @@ export default { "ecommerce" : [
     }
   ],"web3" : [
     {
-      pageClass: "page two",
       title: 'Habit/Fract (for Holochain)',
       subtitle: 'a social, fractal, atomic habit tracker',
       summary: {
@@ -80,7 +75,6 @@ export default { "ecommerce" : [
       hasCaseStudy: true
     },
     {
-      pageClass: "page three",
       title: 'Habit/Fract (Web 2.0)',
       subtitle: 'a proof of concept for the ultimate habit tracker',
       summary: {
@@ -101,7 +95,6 @@ export default { "ecommerce" : [
       hasCaseStudy: false
     },
     {
-      pageClass: "page four",
       title: 'Farmr',
       subtitle: 'a good price for good produce',
       summary: {

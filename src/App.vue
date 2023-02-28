@@ -1,27 +1,41 @@
 <template>
-  <button type="button" class="trigger-disclaimer" data-bs-toggle="modal" data-bs-target="#disclaimer"></button>
-  <main class="pages">
-    <HamburgerNav></HamburgerNav>
-    <section class="page one">
-      <AnimationWrapper :switchToLayer="switchToLayer" :hoverLayerActive="hoverLayerActive" />
-      <Header :activeLayer="activeLayer" :hoveredLayer="hoveredLayer" :headerTitles="headerTitles"></Header>
-      <Nav :slide="slide" :hoveredLayer="hoveredLayer" :activeLayer="activeLayer"></Nav>
-    </section>
-
-    <ContactSection :slide="slide" />
-    <section v-for="(project) in activeProjects" :class="(project as any).pageClass" :data-active="activeFirstSection">
+  <!-- <button type="button" class="trigger-disclaimer" data-bs-toggle="modal" data-bs-target="#disclaimer"></button> -->
+  <!-- <Layout>
+    <template v-for="(project, i) in activeProjects" :key="i" :slot="'section-' + i" :class="(project as any).pageClass"
+      :data-active="activeFirstSection">
       <Article :details="project" :slide="slide"></Article>
-    </section>
-  </main>
+    </template>
+  </Layout> -->
+  <Layout>
+    <template v-slot:nav>
+      <HamburgerNav :switchPage="switchPage"></HamburgerNav>
+      <Nav :slide="slide" :hoveredLayer="hoveredLayer" :activeLayer="activeLayer"></Nav>
+    </template>
+    <template v-slot:article-sections>
+      <section v-for="(project, i) in activeProjects" :key="i" :slot="'section-' + i" :id="'section-' + i"
+        :class="'project section' + i + 1" :data-active="activeFirstSection">
+        <Article :details="project" :slide="slide"></Article>
+      </section>
+    </template>
+  </Layout>
+  <!-- <main class="pages">
+        <section class="page one">
+          <AnimationWrapper :switchToLayer="switchToLayer" :hoverLayerActive="hoverLayerActive" />
+          <Header :activeLayer="activeLayer" :hoveredLayer="hoveredLayer" :headerTitles="headerTitles"></Header>
+        </section>
 
-  <DisclaimerModal />
-  <ContactConfirmationModal />
+        <ContactSection :slide="slide" />
+    
+      </main> -->
+
+  <!-- <DisclaimerModal />
+  <ContactConfirmationModal /> -->
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, computed } from "vue";
-
 import Header from "./components/Header.vue";
+import Layout from "./components/Layout/Layout.vue";
 import Article from "./components/Article/Article.vue";
 import AnimationWrapper from "./components/Animation/AnimationWrapper.vue";
 import ContactSection from "./components/ContactSection.vue";
@@ -42,7 +56,14 @@ const hoveredLayer = ref('web3');
 const activeProjects = computed(() => ['web3', 'ecommerce', 'elearning'].includes(activeLayer.value) && (projects as projectsDict)[(activeLayer.value as string)]);
 const headerTitles: any = ref(projectHeaders['web3']);
 
+
 // Nav state controller functions
+
+// Hamburger
+function switchPage(e: any) {
+  activeLayer.value = (e.target.innerText.replace('-', ''));
+}
+// Desktop
 function switchToLayer(layerName: string) {
   getHeaderTitles(layerName);
   document.querySelectorAll(".bg-svg")[0].classList.remove('active');
